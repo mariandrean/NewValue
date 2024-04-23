@@ -13,6 +13,10 @@ const UserModel = connection_db.define('User', {
     type: DataTypes.STRING,
     allowNull: false
  },
+ lastname:{
+    type: DataTypes.STRING,
+    allowNull: false
+ },
  email:{
     type: DataTypes.STRING,
     allowNull: false,
