@@ -17,11 +17,7 @@ const router = createBrowserRouter([
                 element: <Login />,
             },
             {
-                path: "/register",
-                element: <Register />
-            },
-            {
-                path: "/newsdetails",
+                path: "/news/:id",
                 element: <NewsDetails />
             }
         ],
@@ -35,15 +31,15 @@ const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: "create",
+                path: "/register",
+                element: <Register />
+            },
+            {
+                path: "/create",
                 element: <NewsForm />,
             },
             {
-                path: "newsdetails/:id",
-                element: <NewsDetails />,
-            },
-            {
-                path: "update/:id",
+                path: "/update/:id",
                 element: <NewsForm />,
             },
         ]

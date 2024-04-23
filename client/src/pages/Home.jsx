@@ -1,9 +1,17 @@
 import React from 'react'
+import { useUserContext } from "../context/UserContext";
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  const { user, setUser } = useUserContext();
 
-export default Home
+  return (
+    <>
+      <h1>Home</h1>
+      {!user && (
+        <button onClick={() => setUser({ name: "John Doe" })}>Login</button>
+      )}
+    </>
+  );
+};
+
+export default Home;
