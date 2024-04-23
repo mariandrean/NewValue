@@ -1,15 +1,21 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 
 const Home = () => {
   const { user, setUser } = useUserContext();
 
+  const navigate = useNavigate();
+
+  const handleClickLogin = () => {
+    setUser({ name: "Raquel Lores" });
+    navigate("/dashboard");
+  };
+
   return (
     <>
       <h1>Home</h1>
-      {!user && (
-        <button onClick={() => setUser({ name: "John Doe" })}>Login</button>
-      )}
+      {!user && <button onClick={handleClickLogin}>Login</button>}
     </>
   );
 };

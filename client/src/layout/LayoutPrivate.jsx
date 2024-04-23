@@ -1,9 +1,19 @@
-import React from 'react'
+import { useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
+import { useUserContext } from "../context/UserContext";
 
 const LayoutPrivate = () => {
-  return (
-    <div>LayoutPrivate</div>
-  )
-}
+  const { user } = useUserContext();
+  const navigate = useNavigate();
 
-export default LayoutPrivate
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
+    }
+  }, [user]);
+
+  return <Outlet />;
+};
+
+export default LayoutPrivate;
+
