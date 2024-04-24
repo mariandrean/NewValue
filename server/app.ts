@@ -4,8 +4,10 @@ import express from "express";
 import cors from 'cors';
 import NewsModel from "./models/NewsModel";
 import UserModel from "./models/UserModel";
+import AuthRouter from "./routes/AuthRouter";
 
 export const app = express();
+app.use("/api/auth", AuthRouter)
 
 try {
     connection_db.authenticate();
