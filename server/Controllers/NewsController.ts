@@ -10,12 +10,12 @@ export const getAllNews = async(request: Request, response: Response )=>{
     }  
 }
 
-export const createNews = async (req: Request, res: Response) => {
+export const createNews = async (request: Request, response: Response) => {
     try {
-        const createdNews = await NewsModel.create(req.body);
-        res.status(201).json(createdNews);
+        const createdNews = await NewsModel.create(request.body);
+        response.status(201).json(createdNews);
     }catch(error){
-        return res.status(500).send({ error: 'Error creating' });
+        return response.status(500).send({ error: `Error creating:${request.body}` });
     }
 }
 
@@ -30,9 +30,9 @@ export const deleteNews = async(request: Request, response: Response)=>{
 }
 
 export const updateNews = async(request: Request, response: Response)=>{
-    const idNews =request.params.id;
+    const { id } = request.params;
     try {
-        await NewsModel.update(request.body,{where:{id:idNews}});
+        await NewsModel.update(request.body,{where:{id}});
         return response.status(200).json({message:'News updated successfully!'});
     } catch (error: any) {
         return response.status(500).json({message:'Error updating news', error: error.message})
