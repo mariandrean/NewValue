@@ -1,20 +1,25 @@
 import { Request, Response } from 'express';
 import UserModel from "../models/UserModel";
 import { createToken } from '../utils/jwt';
-import bcrypt from 'bcryptjs';
+import bcryptjs from 'bcryptjs';
 
 
 // In progress 
 export const register = async (req: Request, res: Response) => {
     try {
-        const passwordHash = await bcrypt.hash(req.body.password, 10);
+
+        const saltRounds = 10;
+      const password = req.body.password; 
+
+        const passwordHash = await bcryptjs.hash(password, saltRounds);
         req.body.password = passwordHash;
-        const newUser = await UserModel.create(req.body);
-       const token = createToken(newUser);
+        const newUser:any = await UserModel.create(req.body);
+       const token = await createToken(newUser);
+       console.log(token + 'Hola desde el controlador')
         res.status(201).json({ message: 'User registered', data: newUser, token });
     } catch (error) {
         console.error(error);
-        return res.status(500).send({ error: 'Internal Server Error' });
+        return res.status(500).send({ error: 'Error at user registration' });
     }
 }
 
@@ -28,7 +33,7 @@ export const login = async (req: Request, res: Response) => {
         if (!user) {
             return res.status(404).send({ error: 'USER_NOT_FOUND' });
         }
-        const hashPassword = await bcrypt.compare(req.body.password, password); 
+        const hashPassword = await bcryptjs.compare(req.body.password, password); 
        const tokenSession = createToken(user);
         const userName = user?.get('name') as string;
         const userRole = user?.get('role') as string;
