@@ -7,6 +7,7 @@ import UserModel from "./models/UserModel";
 import newsRouter from "./routes/NewsRouter";
 
 export const app = express();
+app.use(express.json());
 app.use('/api/', newsRouter);
 
 try {
