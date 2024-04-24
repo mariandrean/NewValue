@@ -2,7 +2,7 @@ import React from 'react'
 
 const LayoutPublic = () => {
   return (
-    <div>LayoutPublic</div>
+    <div>LayoutPublic hola </div>
   )
 }
 
