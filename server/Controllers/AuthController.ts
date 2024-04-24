@@ -12,6 +12,9 @@ export const register = async (req: Request, res: Response) =>{
       const saltRounds = 10;
       const password = req.body.password; 
 
+      const encryptedPassword = await bcryptjs.hash(password, saltRounds);
+      req.body.password = encryptedPassword;
+
       console.log(password+"Hola del controllerrrr")
     
       const newUser:any = await UserModel.create(req.body);
@@ -26,33 +29,27 @@ export const register = async (req: Request, res: Response) =>{
   }
 
 
-export const login = async (req: Request, res: Response) => {
-    try {
-        const { email, password } = req.body;
-        
-        const user = await UserModel.findOne({ where: { email } });
+  export const login = async(req:Request, res:Response) => {
+    try{
+        const user:any = await UserModel.findOne( {where: {email: req.body.email}});
 
-        if (!user) {
-            return res.status(404).send({ error: 'USER_NOT_FOUND' });
+        if(!user){
+            return res.status(404).send({error: "USER_NOT_FOUND"})
         }
-        const hashPassword = await bcryptjs.compare(req.body.password, password); 
-       const tokenSession = createToken(user);
-        const userName = user?.get('name') as string;
-        const userRole = user?.get('role') as string;
-        if (hashPassword) {
-            const noPassword = { ...user.toJSON(), password: undefined }; //para esconder la contraseña en el navegador
-            return res.send({
-                message: `Usuario correcto, bienvenid@ ${userName}`,
-                // data: user,
-                data: noPassword,
-               token: tokenSession,
-               role: userRole
-            });
-        } else {
-            return res.status(401).send({ error: 'Contraseña incorrecta' });
+
+        const checkPassword = await bcryptjs.compare(req.body.password, user.password);
+
+        if(!checkPassword){
+            return res.status(401).send({error: "PASSWORD_INVALID"})
         }
-    } catch (error) {
-        console.error(error);
-        return res.status(500).send({ error: 'Error interno del servidor' });
+
+        const token = await createToken(user);
+
+        
+        res.status(200).json({message:'Log in successfull', token, user_role: user.role, user_name: user.name})
+    }
+
+    catch(error: any){
+        res.status(500).json({message: error.message})
     }
 }
