@@ -5,23 +5,25 @@ import bcryptjs from 'bcryptjs';
 
 
 // In progress 
-export const register = async (req: Request, res: Response) => {
-    try {
+export const register = async (req: Request, res: Response) =>{
 
-        const saltRounds = 10;
+    try{
+
+      const saltRounds = 10;
       const password = req.body.password; 
 
-        const passwordHash = await bcryptjs.hash(password, saltRounds);
-        req.body.password = passwordHash;
-        const newUser:any = await UserModel.create(req.body);
-       const token = await createToken(newUser);
-       console.log(token + 'Hola desde el controlador')
-        res.status(201).json({ message: 'User registered', data: newUser, token });
-    } catch (error) {
-        console.error(error);
-        return res.status(500).send({ error: 'Error at user registration' });
+      console.log(password+"Hola del controllerrrr")
+    
+      const newUser:any = await UserModel.create(req.body);
+      const token = await createToken(newUser);
+      console.log(token + 'Hola desde el controlador')
+      res.status(201).json({newUser, token})
     }
-}
+
+    catch(error: any){
+      res.status(500).json({message: error.message})
+  }
+  }
 
 
 export const login = async (req: Request, res: Response) => {

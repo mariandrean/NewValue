@@ -1,12 +1,15 @@
 import { DB_PORT, NODE_ENV } from "./config";
 import connection_db from "./database/connection_db";
 import express from "express";
-import cors from 'cors';
 import NewsModel from "./models/NewsModel";
 import UserModel from "./models/UserModel";
 import AuthRouter from "./routes/AuthRouter";
+import cors from 'cors';
 
 export const app = express();
+app.use(cors());
+app.use(express.json()); 
+
 app.use("/api/auth", AuthRouter)
 
 try {
