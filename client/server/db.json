@@ -1,0 +1,23 @@
+{
+  "news": [
+    {
+      "id": "1",
+      "title": "News title",
+      "date": "2024-04-01",
+      "content": "News content",
+      "image": "http://www.image.com/",
+      "user_id": "1"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Admin",
+      "lastname": "News",
+      "profile_picture": "http://www.picture.com/",
+      "email": "admin@email.com",
+      "password": "123",
+      "role": "admin"
+    }
+  ]
+}
