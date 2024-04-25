@@ -38,12 +38,12 @@ const UserModel = connection_db.define('User', {
 
 },
 {
-    tableName: 'users', // Nombre de la tabla en la base de datos
-    timestamps: false // Habilitando los campos los campos createdAt y updatedAt
+    tableName: 'users', 
+    timestamps: false 
   }
 );
 
-console.log(UserModel === connection_db.models.User); // devuelve true
+console.log(UserModel === connection_db.models.User); 
 
 
 export default UserModel; 

@@ -12,14 +12,23 @@ export const getUsers = async(req: Request, res: Response) =>{
     }
 }
 
-export const getOneUser = async() =>{
+export const getUserById = async(req: Request, res: Response) =>{
+    const userId = req.params.id
+
+    try{
+        const user = await UserModel.findOne({ where: {id: userId} });
+        res.status(200).json(user);
+    } 
+    
+    catch(error){
+
+    }
+}
+
+export const editUser = async(req: Request, res: Response) =>{
     
 }
 
-export const editUser = async() =>{
-    
-}
-
-export const deleteUser = async() =>{
+export const deleteUser = async(req: Request, res: Response) =>{
     
 }
