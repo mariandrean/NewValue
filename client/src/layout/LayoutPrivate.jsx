@@ -8,7 +8,7 @@ const LayoutPrivate = () => {
 
   useEffect(() => {
     if (!user) {
-      navigate("/");
+      navigate("/login");
     }
   }, [user]);
 

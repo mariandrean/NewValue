@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
-import { useUserContext } from "../context/UserContext";
 import { getAllNews } from "../services/newsServices.js";
+import Card from '../components/Card.jsx';
 
 const Home = () => {
-  const { userAuth } = useUserContext();
-
-  const navigate = useNavigate();
-
-  const handleClickLogin = () => {
-    setUser({ name: "Raquel Lores" });
-    navigate("/dashboard");
-  };
+  const [news, setNews] = useState([]);
+  const [reloadingData, setReloadingData] = useState(false);
+ 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,10 +21,10 @@ const Home = () => {
       <h1>Home</h1>
       {news.map((newsItem, index) => (
         <div key={index}>
-          <Card news={newsItem} setReloadingData={setRelodingData} />
+          <Card news={newsItem} setReloadingData={setReloadingData} />
         </div>
       ))}
-      {!user && <button onClick={handleClickLogin}>Login</button>}
+      <button>Login</button>
     </>
   );
 };

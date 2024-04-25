@@ -38,15 +38,15 @@ const router = createBrowserRouter([
                 element: <Dashboard />,
             },
             {
-                path: "register",
+                path: "/dashboard/register",
                 element: <Register />
             },
             {
-                path: "create",
+                path: "/dashboard/create",
                 element: <NewsForm />,
             },
             {
-                path: "update/:id",
+                path: "/dashboard/update/:id",
                 element: <NewsForm />,
             },
         ]

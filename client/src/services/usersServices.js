@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URLAPI_USERS = 'http://localhost:3000/api/users/'; //json-server URL
+const URLAPI_USERS = 'http://localhost:3000/users/'; //json-server URL
 
 export const login = async (userData) => {
     try {
