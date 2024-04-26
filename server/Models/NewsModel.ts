@@ -11,11 +11,19 @@ const NewsModel = connection_db.define('News', {
       unique: true
    },
    title: {
-      type: DataTypes.STRING(50),
+      type: DataTypes.STRING(255),
+      allowNull: false
+   },
+   subtitle: {
+      type: DataTypes.STRING(1024),
       allowNull: false
    },
    content: {
       type: DataTypes.TEXT,
+      allowNull: false
+   },
+   category: {
+      type: DataTypes.STRING(255),
       allowNull: false
    },
    date: {

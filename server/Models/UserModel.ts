@@ -10,28 +10,24 @@ const UserModel = connection_db.define('User', {
       unique: true
    },
    name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(255),
       allowNull: true
    },
    lastname: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(255),
       allowNull: true
    },
    email: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(255),
       allowNull: false,
       unique: false
    },
    password: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(255),
       allowNull: false
    },
-   image: {
-      type: DataTypes.STRING(1024),
-      allowNull: true
-   },
    role: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(255),
       allowNull: false,
       defaultValue: 'user'
    }
