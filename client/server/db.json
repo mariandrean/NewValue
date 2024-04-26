@@ -2,11 +2,11 @@
   "news": [
     {
       "id": "1",
-      "title": "Title example",
+      "title": "Title example changed",
       "subtitle": "Subtitle example",
       "date": "2024-04-01",
       "content": "Content example",
-      "image": "https://res.cloudinary.com/dgi5ujtli/image/upload/v1714147175/new_value_images/panda_joudb8.jpg",
+      "image": "https://res.cloudinary.com/dgi5ujtli/image/upload/v1714166367/new_value_images/new-value-flow.drawio_ruzcyh.png",
       "user_id": 1
     }
   ],
