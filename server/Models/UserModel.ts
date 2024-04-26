@@ -23,7 +23,7 @@ const UserModel = connection_db.define('User', {
       unique: false
    },
    password: {
-      type: DataTypes.STRING(50),
+      type: DataTypes.STRING(),
       allowNull: false
    },
    role: {
