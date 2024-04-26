@@ -10,39 +10,34 @@ const NewsModel = connection_db.define('News', {
       autoIncrement: true,
       unique: true
    },
-   title:{
+   title: {
       type: DataTypes.STRING(50),
       allowNull: false
-   }, 
-   content:{
+   },
+   content: {
       type: DataTypes.TEXT,
       allowNull: false
    },
-   date:{
+   date: {
       type: DataTypes.DATEONLY,
       allowNull: false
    },
-   image:{
+   image: {
       type: DataTypes.STRING(1024),
       allowNull: false
    },
-   user_id:{
+   user_id: {
       type: DataTypes.BIGINT,
-      references:{
-         model:UserModel,
+      references: {
+         model: UserModel,
          key: 'id'
       }
    },
-   
-   },
+},
    {
-      tableName: 'news', // Nombre de la tabla en la base de datos
+      tableName: 'news',
       timestamps: false // Deshabilitando los campos los campos createdAt y updatedAt
    }
-   );
+);
 
-   /* UserModel.hasMany(NewsModel, { foreignKey: 'user_id' }); */
-   console.log(NewsModel === connection_db.models.News); // devuelve true
-
-
-   export default NewsModel; 
+export default NewsModel; 
