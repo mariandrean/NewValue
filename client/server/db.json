@@ -2,11 +2,12 @@
   "news": [
     {
       "id": "1",
-      "title": "News title",
+      "title": "Title example",
+      "subtitle": "Subtitle example",
       "date": "2024-04-01",
-      "content": "News content",
-      "image": "http://www.image.com/",
-      "user_id": "1"
+      "content": "Content example",
+      "image": "https://res.cloudinary.com/dgi5ujtli/image/upload/v1714145353/new_value_images/panda_vlfdln.jpg",
+      "user_id": 1
     }
   ],
   "users": [
