@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useUserContext } from '../context/UserContext.jsx';
-import { loginUser } from '../services/usersServices.js'
+import { login } from '../services/usersServices.js'
 
 
 const LoginForm = () => {
@@ -16,11 +16,11 @@ const LoginForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const data = await loginUser(email, password);
+            const data = await login(email, password);
             localStorage.setItem('authToken', data.token);
             setUser(data.data);
             setUserAuth(true);
-            navigate('/home');
+            navigate('/dashboard');
 
         } catch (error) {
             console.error('Error:', error);
@@ -65,7 +65,6 @@ const LoginForm = () => {
                     <button>
                         Iniciar sesión
                     </button>
-                    <p>¿No tienes cuenta?<Link to="/dashboard/register">Regístrate</Link></p>
                 </div>
             </form>
         </>
