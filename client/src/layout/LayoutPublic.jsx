@@ -1,9 +1,13 @@
 import React from 'react'
+import { Outlet } from "react-router-dom";
+
 
 const LayoutPublic = () => {
   return (
-    <div>LayoutPublic</div>
-  )
+    <div>LayoutPublic hola
+    <Outlet />
+    </div>
+  );
 }
 
-export default LayoutPublic
+export default LayoutPublic;

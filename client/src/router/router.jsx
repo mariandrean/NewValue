@@ -1,6 +1,14 @@
 import { createBrowserRouter } from 'react-router-dom';
 import LayoutPublic from '../layout/LayoutPublic.jsx';
-import LayoutPrivate from '../layout/LayoutPrivate';
+import Home from '../pages/Home.jsx';
+import Login from '../pages/Login.jsx';
+import NewsDetails from '../pages/NewsDetails.jsx'
+import LayoutPrivate from '../layout/LayoutPrivate.jsx';
+import Register from '../pages/Register.jsx';
+import NewsForm from '../pages/NewsForm.jsx';
+import Dashboard from '../pages/Dashboard.jsx';
+
+
 
 const router = createBrowserRouter([
     {
@@ -8,22 +16,17 @@ const router = createBrowserRouter([
         element: <LayoutPublic />,
         children: [
             {
-                path: "/",
+                index: true,
                 element: <Home />,
-                loader: getData
             },
             {
                 path: "/login",
                 element: <Login />,
             },
             {
-                path: "/register",
-                element: <Register />
-            },
-            {
-                path: "/newsdetails",
+                path: "/news/:id",
                 element: <NewsDetails />
-            }
+            },
         ],
     },
     {
@@ -32,18 +35,18 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Home />,
+                element: <Dashboard />,
             },
             {
-                path: "create",
+                path: "/dashboard/register",
+                element: <Register />
+            },
+            {
+                path: "/dashboard/create",
                 element: <NewsForm />,
             },
             {
-                path: "newsdetails/:id",
-                element: <NewsDetails />,
-            },
-            {
-                path: "update/:id",
+                path: "/dashboard/update/:id",
                 element: <NewsForm />,
             },
         ]
