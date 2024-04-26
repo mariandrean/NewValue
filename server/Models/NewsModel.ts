@@ -16,7 +16,7 @@ const NewsModel = connection_db.define('News', {
    },
    subtitle: {
       type: DataTypes.STRING(1024),
-      allowNull: false
+      allowNull: true
    },
    content: {
       type: DataTypes.TEXT,
@@ -24,7 +24,7 @@ const NewsModel = connection_db.define('News', {
    },
    category: {
       type: DataTypes.STRING(255),
-      allowNull: false
+      allowNull: true
    },
    date: {
       type: DataTypes.DATEONLY,

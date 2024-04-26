@@ -5,7 +5,8 @@ import { Request, Response, NextFunction } from 'express';
 export const registerValidation = [
  body('name')
  .optional({ checkFalsy: true })
- .isString().isLength({ max: 50 })
+ .isString()
+ .isLength({ max: 50 })
  .withMessage('Name must be less than 50 characters'),
 
  body('lastname')
