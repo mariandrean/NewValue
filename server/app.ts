@@ -4,15 +4,15 @@ import express from "express";
 import NewsModel from "./models/NewsModel";
 import UserModel from "./models/UserModel";
 import AuthRouter from "./routes/AuthRouter";
+import UserRouter from "./routes/UserRouter";
 import cors from 'cors';
 import NewsRouter from "./routes/NewsRouter";
 
 export const app = express();
 app.use(cors());
 app.use(express.json());
-
 app.use("/api/auth", AuthRouter)
-app.use(express.json());
+app.use("/api/users", UserRouter)
 app.use('/api/news', NewsRouter);
 
 try {
