@@ -33,8 +33,7 @@ try {
   throw error;
 }
 
-if (NODE_ENV !== 'test') {
-  app.listen(DB_PORT, () => {
+export const server = app.listen(DB_PORT, () => {
     console.log(`Server up in  http://localhost:${DB_PORT}/api`)
   })
-}; 
+ 
