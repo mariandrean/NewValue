@@ -6,11 +6,11 @@ const LayoutPrivate = () => {
   const { user } = useUserContext();
   const navigate = useNavigate();
 
-  useEffect(() => {
+/*   useEffect(() => {
     if (!user) {
       navigate("/login");
     }
-  }, [user]);
+  }, [user]); */
 
   return <Outlet />;
 };

@@ -2,11 +2,12 @@
   "news": [
     {
       "id": "1",
-      "title": "News title",
+      "title": "Title example changed",
+      "subtitle": "Subtitle example",
       "date": "2024-04-01",
-      "content": "News content",
-      "image": "http://www.image.com/",
-      "user_id": "1"
+      "content": "Content example",
+      "image": "https://res.cloudinary.com/dgi5ujtli/image/upload/v1714166367/new_value_images/new-value-flow.drawio_ruzcyh.png",
+      "user_id": 1
     }
   ],
   "users": [

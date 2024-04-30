@@ -2,8 +2,8 @@ import axios from "axios";
 
 const URLAPI_NEWS = 'http://localhost:3000/news/'; //json-server URL
 
-const token = localStorage.getItem('token');
-const headers = { 'Authorization': `Bearer ${token}` }
+// const token = localStorage.getItem('token');
+const headers = { /* 'Authorization': `Bearer ${token}` */ }
 
 export const getAllNews = async () => {
   try {
@@ -15,12 +15,12 @@ export const getAllNews = async () => {
   }
 };
 
-export const getOneNews = async (id) => {
+export const getNewsById = async (id) => {
   try {
     const response = await axios.get(`${URLAPI_NEWS + id}`, { headers });
     return response.data;
   } catch (error) {
-    console.error(`Error reading news with id ${id}:`, error);
+    console.error(`Error reading news`, error);
     throw error;
   }
 };
