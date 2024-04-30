@@ -1,6 +1,7 @@
 import axios from "axios";
+import { API_URL } from "../../config";
 
-const URLAPI_USERS = 'http://localhost:3000/users/'; //json-server URL
+const URLAPI_USERS = `${API_URL}/auth/`
 
 export const login = async (userData) => {
     try {

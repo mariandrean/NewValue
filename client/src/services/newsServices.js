@@ -1,9 +1,10 @@
 import axios from "axios";
+import { API_URL } from "../../config";
 
-const URLAPI_NEWS = 'http://localhost:3000/news/'; //json-server URL
+const URLAPI_NEWS = `${API_URL}/news/`;
 
-// const token = localStorage.getItem('token');
-const headers = { /* 'Authorization': `Bearer ${token}` */ }
+const token = localStorage.getItem('token');
+const headers = { 'Authorization': `Bearer ${token}` }
 
 export const getAllNews = async () => {
   try {
