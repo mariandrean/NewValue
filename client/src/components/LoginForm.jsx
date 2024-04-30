@@ -46,7 +46,7 @@ const LoginForm = () => {
                         <input type="email" value={email} onChange={(e) => {
                             setEmail(e.target.value);
                             setEmailError('');
-                        }} required id="email" placeholder="ejemplo@bt.com" />
+                        }} required id="email" placeholder="hola@newvalue.es" />
                         {emailError && <p>{emailError}</p>}
                     </label>
                 </div>
@@ -56,7 +56,7 @@ const LoginForm = () => {
                         Contraseña
                         <input type="password" value={password} onChange={(e) => {
                             setPassword(e.target.value);
-                            setPasswordError('');}} required id="password" placeholder="Ingresa tu contraseña"/>
+                            setPasswordError('');}} required id="password" placeholder="********"/>
                             {passwordError && <p>{passwordError}</p>}
                     </label>
                 </div>
