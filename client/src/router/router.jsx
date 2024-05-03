@@ -37,6 +37,7 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Dashboard />,
+                loader: getAllNews
             },
             {
                 path: "/dashboard/register",
