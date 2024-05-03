@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../components/Card.jsx';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const Home = () => {
   const [loadingData, setLoadingData] = useState(true);
@@ -8,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     if (news) {
-      setLoadingData(false);
+      setLoadingData(false)
     }
   }, [loadingData]);
 
@@ -16,11 +16,14 @@ const Home = () => {
     <>
       <h1>ACTUALIDAD</h1>
       {loadingData && <h3>Cargando</h3>}
-      {news.map((newsItem, index) => (
-        <div key={index}>
-          <Card news={newsItem} />
-        </div>
-      ))}
+      <section className='grid grid-cols-4 gap-5 place-content-center place-items-center' >
+        {news.map((newsItem, index) => (
+          <Link to={`/news/${newsItem.id}`} key={index} className={index == 0 && 'col-span-2 row-span-2' } >
+            <Card news={newsItem} />
+          </Link>
+        ))}
+      </section>
+
     </>
   );
 };
