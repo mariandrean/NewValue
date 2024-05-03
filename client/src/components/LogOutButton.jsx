@@ -1,17 +1,18 @@
 import { useUserContext } from '../context/UserContext';
 
 const LogOutButton = () => {
-    const { setUser, setUserAuth  } = useUserContext();
+    const { setUser, setUserAuth, setUserRole } = useUserContext();
 
-    const deleteDataUser = () => {
+    const handleLogOut = () => {
         setUser(null);
         setUserAuth(null);
-        localStorage.removeItem('Token');
+        setUserRole(null);
+        localStorage.removeItem('token');
     }
 
   return (
 
-    <button onClick={deleteDataUser}>Log Out</button>
+    <button onClick={handleLogOut}>Log Out</button>
   );
 }
 
