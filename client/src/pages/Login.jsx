@@ -5,10 +5,14 @@ import { login } from '../services/usersServices.js'
 import { useForm } from 'react-hook-form';
 
 const Login = () => {
-  const { handleSubmit, register, setValue, formState: { errors } } = useForm();
+  const { handleSubmit, register, formState: { errors } } = useForm();
   const [loginError, setLoginError] = useState('');
   const navigate = useNavigate();
   const { setUserAuth, setUser, setUserRole } = useUserContext();
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleLogin = async (formData) => {
     try {
@@ -26,18 +30,22 @@ const Login = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-white-100">
-        <h3 className="text-4xl text-gray-900 mb-10 text-center font-semibold">Inicio de sesión</h3>
+      <div className="flex flex-col items-center justify-center min-h-screen min-w-[500px] bg-white-100">
+        <h3 className="text-4xl text-gray-900 mb-10 text-center font-semibold">Iniciar sesión</h3>
         <h4 className="text-1xl text-gray-900 mb-10 text-center">(Solo personal del sitio)</h4>
-        <form className="space-y-6" onSubmit={handleSubmit(handleLogin)}>
+        <form className="min-w-[300px] gap-6 flex flex-col justify-center" onSubmit={handleSubmit(handleLogin)}>
 
-          <input {...register("email")} className="input border border-gray-400 appearance-none rounded w-full px-3 py-3 pt-5 pb-2 focus focus:border-indigo-600 focus:outline-none active:outline-none active:border-indigo-600" type="email" id="email" placeholder="Email" />
+          <input {...register("email", { required: true })} type="email" id="email" placeholder="Email" required className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" />
 
-          <input {...register("password")} className="input border border-gray-400 appearance-none rounded w-full px-3 py-3 pt-5 pb-2 focus focus:border-indigo-600 focus:outline-none active:outline-none active:border-indigo-600 mb-5" type="password" id="password" placeholder="Contraseña" />
+          <div className="relative">
+            <input {...register("password", { required: true })} type={showPassword ? 'text' : 'password'} id="password" placeholder="Contraseña" required className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" />
+            <button type="button" id="togglePassword" className="absolute text-sm right-0 m-4 text-gray-500" onClick={togglePasswordVisibility}>
+              {showPassword ? 'Ocultar' : 'Mostrar'}
+            </button>
+          </div>
+          {loginError && <p className='text-red-500 text-sm self-center m-0'>Datos incorrectos</p>}
 
-          {loginError && <p className='text-sm'>Datos de ingreso incorrectos</p>}
-
-          <button type="submit" className="bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out mb-10">
+          <button type="submit" className="w-[150px] self-center bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out">
             Acceder
           </button>
 
