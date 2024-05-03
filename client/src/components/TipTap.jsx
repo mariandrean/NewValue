@@ -22,9 +22,11 @@ const TipTap = ({onEditorContentSave}) => {
 
     const handleEditorContent= () =>{
       const html = editor.getHTML()
-      /* console.log(html) */
+      console.log(html)
       onEditorContentSave(html)
     }
+
+
 
   return (
     <div>
@@ -112,7 +114,7 @@ const TipTap = ({onEditorContentSave}) => {
         <div>
         <EditorContent editor={editor}/>
         </div>
-        <button onClick={handleEditorContent}>Guardar</button>
+        <button type="button" onClick={handleEditorContent}>Guardar</button>
         
     </div>
   )
