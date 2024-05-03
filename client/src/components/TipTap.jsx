@@ -22,7 +22,7 @@ const TipTap = ({onEditorContentSave}) => {
 
     const handleEditorContent= () =>{
       const html = editor.getHTML()
-      console.log(html)
+      console.log('content',html)
       onEditorContentSave(html)
     }
 

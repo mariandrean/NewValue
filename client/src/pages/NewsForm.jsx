@@ -4,6 +4,7 @@ import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { uploadImage } from '../helpers/cloudinary';
 import TipTap from '../components/TipTap';
+import { PostTest } from '../components/PostTest';
 
 const NewsForm = ({ method }) => {
   const { handleSubmit, register, setValue, formState: { errors } } = useForm();
@@ -11,10 +12,12 @@ const NewsForm = ({ method }) => {
   const newsId = useParams().id;
   const newsData = useLoaderData(newsId);
   const [newsImage, setNewsImage] = useState(() => newsData ? newsData.image : "");
-  const [newsContent, setNewsContent] = useState();
+  const [newsContent, setNewsContent] = useState('');
   const handleEditorContentSave = (html) =>{
     setNewsContent(html);
+    console.log('Manejando contenido del editor:', html)
   }
+
   if (newsData) {
     setValue("title", newsData.title);
     setValue("subtitle", newsData.subtitle);
@@ -73,6 +76,8 @@ const NewsForm = ({ method }) => {
 
       <button type="submit">{method === "create" ? "Publicar noticia" : "Guardar"}</button>
       <button onClick={() => navigate('/dashboard')}>Descartar</button>
+      <hr />
+      <PostTest content={newsContent}/>
     </form>
   )
 }
