@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { createNews, updateNews } from '../services/newsServices';
 import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -11,13 +11,16 @@ const NewsForm = ({ method }) => {
   const newsData = useLoaderData(newsId);
   const [newsImage, setNewsImage] = useState(() => newsData ? newsData.image : "");
 
-  if (newsData) {
-    setValue("title", newsData.title);
-    setValue("subtitle", newsData.subtitle);
-    setValue("date", newsData.date);
-    setValue("content", newsData.content);
-    setValue("category", newsData.category.split(","))
-  }
+  useEffect(() => {
+    if (newsData) {
+      setValue("title", newsData.title);
+      setValue("subtitle", newsData.subtitle);
+      setValue("date", newsData.date);
+      setValue("content", newsData.content);
+      setValue("category", newsData.category.split(","))
+    }
+  }, []);
+
   const handleImage = async (e) => {
     const response = await uploadImage(e);
     setNewsImage(response);
@@ -30,10 +33,9 @@ const NewsForm = ({ method }) => {
     if (newsData && method === "update") {
       await updateNews(newsId, formData);
     } else if (method === "create") {
-      formData.news.user_id = 1;
-      await createNews(formData.news);
+      formData.user_id = 1; // Eliminar línea cuando funcione el log in
+      await createNews(formData);
     }
-
     return navigate("/dashboard")
   }
 
@@ -45,7 +47,7 @@ const NewsForm = ({ method }) => {
 
       <input {...register("subtitle", { maxLength: { value: 1024 } })} id="subtitle" type="text" placeholder='Subtítulo' />
       {errors.subtitle && errors.subtitle.type === "maxLength" && <div className="text-red-500">El subtítulo debe tener menos de 1024 caracteres</div>}
-      
+
       <fieldset>
         <input {...register("image")} id='image' type="file" accept="image/*" onChange={handleImage} />
         <img src={newsImage} className="h-[200px]" />
@@ -67,8 +69,8 @@ const NewsForm = ({ method }) => {
         <label><input {...register("category")} type="checkbox" name="category" id="voluntariado" value="voluntariado" /> Voluntariado </label>
       </fieldset>
 
-      <button type="submit">{method === "create" ? "Publicar noticia" : "Guardar"}</button>
-      <button onClick={() => navigate('/dashboard')}>Descartar</button>
+      <button type='submit'>{method === "create" ? "Publicar noticia" : "Guardar"}</button>
+      <button type='button' onClick={() => navigate('/dashboard')}>Descartar</button>
     </form>
   )
 }
