@@ -1,28 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { getAllNews } from "../services/newsServices.js";
 import Card from '../components/Card.jsx';
-import { Navigate } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 
 const Home = () => {
-  const [news, setNews] = useState([]);
-  const [reloadingData, setReloadingData] = useState(false);
-
+  const [loadingData, setLoadingData] = useState(true);
+  const news = useLoaderData();
 
   useEffect(() => {
-    const fetchData = async () => {
-      const newsData = await getAllNews();
-      setNews(newsData);
-    };
-    fetchData();
-    setReloadingData(false);
-  }, [reloadingData]);
+    if (news) {
+      setLoadingData(false);
+    }
+  }, [loadingData]);
 
   return (
     <>
-      <h1>Home</h1>
+      <h1>ACTUALIDAD</h1>
+      {loadingData && <h3>Cargando</h3>}
       {news.map((newsItem, index) => (
         <div key={index}>
-          <Card news={newsItem} setReloadingData={setReloadingData} />
+          <Card news={newsItem} />
         </div>
       ))}
     </>
