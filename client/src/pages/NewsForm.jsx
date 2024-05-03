@@ -11,7 +11,9 @@ const NewsForm = ({ method }) => {
   const newsId = useParams().id;
   const newsData = useLoaderData(newsId);
   const [newsImage, setNewsImage] = useState(() => newsData ? newsData.image : "");
-
+  const handleEditorContentSave = (html) =>{
+    console.log(html)
+  }
   if (newsData) {
     setValue("title", newsData.title);
     setValue("subtitle", newsData.subtitle);
@@ -31,8 +33,8 @@ const NewsForm = ({ method }) => {
     if (newsData && method === "update") {
       await updateNews(newsId, formData);
     } else if (method === "create") {
-      formData.news.user_id = 1;
-      await createNews(formData.news);
+      formData.user_id = 1;
+      await createNews(formData);
     }
 
     return navigate("/dashboard")
@@ -57,7 +59,6 @@ const NewsForm = ({ method }) => {
 
       <textarea {...register("content", { required: true })} id='content' placeholder='Contenido' />
       {errors.content && errors.content.type === "required" && <div className="text-red-500">El contenido es requerido</div>}
-
       <fieldset className='flex-column'>
         <legend>Categorías:</legend>
         <label><input {...register("category")} type="checkbox" name="category" id="desarrolloProyectos" value="desarrolloProyectos" /> Desarrollo Proyectos </label>
@@ -70,7 +71,7 @@ const NewsForm = ({ method }) => {
 
       <button type="submit">{method === "create" ? "Publicar noticia" : "Guardar"}</button>
       <button onClick={() => navigate('/dashboard')}>Descartar</button>
-      <TipTap/>
+      <TipTap onEditorContentSave={handleEditorContentSave}/>
     </form>
   )
 }

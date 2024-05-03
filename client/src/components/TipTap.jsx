@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
@@ -9,20 +10,27 @@ const extensions=[
 
 const content =``
 
-const TipTap = () => {
+const TipTap = ({onEditorContentSave}) => {
     const editor = useEditor({
-        extensions: [Underline, StarterKit],
-        content
+        extensions,
+        content,
     })
 
     if (!editor) {
         return null
       }
 
+    const handleEditorContent= () =>{
+      const html = editor.getHTML()
+      /* console.log(html) */
+      onEditorContentSave(html)
+    }
+
   return (
     <div>
         <div>
         <button
+        type="button"
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={
           !editor.can()
@@ -36,6 +44,7 @@ const TipTap = () => {
         <strong>B</strong>
       </button>
       <button
+        type="button"
         onClick={() => editor.chain().focus().toggleItalic().run()}
         disabled={
           !editor.can()
@@ -49,6 +58,7 @@ const TipTap = () => {
         <em>I</em>
       </button>
       <button
+        type="button"
         onClick={() => editor.chain().focus().toggleStrike().run()}
         disabled={
           !editor.can()
@@ -63,6 +73,7 @@ const TipTap = () => {
       </button>
 
       <button
+        type="button"
         onClick={() => editor.chain().focus().toggleUnderline().run()}
         disabled={
           !editor.can()
@@ -77,14 +88,32 @@ const TipTap = () => {
       </button>
 
       <button
-        onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        className={editor.isActive('orderedList') ? 'is-active' : ''}
+        type="button"
+        onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
+        className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}
       >
-        orderedList
+        h1
       </button>
-
+      <button
+        type="button"
+        onClick={() => editor.chain().focus().toggleBulletList().run()}
+        disabled={
+          !editor.can()
+            .chain()
+            .focus()
+            .toggleBulletList()
+            .run()
+        }
+        className={editor.isActive('bulletList') ? 'is-active' : ''}
+      >
+        BulletList
+      </button>
         </div>
+        <div>
         <EditorContent editor={editor}/>
+        </div>
+        <button onClick={handleEditorContent}>Guardar</button>
+        
     </div>
   )
 }
