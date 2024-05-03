@@ -29,8 +29,8 @@ const TipTap = ({onEditorContentSave}) => {
 
 
   return (
-    <div>
-        <div>
+    <div className='m-8'>
+        <div className='w-full flex flex-wrap bg-gray-300 p-3 gap-2 text-white'>
         <button
         type="button"
         onClick={() => editor.chain().focus().toggleBold().run()}
@@ -111,8 +111,8 @@ const TipTap = ({onEditorContentSave}) => {
         BulletList
       </button>
         </div>
-        <div>
-        <EditorContent editor={editor}/>
+        <div className='border border-gray-500 border-t-0'>
+        <EditorContent editor={editor} className='max-h-96 overflow-y-scroll'/>
         </div>
         <button type="button" onClick={handleEditorContent}>Guardar</button>
         
