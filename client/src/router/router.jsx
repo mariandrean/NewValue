@@ -7,7 +7,7 @@ import LayoutPrivate from '../layout/LayoutPrivate.jsx';
 import Register from '../pages/Register.jsx';
 import NewsForm from '../pages/NewsForm.jsx';
 import Dashboard from '../pages/Dashboard.jsx';
-import { getNewsById } from '../services/newsServices.js';
+import { getAllNews, getNewsById } from '../services/newsServices.js';
 
 const router = createBrowserRouter([
     {
@@ -17,6 +17,7 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home />,
+                loader: getAllNews
             },
             {
                 path: "/login",
