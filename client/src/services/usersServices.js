@@ -14,7 +14,7 @@ export const login = async (userData) => {
     }
 };
 
-export const register = async (userData) => {
+export const userRegister = async (userData) => {
     try {
         const response = await axios.post(`${URLAPI_USERS}register`, userData);
         console.log(response)

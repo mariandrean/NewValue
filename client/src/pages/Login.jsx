@@ -8,9 +8,8 @@ const Login = () => {
     <>
       <div>
         <div>
-          <Link to='/'>
+          <Link to='/dashboard'>
           </Link>
-          <h1>Iniciar sesión</h1>
         <LoginForm/>
       </div>
     </div >
