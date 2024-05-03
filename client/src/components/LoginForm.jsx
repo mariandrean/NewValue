@@ -16,7 +16,8 @@ const LoginForm = () => {
         e.preventDefault();
         try {
             const data = await login(email, password);
-            localStorage.setItem('authToken', data.token);
+            console.log(email);
+            localStorage.setItem('token', data.token);
             setUser(data.data);
             setUserAuth(true);
             navigate('/dashboard');
@@ -40,8 +41,8 @@ const LoginForm = () => {
         <>
             <div className="flex flex-col items-center justify-center min-h-screen bg-white-100">
                 <form className="space-y-6" onSubmit={handleSubmit}>
-                    <h3 class="text-4xl text-gray-900 mb-20 text-center font-semibold">Login</h3>
-                    <h4 class="text-1xl text-gray-900 mb-10 text-center">Acceso al cuadro de mandos</h4>
+                    <h3 className="text-4xl text-gray-900 mb-20 text-center font-semibold">Login</h3>
+                    <h4 className="text-1xl text-gray-900 mb-10 text-center">Acceso al cuadro de mandos</h4>
                     <div>
                         <label htmlFor="email">
                             <input className="input border border-gray-400 appearance-none rounded w-full px-3 py-3 pt-5 pb-2 focus focus:border-indigo-600 focus:outline-none active:outline-none active:border-indigo-600" type="email" value={email} onChange={(e) => {
