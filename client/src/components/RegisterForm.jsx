@@ -38,7 +38,10 @@ const RegisterForm = () => {
                     <h3 className="text-1xl text-gray-900 mb-10 text-center">Crear nuevos usuarios</h3>
                     <div className="flex">
                         <label className="mr-7">Nombre</label>
-                        <input className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="text" {...register('name')} />
+                        <input className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="text" {...register('name',{required: true})} />
+                        <error>
+                            {errors.name?.type ==="required" && "El nombre es necesario"}
+                        </error>
 
                     </div>
                     <div className="flex">
@@ -47,8 +50,11 @@ const RegisterForm = () => {
                     </div>
                     <div className="flex">
                         <label className="mr-12">Email</label>
-                        <input className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="email" id="email" placeholder="hola@newvalue.es" {...register('email', { pattern: /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i })} />
-                        {errors.email?.type === 'pattern' && <p>El formato del email es incorrecto</p>}
+                        <input className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="email" id="email" placeholder="hola@newvalue.es" {...register('email', { required: true, pattern: /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i })} />
+                        <error>
+                            {errors.email?.type ==="required" && "Introduce un email"}
+                            {errors.email?.type ==="pattern" && "Formato de email incorrecto"}
+                        </error>
                     </div>
                     <div className="flex">
                         <label className="mr-2">Contraseña</label>
