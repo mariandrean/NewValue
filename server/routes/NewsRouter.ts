@@ -10,7 +10,7 @@ router.get('/', getAllNews);
 router.post('/', verifyAuth, verifyUserRole(['admin']), newsValidation,createNews);
 router.delete('/:id', verifyAuth, verifyUserRole(['admin']),deleteNews);
 router.put('/:id', verifyAuth, verifyUserRole(['admin']), newsValidation,updateNews);
-router.get('/:id', verifyAuth, verifyUserRole(['admin']), getNewsById);
+router.get('/:id', getNewsById);
 
 export default router;
 
