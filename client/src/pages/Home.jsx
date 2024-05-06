@@ -5,6 +5,10 @@ import { Link, useLoaderData } from 'react-router-dom';
 const Home = () => {
   const [loadingData, setLoadingData] = useState(true);
   const news = useLoaderData();
+  const url = new URL(window.location.href);
+  const urlParams = new URLSearchParams(url.search);
+  const code = urlParams.get('code');
+  console.log(code)
 
   useEffect(() => {
     if (news) {

@@ -4,6 +4,9 @@ import { useUserContext } from '../context/UserContext.jsx';
 import { login } from '../services/usersServices.js'
 import { useForm } from 'react-hook-form';
 
+const CLIENT_ID="771nnb1spod0vm"
+const ENCONDED_URI="http://localhost:5173/"
+
 const Login = () => {
   const { handleSubmit, register, formState: { errors } } = useForm();
   const [loginError, setLoginError] = useState('');
@@ -48,7 +51,9 @@ const Login = () => {
           <button type="submit" className="w-[150px] self-center bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out">
             Acceder
           </button>
-
+          <a href={`https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${ENCONDED_URI}&state=foobar&scope=profile%20email%20w_member_social`}>
+          <button type="subit">LoginIn Linkedin</button>
+          </a>
         </form>
       </div>
     </>
