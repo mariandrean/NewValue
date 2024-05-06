@@ -7,8 +7,7 @@ import { uploadImage } from '../helpers/cloudinary';
 const NewsForm = ({ method }) => {
   const { handleSubmit, register, setValue, formState: { errors } } = useForm();
   const navigate = useNavigate();
-  const newsId = useParams().id;
-  const newsData = useLoaderData(newsId);
+  const newsData = useLoaderData();
   const [newsImage, setNewsImage] = useState(() => newsData ? newsData.image : "");
 
   useEffect(() => {
@@ -31,7 +30,7 @@ const NewsForm = ({ method }) => {
     formData.category = formData.category.toString();
 
     if (newsData && method === "update") {
-      await updateNews(newsId, formData);
+      await updateNews(newsData.id, formData);
     } else if (method === "create") {
       formData.user_id = 1; // Eliminar línea cuando funcione el log in
       await createNews(formData);
