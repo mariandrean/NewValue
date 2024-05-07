@@ -14,11 +14,11 @@ const Home = () => {
 
   return (
     <>
-      <h1>ACTUALIDAD</h1>
+      <h1 className="font-semibold text-lg mb-5">ACTUALIDAD</h1>
       {loadingData && <h3>Cargando</h3>}
-      <section className='grid grid-cols-4 gap-5 place-content-center place-items-center' >
+      <section className='grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 place-content-center' >
         {news.map((newsItem, index) => (
-          <Link to={`/news/${newsItem.id}`} key={index} className={index == 0 && 'col-span-2 row-span-2' } >
+          <Link to={`/news/${newsItem.id}`} key={index} className={index == 0 && 'col-span-2 row-span-2'} >
             <Card news={newsItem} />
           </Link>
         ))}

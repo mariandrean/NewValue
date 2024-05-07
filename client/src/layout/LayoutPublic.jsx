@@ -5,8 +5,10 @@ import { Outlet } from "react-router-dom";
 const LayoutPublic = () => {
   return (
     <div>
-    <Outlet />
-    </div>
+      <main className='px-5 lg:px-20 '>
+        <Outlet />
+      </main>
+    </div >
   );
 }
 
