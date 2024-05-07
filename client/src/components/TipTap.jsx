@@ -29,7 +29,7 @@ const TipTap = ({onEditorContentSave}) => {
 
 
   return (
-    <div className='m-8'>
+    <div className='mx-8 my-20'>
         <div className='w-full flex flex-wrap bg-gray-300 p-3 gap-2 text-white'>
         <button
         type="button"
