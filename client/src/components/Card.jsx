@@ -1,8 +1,12 @@
 import React from 'react'
 
-export const Card = () => {
+export const Card = ({news}) => {
   return (
-    <div>Card</div>
+    <>
+      <img src={news.image} alt={news.title} />
+      <h3>{news.title}</h3>
+      <h4>{news.subtitle}</h4>
+    </>
   )
 }
 export default Card;

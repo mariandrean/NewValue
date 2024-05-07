@@ -7,7 +7,8 @@ import LayoutPrivate from '../layout/LayoutPrivate.jsx';
 import Register from '../pages/Register.jsx';
 import NewsForm from '../pages/NewsForm.jsx';
 import Dashboard from '../pages/Dashboard.jsx';
-import { getNewsById } from '../services/newsServices.js';
+import { getAllNews, getNewsById } from '../services/newsServices.js';
+import RegisterForm from '../components/RegisterForm.jsx';
 
 const router = createBrowserRouter([
     {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home />,
+                loader: getAllNews
             },
             {
                 path: "/login",
@@ -24,7 +26,8 @@ const router = createBrowserRouter([
             },
             {
                 path: "/news/:id",
-                element: <NewsDetails />
+                element: <NewsDetails />,
+                loader: ({params}) => getNewsById(params.id)
             },
         ],
     },
@@ -35,6 +38,7 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Dashboard />,
+                loader: getAllNews
             },
             {
                 path: "/dashboard/register",

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { createNews, updateNews } from '../services/newsServices';
 import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -10,8 +10,7 @@ import './NewsForm.css'
 const NewsForm = ({ method }) => {
   const { handleSubmit, register, setValue, formState: { errors } } = useForm();
   const navigate = useNavigate();
-  const newsId = useParams().id;
-  const newsData = useLoaderData(newsId);
+  const newsData = useLoaderData();
   const [newsImage, setNewsImage] = useState(() => newsData ? newsData.image : "");
   const [newsContent, setNewsContent] = useState('');
   const handleEditorContentSave = (html) =>{
@@ -19,13 +18,16 @@ const NewsForm = ({ method }) => {
     console.log('Manejando contenido del editor:', html)
   }
 
-  if (newsData) {
-    setValue("title", newsData.title);
-    setValue("subtitle", newsData.subtitle);
-    setValue("date", newsData.date);
-    setValue("content", newsData.content);
-    setValue("category", newsData.category.split(","))
-  }
+  useEffect(() => {
+    if (newsData) {
+      setValue("title", newsData.title);
+      setValue("subtitle", newsData.subtitle);
+      setValue("date", newsData.date);
+      setValue("content", newsData.content);
+      setValue("category", newsData.category.split(","))
+    }
+  }, []);
+
   const handleImage = async (e) => {
     const response = await uploadImage(e);
     setNewsImage(response);
@@ -37,12 +39,11 @@ const NewsForm = ({ method }) => {
     formData.content = newsContent;
 
     if (newsData && method === "update") {
-      await updateNews(newsId, formData);
+      await updateNews(newsData.id, formData);
     } else if (method === "create") {
-      formData.user_id = 1;
+      formData.user_id = 1; // Eliminar línea cuando funcione el log in
       await createNews(formData);
     }
-
     return navigate("/dashboard")
   }
 

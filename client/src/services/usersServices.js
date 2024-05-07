@@ -8,18 +8,15 @@ export const login = async (userData) => {
         const response = await axios.post(`${URLAPI_USERS}login`, userData);
         return response.data;
     } catch (error) {
-        console.error('Error logging in:', error);
         throw error;
     }
 };
 
-export const register = async (userData) => {
+export const userRegister = async (userData) => {
     try {
         const response = await axios.post(`${URLAPI_USERS}register`, userData);
-        console.log(response)
         return response.data;
     } catch (error) {
-        console.error('Error registering:', error);
         throw error;
     }
 };
