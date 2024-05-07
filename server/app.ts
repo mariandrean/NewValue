@@ -1,4 +1,4 @@
-import { DB_PORT, NODE_ENV } from "./config";
+import { DB_PORT } from "./config";
 import connection_db from "./database/connection_db";
 import express from "express";
 import NewsModel from "./models/NewsModel";
@@ -33,8 +33,7 @@ try {
   throw error;
 }
 
-if (NODE_ENV !== 'test') {
-  app.listen(DB_PORT, () => {
+export const server = app.listen(DB_PORT, () => {
     console.log(`Server up in  http://localhost:${DB_PORT}/api`)
   })
-}; 
+ 
