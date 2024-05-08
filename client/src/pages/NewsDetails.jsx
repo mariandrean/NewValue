@@ -1,5 +1,6 @@
 import React from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData } from 'react-router-dom';
+import parse from 'html-react-parser'
 
 const NewsDetails = () => {
   const news = useLoaderData();
@@ -12,7 +13,7 @@ const NewsDetails = () => {
         <div className='col-span-5 place-self-start'>
           <h3 className='font-semibold text-lg'>{news.title}</h3>
           <h4 className='mb-5'>{news.subtitle}</h4>
-          <p>{news.content}</p>
+          <p>{parse(news.content)}</p>
         </div>
       </section>
     </>

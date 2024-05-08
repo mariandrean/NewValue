@@ -1,0 +1,50 @@
+.form-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.news-form {
+    display: flex;
+    flex-direction: column;
+    width: 35rem;
+    height: 40rem;
+    justify-content: center;
+    border: solid 0.120rem #1A3645;
+    border-radius: 0.625rem;
+    box-shadow: 0 0 0.625rem #02767e;
+    color: #020202;
+    text-decoration: none;
+}
+
+.date-input{
+    margin: 1rem 2rem 2rem 3rem;
+}
+
+.title-input{
+    margin: 1rem 2rem 1rem 3rem;
+    border: solid 0.120rem #1A3645;
+}
+
+.subtitle-input{
+    margin: 1rem 2rem 1rem 3rem;
+    border: solid 0.120rem #1A3645
+}
+
+.image-input{
+    margin: 4rem 2rem 1rem 3rem;
+}
+
+.image-fieldset{
+    height:1rem;
+
+}
+
+.buttons-container{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 2rem;
+    margin-bottom: 1rem;
+}
