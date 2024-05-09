@@ -56,7 +56,7 @@ const RegisterForm = () => {
                     </div>
                     <div className="flex">
 
-                        <div className="relative">
+                        <div className="relative w-full">
                             <input
                                 className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" placeholder="Contraseña"
                                 type={showPassword ? "text" : "password"}
@@ -65,7 +65,7 @@ const RegisterForm = () => {
                             <button
                                 type="button"
                                 id="togglePassword"
-                                className="absolute text-sm right-0 text-gray-500"
+                                className="absolute text-sm mt-3 right-3 text-gray-500"
                                 onClick={togglePasswordVisibility}
                             >
                                 {showPassword ? 'Ocultar' : 'Mostrar'}
