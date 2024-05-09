@@ -49,17 +49,15 @@ const NewsForm = ({ method }) => {
   return (
     <div className='form-container'>
     <form onSubmit={handleSubmit(onSubmit)} className='news-form'>
-      <input className='title-input'{...register("title", { maxLength: { value: 255 }, required: true })} id="title" type="text" placeholder='Título' />
+      <input {...register("title", { maxLength: { value: 255 }, required: true })} id="title" type="text" placeholder='Título' />
       {errors.title && errors.title.type === "required" && <div className="text-red-500">El título es requerido</div>}
       {errors.title && errors.title.type === "maxLength" && <div className="text-red-500">El título debe tener menos de 255 caracteres</div>}
 
-      <input className='subtitle-input'{...register("subtitle", { maxLength: { value: 1024 } })} id="subtitle" type="text" placeholder='Subtítulo' />
+      <input {...register("subtitle", { maxLength: { value: 1024 } })} id="subtitle" type="text" placeholder='Subtítulo' />
       {errors.subtitle && errors.subtitle.type === "maxLength" && <div className="text-red-500">El subtítulo debe tener menos de 1024 caracteres</div>}
       
-      <fieldset className='image-fieldset'>
         <input className='image-input'{...register("image")} id='image' type="file" accept="image/*" onChange={handleImage} />
         <img src={newsImage} className="h-[200px]" />
-      </fieldset>
 
       <input className='date-input' {...register("date", { required: true })} id="date" type='date' />
       {errors.date && errors.date.type === "required" && <div className="text-red-500">La fecha es requerida</div>}
