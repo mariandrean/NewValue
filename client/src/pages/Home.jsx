@@ -19,7 +19,7 @@ const Home = () => {
       <section className='grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 place-content-center' >
         {news.map((newsItem, index) => (
           <Link to={`/news/${newsItem.id}`} key={index} className={index == 0 && 'col-span-2 row-span-2'} >
-            <Card news={newsItem} />
+            <Card news={newsItem} index={index} />
           </Link>
         ))}
       </section>
