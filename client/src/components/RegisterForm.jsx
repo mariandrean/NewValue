@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { userRegister } from "../services/usersServices.js";
+import Swal from 'sweetalert2';
+import { useUserContext} from '../context/UserContext.jsx';
 
 const RegisterForm = () => {
     const { register, formState: { errors }, handleSubmit, unregister } = useForm();
     const [registerError, setRegisterError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+    const { setUserAuth, setUser, setUserRole } = useUserContext();
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -21,10 +24,25 @@ const RegisterForm = () => {
         try {
             const response = await userRegister(userData);
             console.log(response);
+            localStorage.setItem('regiterToken', response['token']);
+            setUserAuth(true);
+            setUser(response.user_name);
+            setUserRole(response.user_role);
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Usuario creado con éxito',
+                showConfirmButton: false,
+                timer: 2000,
+            }).then(() => {
+                window.location.href = '/dashboard';
+            });
+
         } catch (error) {
             console.error('Error:', error);
+            setRegisterError('Error al registrarse. Por favor, inténtalo de nuevo.');
         }
-    }
+    };
 
     const checkPasswordsMatch = (password, confirmPassword) => {
         return password === confirmPassword;
@@ -39,12 +57,12 @@ const RegisterForm = () => {
                     <div className="flex">
 
                         <input className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="text" placeholder='Tu nombre'{...register('name', { maxLength: { value: 50 } })} id="name" />
-                        {errors.title && errors.title.type === "maxLength" && <div className="text-red-500">El nombre debe tener menos de 50 caracteres</div>}
+                        {errors.name && errors.name.type === "maxLength" && <div className="text-red-500">El nombre debe tener menos de 50 caracteres</div>}
                     </div>
                     <div className="flex">
 
                         <input className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="text" placeholder='Tu apellido'{...register('lastname', { maxLength: { value: 50 } })} id="lastname" />
-                        {errors.title && errors.title.type === "maxLength" && <div className="text-red-500">El apellido debe tener menos de 50 caracteres</div>}
+                        {errors.lastname && errors.lastname.type === "maxLength" && <div className="text-red-500">El apellido debe tener menos de 50 caracteres</div>}
                     </div>
                     <div className="flex">
 
