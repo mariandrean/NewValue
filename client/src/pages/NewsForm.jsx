@@ -4,7 +4,6 @@ import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { uploadImage } from '../helpers/cloudinary';
 import TipTap from '../components/TipTap';
-import { PostTest } from '../components/PostTest';
 import './NewsForm.css'
 
 const NewsForm = ({ method }) => {
