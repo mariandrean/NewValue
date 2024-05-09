@@ -1,6 +1,7 @@
 import { DB_PORT } from "./config";
 import connection_db from "./database/connection_db";
 import express from "express";
+import CategoryModel from "./models/CategoryModel";
 import NewsModel from "./models/NewsModel";
 import UserModel from "./models/UserModel";
 import AuthRouter from "./routes/AuthRouter";
@@ -26,6 +27,8 @@ try {
 try {
   UserModel.sync();
   console.log('The UserModel has been synchronized succesfully 👩🏼‍💻')
+  CategoryModel.sync();
+  console.log('The CategoryModel has been synchronized succesfully 👩🏼‍💻')
   NewsModel.sync();
   console.log('The NewsModel has been synchronized succesfully 👩🏼‍💻')
 } catch (error) {
