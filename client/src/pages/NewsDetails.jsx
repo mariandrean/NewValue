@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLoaderData } from 'react-router-dom';
 import parse from 'html-react-parser'
+import ShareLinkedin from 'react-share-linkedin';
 
 const NewsDetails = () => {
   const news = useLoaderData();
@@ -14,6 +15,11 @@ const NewsDetails = () => {
           <h3 className='font-semibold text-lg'>{news.title}</h3>
           <h4 className='mb-5'>{news.subtitle}</h4>
           <p>{parse(news.content)}</p>
+          <ShareLinkedin 
+	          url="http://itarverne.com"
+	          title="The web developer expert in Auvergne"
+	          summary="The web developer expert in Auvergne"
+          />
           <a href="https://www.linkedin.com/feed/?linkOrigin=LI_BADGE&shareActive=true&shareUrl=https%3A%2F%2Fdev.to%2Fmatteosant_dev%2Fnew-web-portfolio-16bit-os-style-20h9%3Fref%3Ddailydev">Compartir en LinkedIn</a>
         </div>
       </section>
