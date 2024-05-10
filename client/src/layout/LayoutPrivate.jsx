@@ -1,19 +1,28 @@
 import { useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom"; 
 import { useUserContext } from "../context/UserContext";
+import Navbar from "../components/Navbar.jsx";
 
 const LayoutPrivate = () => {
   const token = localStorage.getItem("token");
-  const { user } = useUserContext();
-  const navigate = useNavigate();
+  const { userAuth } = useUserContext();
+  const navigate = useNavigate(); 
 
   useEffect(() => {
-    if (!token) {
-      navigate("/login");
+    if (!token &&!userAuth) { 
+      navigate("/login"); 
     }
-  }, [token]);
+    else if (token && userAuth) {
+      navigate("/dashboard");
+    }
+  }, [token, navigate, userAuth]); 
 
-  return <Outlet />;
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+    </>
+  );
 };
 
 export default LayoutPrivate;
