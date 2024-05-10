@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLoaderData } from 'react-router-dom';
 import parse from 'html-react-parser'
+import Share from '../components/Share';
 
 const NewsDetails = () => {
   const news = useLoaderData();
@@ -15,7 +16,8 @@ const NewsDetails = () => {
           <h4 className='mb-5'>{news.subtitle}</h4>
           <p>{parse(news.content)}</p>
 
-       
+          <Share description={news.title} />
+
 
         </div>
       </section>

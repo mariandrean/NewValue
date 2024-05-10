@@ -1,5 +1,4 @@
 import React from "react"
-import './Share.css';
 
 function Share(description) {
     const url = window.location.href;
