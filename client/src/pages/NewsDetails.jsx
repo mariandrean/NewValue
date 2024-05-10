@@ -15,15 +15,7 @@ const NewsDetails = () => {
           <h4 className='mb-5'>{news.subtitle}</h4>
           <p>{parse(news.content)}</p>
 
-          <a href="#" onClick={(e) => {
-            e.preventDefault();
-            window.INITIALIZE('share', {
-              'title': news.title,
-              'url': `https://www.tudominio.com/news/${news.id}`, // Asegúrate de que esta URL sea accesible y muestre la noticia
-              'summary': `${news.title} - ${news.subtitle}`, // Aquí puedes incluir el título y el subtítulo de la noticia
-              'source': 'Tu aplicación web'
-            });
-          }}>Compartir en LinkedIn</a>
+       
 
         </div>
       </section>
