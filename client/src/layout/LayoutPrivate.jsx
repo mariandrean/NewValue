@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
+import Footer from "../components/footer/Footer";
 
 const LayoutPrivate = () => {
   const token = localStorage.getItem("token");
@@ -13,7 +14,12 @@ const LayoutPrivate = () => {
     }
   }, [token]);
 
-  return <Outlet />;
+  return (
+    <>
+    <Outlet />
+    <Footer />
+    </>
+  )
 };
 
 export default LayoutPrivate;
