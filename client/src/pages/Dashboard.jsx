@@ -36,8 +36,8 @@ const Dashboard = () => {
             {loadingData && <h3>Cargando</h3>}
             <section className='flex flex-col' >
                 {news.map((newsItem, index) => (
-                    <article className='flex justify-between items-center'>
-                        <Link to={`/news/${newsItem.id}`} key={index} className='flex'>
+                    <article className='flex justify-between items-center' key={index}>
+                        <Link to={`/news/${newsItem.id}`} className='flex'>
                             <img src={newsItem.image} alt={newsItem.title} className='h-20 w-20 object-cover' />
                             <div className='flex flex-col justify-around'>
                                 <h4>{newsItem.title}</h4>
