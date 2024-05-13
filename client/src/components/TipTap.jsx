@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
+import { uploadImage } from '../helpers/cloudinary';
 
 const extensions=[
     StarterKit,
@@ -23,6 +24,7 @@ const TipTap = ({onEditorContentSave}) => {
         },
     })
 
+
     if (!editor) {
         return null
       }
@@ -33,11 +35,18 @@ const TipTap = ({onEditorContentSave}) => {
       onEditorContentSave(html)
     }
 
+    const handleUploadImage = async (event) => {
+      const file = event.target.files[0];
+      if (!file) return;
+    
+      const imageUrl = await uploadImage(event);
+      editor.chain().focus().setImage({ src: imageUrl }).run();
+    };
 
 
   return (
-    <div className='mx-8 my-20'>
-        <div className='w-full flex flex-wrap bg-gray-300 p-3 gap-2 text-white'>
+    <div className='mx- my-2'>
+        <div className='w-full flex flex-wrap bg-gray-300 p-3 gap-2 text-black'>
         <button
         type="button"
         onClick={() => editor.chain().focus().toggleBold().run()}
@@ -123,7 +132,7 @@ const TipTap = ({onEditorContentSave}) => {
       >
         OL
       </button>
-      <button
+      <button 
         type="button"
         onClick={() => editor.chain().focus().toggleBulletList().run()}
         disabled={
@@ -137,8 +146,11 @@ const TipTap = ({onEditorContentSave}) => {
       >
         BulletList
       </button>
+      <button type="button" onChange={handleUploadImage}>
+       Subir Imagen
+      </button>
         </div>
-        <div className='border border-gray-500 border-t-0'>
+        <div className='border border-gray-500 border-t-0 min-h-[8rem]'>
         <EditorContent editor={editor} className='max-h-96 overflow-y-scroll'/>
         </div>
         <button type="button" onClick={handleEditorContent}>Guardar</button>
