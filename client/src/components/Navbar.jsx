@@ -11,8 +11,8 @@ const Navbar = () => {
         <div className="flex items-center">
           <img
             alt="burger-menu"
-            src="./src/assets/burguer-menu.svg"
-            className="mx-3" // Ajusta el margen según sea necesario
+            src="./src/assets/burger-menu.svg"
+            className="mx-10" // Ajusta el margen según sea necesario
           />
         </div>
 
@@ -22,7 +22,7 @@ const Navbar = () => {
               <img
                 alt="logo"
                 src="/src/assets/newvaluelogogris-titulo.svg"
-                className="w-145 h-35"
+                className="w-145 h-35 ml-40"
               />
             </a>
           </NavLink>
