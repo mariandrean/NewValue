@@ -7,7 +7,13 @@ function Share(description) {
         if (navigator.share) {
             navigator.share({
                 title: description,
-                url: url
+                url: url,
+                images: [
+                    {
+                        url: imageUrl,
+                        alt: description,
+                    },
+                ],
             })
                 .catch(err => alert("Error Sharing: " + err))
         }

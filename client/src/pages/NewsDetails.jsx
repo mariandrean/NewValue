@@ -16,7 +16,7 @@ const NewsDetails = () => {
           <h4 className='mb-5'>{news.subtitle}</h4>
           <p>{parse(news.content)}</p>
 
-          <Share description={news.title} />
+          <Share description={news.title} imageUrl={news.image} />
 
 
         </div>
