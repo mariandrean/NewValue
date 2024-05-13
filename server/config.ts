@@ -1,5 +1,4 @@
-import { config } from "dotenv";
-config();
+import 'dotenv/config';
 
 export const DB_DEV_NAME = <string> process.env.DB_DEV_NAME;
 export const DB_HOST= <string> process.env.DB_HOST;
