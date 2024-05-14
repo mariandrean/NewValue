@@ -10,8 +10,8 @@ const LayoutPublic = () => {
       <Navbar />
       <main className='px-5 lg:px-20 '>
         <Outlet />
-        <Footer />
       </main>
+      <Footer />
     </div >
   );
 }

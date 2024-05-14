@@ -12,7 +12,7 @@ const Navbar = () => {
         <div className="flex items-center">
           <img
             alt="burger-menu"
-            src="./src/assets/burger-menu.svg"
+            src="../assets/burguer-menu.svg"
             className="mx-10" 
           />
         </div>
