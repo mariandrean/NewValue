@@ -12,10 +12,10 @@ const LayoutPublic = () => {
       <header>
         {token && <DashboardMenu />}
         <Navbar />
-      </header>  
-        <main className='p-5 lg:p-20'>
-          <Outlet />
-        </main>
+      </header>
+      <main className='p-5 lg:p-20'>
+        <Outlet />
+      </main>
       <Footer />
     </ >
   );

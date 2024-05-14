@@ -19,10 +19,13 @@ const LayoutPrivate = () => {
 
   return (
     <>
-      <DashboardMenu />
+      <header>
+        <DashboardMenu />
+      </header>
       <main className='p-5 lg:p-20'>
         <Outlet />
       </main>
+      <footer></footer>
     </>
   )
 };
