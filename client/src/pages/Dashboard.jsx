@@ -58,7 +58,7 @@ const Dashboard = () => {
                                         <div className='flex flex-col justify-around'>
                                             <span className="mt-1 text-gray-500 text-sm">{newsItem.date}</span>
                                             <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">{newsItem.title}</h2>
-                                            <p className="leading-relaxed text-lg mb-4">{newsItem.content}</p>
+                                            <p className="leading-relaxed text-lg mb-4">{newsItem.content.substring(0, 100)}...</p>
                                         </div>
                                     </Link>
                                     <div>
