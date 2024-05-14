@@ -32,7 +32,7 @@ const Navbar = () => {
         <div className="ml-auto flex items-center mr-10">
           {!isMobile && (
             <>
-              <NavLink to="/contactanos">
+              <NavLink to="https://newvalue.es/contactanos">
                 <button className="mr-10 text-black bg-white border rounded-lg font-semibold py-1 px-5 hover:bg-teal-500 hover:text-white transition duration-300 ease-in-out">Contacto</button>
               </NavLink>
               {userAuth? (
