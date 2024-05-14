@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 import Navbar from "../components/Navbar.jsx";
-import Footer from "../components/footer/Footer";
+import Footer from "../components/Footer";
 
 const LayoutPrivate = () => {
   const token = localStorage.getItem("token");
