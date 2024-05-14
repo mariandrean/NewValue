@@ -3,13 +3,14 @@ import { useForm } from "react-hook-form";
 import { userRegister } from "../services/usersServices.js";
 import Swal from 'sweetalert2';
 import { useUserContext} from '../context/UserContext.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterForm = () => {
     const { register, formState: { errors }, handleSubmit, unregister } = useForm();
     const [registerError, setRegisterError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const { setUserAuth, setUser, setUserRole } = useUserContext();
-
+    const navigate = useNavigate();
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
@@ -24,19 +25,19 @@ const RegisterForm = () => {
         try {
             const response = await userRegister(userData);
             console.log(response);
-            localStorage.setItem('regiterToken', response['token']);
+            localStorage.setItem('token', response['token']);
             setUserAuth(true);
             setUser(response.user_name);
             setUserRole(response.user_role);
+            navigate('/dashboard');
 
             Swal.fire({
                 icon: 'success',
                 title: 'Usuario creado con éxito',
                 showConfirmButton: false,
                 timer: 2000,
-            }).then(() => {
-                window.location.href = '/dashboard';
             });
+            
 
         } catch (error) {
             console.error('Error:', error);
@@ -52,7 +53,7 @@ const RegisterForm = () => {
         <>
             <div className="flex flex-col items-center justify-center min-h-screen min-w-[500px] bg-white-100">
                 <form className="min-w-[300px] gap-6 flex flex-col justify-center" onSubmit={handleSubmit(onSubmit)}>
-                    <h1 className="text-4xl text-gray-900 mb-10 text-center font-semibold">Register</h1>
+                    <h1 className="text-4xl text-gray-900 mb-10 text-center font-semibold">Registrar usuario</h1>
                     <h3 className="text-1xl text-gray-900 mb-10 text-center">Crear nuevos usuarios</h3>
                     <div className="flex">
 
@@ -92,7 +93,7 @@ const RegisterForm = () => {
                     </div>
 
                     <div className="flex">
-                        <input className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="password" placeholder="Confirmar contraseña" placeholder="Confirmar contraseña" {...register('confirmPassword', { required: true })} />
+                        <input className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="password" placeholder="Confirmar contraseña" {...register('confirmPassword', { required: true })} />
                     </div>
                     {registerError && <p className="text-red-500 text-sm self-center m-0">{registerError}</p>}
 
