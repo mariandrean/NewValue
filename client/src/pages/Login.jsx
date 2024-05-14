@@ -30,7 +30,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center min-h-screen min-w-[500px] bg-white-100">
+      <div className="flex flex-col items-center justify-center min-w-[500px] bg-white-100">
         <h3 className="text-4xl text-gray-900 mb-10 text-center font-semibold">Iniciar sesión</h3>
         <h4 className="text-1xl text-gray-900 mb-10 text-center">(Solo personal del sitio)</h4>
         <form className="min-w-[300px] gap-6 flex flex-col justify-center" onSubmit={handleSubmit(handleLogin)}>

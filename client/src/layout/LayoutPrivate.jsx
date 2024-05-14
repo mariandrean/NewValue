@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
-import LogOutButton from "../components/LogOutButton";
+import DashboardMenu from "../components/DashboardMenu";
 
 const LayoutPrivate = () => {
   const token = localStorage.getItem("token");
@@ -15,20 +15,14 @@ const LayoutPrivate = () => {
     else if (token && userAuth) {
       navigate("/dashboard");
     }
-  }, [token, navigate, userAuth]);
+  }, [token, userAuth]);
 
   return (
     <>
-      <div className="flex justify-between items-center sm:text-lg bg-black text-white py-3 px-5">
-        <div className="flex gap-5">
-          <a href="/Dashboard">Panel Principal</a>
-          <a href="/" >Portada</a >
-        </div>
-        <div className="flex gap-5">
-          <LogOutButton />
-        </div>
-      </div>
-      <Outlet />
+      <DashboardMenu />
+      <main className='p-5 lg:p-20'>
+        <Outlet />
+      </main>
     </>
   )
 };

@@ -2,17 +2,22 @@ import React from 'react'
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx"
 import Footer from '../components/Footer.jsx';
-
+import DashboardMenu from '../components/DashboardMenu.jsx';
 
 const LayoutPublic = () => {
+  const token = localStorage.getItem("token");
+
   return (
-    <div style={{ minHeight: "100%", position: "relative", display: 'flex', flexDirection: 'column' }}>
-      <Navbar />
-      <main className='px-5 lg:px-20 '>
-        <Outlet />
-      </main>
+    <>
+      <header>
+        {token && <DashboardMenu />}
+        <Navbar />
+      </header>  
+        <main className='p-5 lg:p-20'>
+          <Outlet />
+        </main>
       <Footer />
-    </div >
+    </ >
   );
 }
 
