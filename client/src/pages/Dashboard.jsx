@@ -1,6 +1,7 @@
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { deleteNews } from '../services/newsServices';
+import Swal from 'sweetalert2';
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -14,16 +15,24 @@ const Dashboard = () => {
     }, [loadingData]);
 
     const handleDelete = async (newsId) => {
-        if (confirm("¿Eliminar noticia?")) {
-            try {
+        Swal.fire({
+            title: '¿Eliminar noticia?',
+            showDenyButton: true,
+            confirmButtonText: "Eliminar",
+            denyButtonText: `Cancelar`
+        }).then(async (result) => {
+            if (result.isConfirmed) {
                 await deleteNews(newsId);
                 setLoadingData(true)
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Noticia eliminada',
+                    showConfirmButton: true,
+                    timer: 2000,
+                });
                 navigate("/dashboard")
-            } catch (error) {
-                throw error
             }
-        }
-
+        });
     }
 
     return (
@@ -36,8 +45,8 @@ const Dashboard = () => {
             {loadingData && <h3>Cargando</h3>}
             <section className='flex flex-col' >
                 {news.map((newsItem, index) => (
-                    <article className='flex justify-between items-center'>
-                        <Link to={`/news/${newsItem.id}`} key={index} className='flex'>
+                    <article className='flex justify-between items-center' key={index}>
+                        <Link to={`/news/${newsItem.id}`} className='flex'>
                             <img src={newsItem.image} alt={newsItem.title} className='h-20 w-20 object-cover' />
                             <div className='flex flex-col justify-around'>
                                 <h4>{newsItem.title}</h4>

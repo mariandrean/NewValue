@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { uploadImage } from '../helpers/cloudinary';
 import TipTap from '../components/TipTap';
 import './NewsForm.css'
+import Swal from 'sweetalert2';
 
 const NewsForm = ({ method }) => {
   const { handleSubmit, register, setValue, formState: { errors } } = useForm();
@@ -35,15 +36,21 @@ const NewsForm = ({ method }) => {
   const onSubmit = async (formData) => {
     formData.image = newsImage;
     formData.category = formData.category.toString();
-    formData.content = newsContent;
-
+    if(newsContent){
+      formData.content = newsContent;
+    } 
     if (newsData && method === "update") {
       await updateNews(newsData.id, formData);
+
     } else if (method === "create") {
-      formData.user_id = 1; // Eliminar línea cuando funcione el log in
       await createNews(formData);
     }
-    return navigate("/dashboard")
+    Swal.fire({
+      icon: 'success',
+      title: method === "update" ? "Noticia actualizada" : "Noticia publicada",
+      showConfirmButton: true,
+      timer: 2000,
+    }).then(() => navigate("/dashboard"))
   }
 
   return (

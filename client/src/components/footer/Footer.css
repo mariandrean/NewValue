@@ -1,0 +1,43 @@
+footer {
+    background-color: black;
+    width: 90vw;
+    height: 10vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.privacidad{
+    margin-left: 4vw;
+}
+
+.aviso{
+    margin-left: 2vw;
+}
+
+.footer-container2 {
+    margin-left: 38vw;
+}
+.footer-link{
+    text-decoration: underline;
+}
+
+.footer-link1{
+    text-decoration: underline;
+    margin-left: 0.5vw;
+}
+
+.logosFooter{
+    display: flex;
+    justify-content: flex-end;
+    background-color: black;
+    border-radius: 100px;
+    margin-left: 2vw;
+}
+
+.icon-instagram{
+    border-radius: 10px;
+    margin-right: 0.1vw;
+    margin-left: 1vw;
+}

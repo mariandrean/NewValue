@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { userRegister } from "../services/usersServices.js";
+import Swal from 'sweetalert2';
+import { useUserContext} from '../context/UserContext.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterForm = () => {
     const { register, formState: { errors }, handleSubmit, unregister } = useForm();
     const [registerError, setRegisterError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
-
+    const { setUserAuth, setUser, setUserRole } = useUserContext();
+    const navigate = useNavigate();
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
@@ -21,10 +25,25 @@ const RegisterForm = () => {
         try {
             const response = await userRegister(userData);
             console.log(response);
+            localStorage.setItem('token', response['token']);
+            setUserAuth(true);
+            setUser(response.user_name);
+            setUserRole(response.user_role);
+            navigate('/dashboard');
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Usuario creado con éxito',
+                showConfirmButton: false,
+                timer: 2000,
+            });
+            
+
         } catch (error) {
             console.error('Error:', error);
+            setRegisterError('Error al registrarse. Por favor, inténtalo de nuevo.');
         }
-    }
+    };
 
     const checkPasswordsMatch = (password, confirmPassword) => {
         return password === confirmPassword;
@@ -34,38 +53,38 @@ const RegisterForm = () => {
         <>
             <div className="flex flex-col items-center justify-center min-h-screen min-w-[500px] bg-white-100">
                 <form className="min-w-[300px] gap-6 flex flex-col justify-center" onSubmit={handleSubmit(onSubmit)}>
-                    <h1 className="text-4xl text-gray-900 mb-10 text-center font-semibold">Register</h1>
+                    <h1 className="text-4xl text-gray-900 mb-10 text-center font-semibold">Registrar usuario</h1>
                     <h3 className="text-1xl text-gray-900 mb-10 text-center">Crear nuevos usuarios</h3>
                     <div className="flex">
-                        <label className="mr-7">Nombre</label>
-                        <input className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="text" {...register('name', { maxLength: { value: 50 }})} id="name" />
-                        {errors.title && errors.title.type === "maxLength" && <div className="text-red-500">El nombre debe tener menos de 50 caracteres</div>}
 
+                        <input className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="text" placeholder='Tu nombre'{...register('name', { maxLength: { value: 50 } })} id="name" />
+                        {errors.name && errors.name.type === "maxLength" && <div className="text-red-500">El nombre debe tener menos de 50 caracteres</div>}
                     </div>
                     <div className="flex">
-                        <label className="mr-7">Apellido</label>
-                        <input className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="text" {...register('lastname', { maxLength: { value: 50 }})} id="lastname"/>
+
+                        <input className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="text" placeholder='Tu apellido'{...register('lastname', { maxLength: { value: 50 } })} id="lastname" />
+                        {errors.lastname && errors.lastname.type === "maxLength" && <div className="text-red-500">El apellido debe tener menos de 50 caracteres</div>}
                     </div>
                     <div className="flex">
-                        <label className="mr-12">Email</label>
-                        <input className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="email" id="email" placeholder="hola@newvalue.es" {...register('email', { required: true, pattern: /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i })} />
+
+                        <input className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="email" id="email" placeholder="Tu email" {...register('email', { required: true, pattern: /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i })} />
                         <error>
                             {errors.email?.type === "required" && "Introduce un email"}
-                            {errors.email?.type === "pattern" && "Formato de email incorrecto"}
+                            {errors.email?.type === "pattern" && "🥀Formato de email incorrecto"}
                         </error>
                     </div>
                     <div className="flex">
-                        <label className="mr-2">Contraseña</label>
-                        <div className="relative">
+
+                        <div className="relative w-full">
                             <input
-                                className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500"
+                                className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" placeholder="Contraseña"
                                 type={showPassword ? "text" : "password"}
                                 {...register('password', { required: true })}
                             />
                             <button
                                 type="button"
                                 id="togglePassword"
-                                className="absolute text-sm right-0 m-4 text-gray-500"
+                                className="absolute text-sm mt-3 right-3 text-gray-500"
                                 onClick={togglePasswordVisibility}
                             >
                                 {showPassword ? 'Ocultar' : 'Mostrar'}
@@ -74,8 +93,7 @@ const RegisterForm = () => {
                     </div>
 
                     <div className="flex">
-                        <label className="mr-4">Confirmar</label>
-                        <input className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="password" {...register('confirmPassword', { required: true })} />
+                        <input className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="password" placeholder="Confirmar contraseña" {...register('confirmPassword', { required: true })} />
                     </div>
                     {registerError && <p className="text-red-500 text-sm self-center m-0">{registerError}</p>}
 
