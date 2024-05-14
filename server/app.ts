@@ -1,9 +1,9 @@
 import { DB_PORT } from "./config";
 import connection_db from "./database/connection_db";
 import express from "express";
-import CategoryModel from "./models/CategoryModel";
-import NewsModel from "./models/NewsModel";
-import UserModel from "./models/UserModel";
+import CategoryModel from "./server-models/CategoryModel";
+import NewsModel from "./server-models/NewsModel";
+import UserModel from "./server-models/UserModel";
 import AuthRouter from "./routes/AuthRouter";
 import UserRouter from "./routes/UserRouter";
 import cors from 'cors';

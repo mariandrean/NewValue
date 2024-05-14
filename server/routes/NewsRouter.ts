@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllNews, createNews, deleteNews, updateNews, getNewsById } from "../controllers/NewsController";
+import { getAllNews, createNews, deleteNews, updateNews, getNewsById } from "../server-controllers/NewsController";
 import { newsValidation } from "../validators/FormsValidation";
 import { verifyAuth } from "../middlewares/AuthenticationMiddleware";
 import { verifyUserRole } from "../middlewares/RoleAuthMiddleware";
