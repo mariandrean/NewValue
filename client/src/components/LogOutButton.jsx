@@ -8,11 +8,14 @@ const LogOutButton = () => {
         setUserAuth(null);
         setUserRole(null);
         localStorage.removeItem('token');
+        navi
     }
 
   return (
-
-    <button onClick={handleLogOut}>Log Out</button>
+    <button onClick={handleLogOut} className="flex gap-3 items-center">
+      <p className='hidden sm:block'>Cerrar Sesión</p>
+      <img src="src/assets/logout-button.png" alt="Logout" className='h-5' />
+    </button>
   );
 }
 
