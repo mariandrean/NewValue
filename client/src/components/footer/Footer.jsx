@@ -1,6 +1,6 @@
 import React from 'react'
-import Linkedin from '../../../public/assets/icon-linkedin.svg'
-import Instagram from '../../../public/assets/icon-instagram.svg'
+import Linkedin from '../../assets/icon-linkedin.svg'
+import Instagram from '../../assets/icon-instagram.svg'
 import "../footer/Footer.css"
 
 
