@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx"
-import Footer from '../components/footer/Footer';
+import Footer from '../components/Footer.jsx';
 
 
 const LayoutPublic = () => {
@@ -10,8 +10,8 @@ const LayoutPublic = () => {
       <Navbar />
       <main className='px-5 lg:px-20 '>
         <Outlet />
-        <Footer />
       </main>
+      <Footer />
     </div >
   );
 }
