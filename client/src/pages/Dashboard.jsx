@@ -1,6 +1,7 @@
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { deleteNews } from '../services/newsServices';
+import Swal from 'sweetalert2';
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -14,16 +15,24 @@ const Dashboard = () => {
     }, [loadingData]);
 
     const handleDelete = async (newsId) => {
-        if (confirm("¿Eliminar noticia?")) {
-            try {
+        Swal.fire({
+            title: '¿Eliminar noticia?',
+            showDenyButton: true,
+            confirmButtonText: "Eliminar",
+            denyButtonText: `Cancelar`
+        }).then(async (result) => {
+            if (result.isConfirmed) {
                 await deleteNews(newsId);
                 setLoadingData(true)
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Noticia eliminada',
+                    showConfirmButton: true,
+                    timer: 2000,
+                });
                 navigate("/dashboard")
-            } catch (error) {
-                throw error
             }
-        }
-
+        });
     }
 
     return (
