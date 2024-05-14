@@ -14,7 +14,7 @@ const LogOutButton = () => {
   return (
     <button onClick={handleLogOut} className="flex gap-3 items-center">
       <p className='hidden sm:block'>Cerrar Sesión</p>
-      <img src="src/assets/logout-button.png" alt="Logout" className='h-5' />
+      <img src="src/assets/logout-icon.png" alt="Logout" className='h-5' />
     </button>
   );
 }

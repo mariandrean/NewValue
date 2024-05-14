@@ -1,6 +1,6 @@
 import React from 'react'
-import Linkedin from '../assets/icons8-linkedin.svg'
-import Instagram from '../assets/icons8-instagram.svg'
+import Linkedin from '../assets/linkedin-icon.svg'
+import Instagram from '../assets/instagram-icon.svg'
 
 const Footer = () => {
     return (
