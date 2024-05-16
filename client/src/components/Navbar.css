@@ -1,7 +1,21 @@
 .navbar{
+  position:fixed;
+  width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: transparent;
+  color: #000;
+}
+
+.navbar-scrolled {
+  background-color: #000000;
+  color:#fff;
+}
+
+.navbar-scrolled .menu-icon-line {
+  background-color: #fff;
 }
 
 .menu-icon-wrapper {
@@ -35,6 +49,38 @@
 .open .menu-icon-line:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
+
+ul {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 105px;
+  left: 40px;
+  width: 20%;
+  height: 100vw;
+  background-color: rgb(255, 255, 255);
+  font-size: 13px;
+  font-weight: bold;
+  line-height : 40px
+}
+
+.logos-social{
+  display: flex;
+  align-items: flex-start;
+  margin-left: -2px;
+}
+
+.projects{
+  font-weight: lighter;
+}
+
+.menu-separator{
+  margin-bottom: 13px;
+  background-color: black;
+  height: 1px;
+  width: 85%;
+}
+
 
 
 @media (min-width: 600px) {
