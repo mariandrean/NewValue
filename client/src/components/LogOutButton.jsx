@@ -1,14 +1,15 @@
+import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../context/UserContext';
 
 const LogOutButton = () => {
     const { setUser, setUserAuth, setUserRole } = useUserContext();
-
+    const navigate = useNavigate();
     const handleLogOut = () => {
         setUser(null);
         setUserAuth(null);
         setUserRole(null);
         localStorage.removeItem('token');
-        navi
+        navigate("/");
     }
 
   return (
