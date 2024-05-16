@@ -145,20 +145,20 @@ const TipTap = ({onEditorContentSave}) => {
         onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
         className={`${editor.isActive('heading', { level: 1 })? 'is-active' : ''} tiptap-h1`}
       >
-        h1
+        H1
       </button>
 
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
         className={editor.isActive('heading', { level: 2 }) ? 'is-active' : ''}
       >
-        h2
+        H2
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
         className={editor.isActive('heading', { level: 3 }) ? 'is-active' : ''}
       >
-        h3
+        H3
       </button>
 
       <button
@@ -191,7 +191,7 @@ const TipTap = ({onEditorContentSave}) => {
         onClick={() => editor.chain().focus().unsetLink().run()}
         disabled={!editor.isActive('link')}
       >
-        unsetLink
+        <img src='/src/assets/broken_link.png' width="20" height="20"/>
       </button>
         </div>
         <div className='border border-gray-500 border-t-0 min-h-[8rem]'>
