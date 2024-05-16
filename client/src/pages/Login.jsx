@@ -17,11 +17,14 @@ const Login = () => {
   const handleLogin = async (formData) => {
     try {
       const response = await login(formData);
-      localStorage.setItem('token', response.token);
-      setUserAuth(true);
-      setUser(response.user_name);
-      setUserRole(response.user_role)
-      navigate('/dashboard');
+      if (response) {
+        localStorage.setItem('token', response.token);
+        setUserAuth(true);
+        setUser(response.user_name);
+        setUserRole(response.user_role)
+        navigate('/dashboard');
+      }
+
     } catch (error) {
       console.error(error.response.data.error);
       setLoginError(error.response.data.error)
