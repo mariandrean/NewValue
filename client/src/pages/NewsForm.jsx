@@ -71,7 +71,7 @@ const NewsForm = ({ method }) => {
         <input className='date-input' {...register("date", { required: true })} id="date" type='date' />
         {errors.date && errors.date.type === "required" && <div className="text-red-500">La fecha es requerida</div>}
 
-        <TipTap onEditorContentSave={handleEditorContentSave} />
+        <TipTap onEditorContentSave={handleEditorContentSave} content={newsData.content} />
 
         <fieldset className='flex-column ml-2'>
           <legend>Categorías:</legend>

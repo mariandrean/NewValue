@@ -22,9 +22,7 @@ const extensions=[
     Dropcursor
 ]
 
-const content =``
-
-const TipTap = ({onEditorContentSave}) => {
+const TipTap = ({onEditorContentSave, content}) => {
     const editor = useEditor({
         extensions,
         content,
