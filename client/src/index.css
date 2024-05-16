@@ -29,3 +29,12 @@ h3{
     font-size: 1.17rem;
     font-weight: bold; 
 }
+
+.ProseMirror{
+  height: auto;
+  outline: none;
+}
+
+.ProseMirror p{
+  line-height: 1.5;
+}
