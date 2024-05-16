@@ -29,3 +29,20 @@ input{
     padding-top: 2rem;
     margin-bottom: 1rem;
 }
+
+@media (max-width: 768px) {
+    .news-form {
+         width: 95%;
+         padding: 1rem;
+     }
+
+     .image-input{
+        max-width:17.8rem;
+     }
+     
+    .buttons-container {
+         flex-direction: column;
+         gap: 1rem;
+         padding-top: 0;
+     }
+ }
