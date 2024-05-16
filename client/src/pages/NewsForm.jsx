@@ -24,7 +24,7 @@ const NewsForm = ({ method }) => {
       setValue("subtitle", newsData.subtitle);
       setValue("date", newsData.date);
       setValue("content", newsData.content);
-      setValue("category", newsData.category.split(","))
+      setValue("category", newsData.category?.split(","))
     }
   }, []);
 
@@ -56,17 +56,15 @@ const NewsForm = ({ method }) => {
   return (
     <div className='form-container'>
     <form onSubmit={handleSubmit(onSubmit)} className='news-form'>
-      <input className='title-input'{...register("title", { maxLength: { value: 255 }, required: true })} id="title" type="text" placeholder='Título' />
+      <input {...register("title", { maxLength: { value: 255 }, required: true })} id="title" type="text" placeholder='Título' />
       {errors.title && errors.title.type === "required" && <div className="text-red-500">El título es requerido</div>}
       {errors.title && errors.title.type === "maxLength" && <div className="text-red-500">El título debe tener menos de 255 caracteres</div>}
 
-      <input className='subtitle-input'{...register("subtitle", { maxLength: { value: 1024 } })} id="subtitle" type="text" placeholder='Subtítulo' />
+      <input {...register("subtitle", { maxLength: { value: 1024 } })} id="subtitle" type="text" placeholder='Subtítulo' />
       {errors.subtitle && errors.subtitle.type === "maxLength" && <div className="text-red-500">El subtítulo debe tener menos de 1024 caracteres</div>}
       
-      <fieldset className='image-fieldset'>
         <input className='image-input'{...register("image")} id='image' type="file" accept="image/*" onChange={handleImage} />
         <img src={newsImage} className="h-[200px]" />
-      </fieldset>
 
       <input className='date-input' {...register("date", { required: true })} id="date" type='date' />
       {errors.date && errors.date.type === "required" && <div className="text-red-500">La fecha es requerida</div>}
@@ -75,12 +73,12 @@ const NewsForm = ({ method }) => {
      
       <fieldset className='flex-column ml-2'>
         <legend>Categorías:</legend>
-        <label><input {...register("category")} type="checkbox" name="category" id="desarrolloProyectos" value="desarrolloProyectos" /> Desarrollo Proyectos </label>
-        <label><input {...register("category")} type="checkbox" name="category" id="oficinaTecnica" value="oficinaTecnica" /> Oficina Técnica </label>
-        <label><input {...register("category")} type="checkbox" name="category" id="aws" value="aws" /> AWS </label>
-        <label><input {...register("category")} type="checkbox" name="category" id="marketing" value="marketing" /> Marketing </label>
-        <label><input {...register("category")} type="checkbox" name="category" id="consultoria" value="consultoria" /> Consultoría </label>
-        <label><input {...register("category")} type="checkbox" name="category" id="voluntariado" value="voluntariado" /> Voluntariado </label>
+        <label><input {...register("category")} type="checkbox" name="category" id="desarrolloProyectos" value="Desarrollo Proyectos" /> Desarrollo Proyectos </label>
+        <label><input {...register("category")} type="checkbox" name="category" id="oficinaTecnica" value="Oficina Tecnica" /> Oficina Técnica </label>
+        <label><input {...register("category")} type="checkbox" name="category" id="aws" value="AWS" /> AWS </label>
+        <label><input {...register("category")} type="checkbox" name="category" id="marketing" value="Marketing" /> Marketing </label>
+        <label><input {...register("category")} type="checkbox" name="category" id="consultoria" value="Consultoria ESG" /> Consultoría ESG</label>
+        <label><input {...register("category")} type="checkbox" name="category" id="voluntariado" value="Voluntariado" /> Voluntariado </label>
       </fieldset>
 
       <div className='buttons-container'>

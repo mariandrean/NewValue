@@ -22,7 +22,7 @@ const LayoutPrivate = () => {
       <header>
         <DashboardMenu />
       </header>
-      <main className='p-5 lg:p-20'>
+      <main className='p-5 sm:px-10 pb-10 lg:px-20'>
         <Outlet />
       </main>
       <footer></footer>

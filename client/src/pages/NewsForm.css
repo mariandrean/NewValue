@@ -9,9 +9,9 @@
 .news-form {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
     width: 35rem;
-    height: 40rem;
-    justify-content: center;
     border: solid 0.120rem #1A3645;
     border-radius: 0.625rem;
     box-shadow: 0 0 0.625rem #02767e;
@@ -19,27 +19,8 @@
     text-decoration: none;
 }
 
-.date-input{
-    margin: 1rem 2rem 2rem 3rem;
-}
-
-.title-input{
-    margin: 1rem 2rem 1rem 3rem;
+input{
     border: solid 0.120rem #1A3645;
-}
-
-.subtitle-input{
-    margin: 1rem 2rem 1rem 3rem;
-    border: solid 0.120rem #1A3645
-}
-
-.image-input{
-    margin: 4rem 2rem 1rem 3rem;
-}
-
-.image-fieldset{
-    height:1rem;
-
 }
 
 .buttons-container{

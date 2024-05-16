@@ -5,7 +5,7 @@ import Underline from "@tiptap/extension-underline";
 
 const extensions=[
     StarterKit,
-    Underline
+    Underline,
 ]
 
 const content =``
@@ -14,6 +14,13 @@ const TipTap = ({onEditorContentSave}) => {
     const editor = useEditor({
         extensions,
         content,
+        editorProps: {
+          attributes: {
+            class: (
+              'prose max-w-none [&_ol]:list-decimal [&_ul]:list-disc'
+            ),
+          },
+        },
     })
 
     if (!editor) {
@@ -92,9 +99,29 @@ const TipTap = ({onEditorContentSave}) => {
       <button
         type="button"
         onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}
+        className={`${editor.isActive('heading', { level: 1 })? 'is-active' : ''} tiptap-h1`}
       >
         h1
+      </button>
+
+      <button
+        onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
+        className={editor.isActive('heading', { level: 2 }) ? 'is-active' : ''}
+      >
+        h2
+      </button>
+      <button
+        onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
+        className={editor.isActive('heading', { level: 3 }) ? 'is-active' : ''}
+      >
+        h3
+      </button>
+
+      <button
+        onClick={() => editor.chain().focus().toggleOrderedList().run()}
+        className={editor.isActive('orderedList') ? 'is-active' : ''}
+      >
+        OL
       </button>
       <button
         type="button"
