@@ -9,7 +9,7 @@ const headers = { 'Authorization': `Bearer ${token}` }
 export const getAllNews = async () => {
   try {
     const response = await axios.get(URLAPI_NEWS, { headers });
-    return response.data.sort((a, b) => (a.date > b.date) ? 1 : -1);
+    return response.data.sort((a, b) => (a.date < b.date) ? 1 : -1);
   } catch (error) {
     console.error('Error reading news:', error);
     throw error;
