@@ -1,6 +1,7 @@
 .navbar{
   position:fixed;
   width: 100vw;
+  height: 15vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,8 +55,8 @@ ul {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 105px;
-  left: 40px;
+  top: 84px;
+  padding-left: 30px;
   width: 20%;
   height: 100vw;
   background-color: rgb(255, 255, 255);
