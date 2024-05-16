@@ -3,12 +3,22 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
 import Dropcursor from '@tiptap/extension-dropcursor'
-import Image from '@tiptap/extension-image'
+import Image from '@tiptap/extension-image';
+import Link from '@tiptap/extension-link';
 
 const extensions=[
     StarterKit,
     Underline,
-    Image,
+    Link.configure({
+      linkOnPaste: false,
+      HTMLAttributes: {
+        class: 'link-style',
+      },
+    }),
+    Image.configure({
+      inline: true,
+      allowBase64: true,
+    }),
     Dropcursor
 ]
 
@@ -26,6 +36,28 @@ const TipTap = ({onEditorContentSave}) => {
           },
         },
     })
+
+    const setLink = useCallback(() => {
+      const previousUrl = editor.getAttributes('link').href
+      const url = window.prompt('URL', previousUrl)
+  
+      // cancelled
+      if (url === null) {
+        return
+      }
+  
+      // empty
+      if (url === '') {
+        editor.chain().focus().extendMarkRange('link').unsetLink()
+          .run()
+  
+        return
+      }
+  
+      // update link
+      editor.chain().focus().extendMarkRange('link').setLink({ href: url })
+        .run()
+    }, [editor])
 
     const addImage = useCallback(() => {
       const url = window.prompt('URL')
@@ -133,7 +165,7 @@ const TipTap = ({onEditorContentSave}) => {
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
         className={editor.isActive('orderedList') ? 'is-active' : ''}
       >
-        OL
+        <img src='/src/assets/numbered_ist.png' width="20" height="20"/>
       </button>
       <button 
         type="button"
@@ -147,10 +179,19 @@ const TipTap = ({onEditorContentSave}) => {
         }
         className={editor.isActive('bulletList') ? 'is-active' : ''}
       >
-        BulletList
+        <img src='/src/assets/bulleted_list.png' width="20" height="20"/>
       </button>
       <button type="button" onClick={addImage}>
-       Image
+      <img src='/src/assets/Image_file.png' width="20" height="20"/>
+      </button>
+      <button onClick={setLink} className={editor.isActive('link') ? 'is-active' : ''}>
+      <img src='/src/assets/add_link.png' width="20" height="20"/>
+      </button>
+      <button
+        onClick={() => editor.chain().focus().unsetLink().run()}
+        disabled={!editor.isActive('link')}
+      >
+        unsetLink
       </button>
         </div>
         <div className='border border-gray-500 border-t-0 min-h-[8rem]'>
