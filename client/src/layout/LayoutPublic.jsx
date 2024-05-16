@@ -9,13 +9,16 @@ const LayoutPublic = () => {
 
   return (
     <>
-      <header>
-        {token && <DashboardMenu />}
-        <Navbar />
-      </header>
-      <main className='p-5 sm:px-10 pb-10 lg:px-20'>
-        <Outlet />
+      <main>
+        <header>
+          {token && <DashboardMenu />}
+          <Navbar />
+        </header>
+        <section className='p-5 sm:px-10 pb-10 lg:px-20'>
+          <Outlet />
+        </section>
       </main>
+
       <Footer />
     </ >
   );

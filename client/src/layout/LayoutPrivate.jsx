@@ -19,11 +19,13 @@ const LayoutPrivate = () => {
 
   return (
     <>
-      <header>
-        <DashboardMenu />
-      </header>
-      <main className='p-5 sm:px-10 pb-10 lg:px-20'>
-        <Outlet />
+      <main>
+        <header>
+          <DashboardMenu />
+        </header>
+        <section className='p-5 sm:px-10 pb-10 lg:px-20 self'>
+          <Outlet />
+        </section>
       </main>
       <footer></footer>
     </>
