@@ -1,4 +1,4 @@
-import NewsModel from "../server-models/NewsModel";
+import NewsModel from "../models/NewsModel";
 import { Request, Response } from "express";
 
 export const getAllNews = async (request: Request, response: Response) => {

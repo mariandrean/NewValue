@@ -1,8 +1,8 @@
 import request from 'supertest';
 import { app, server } from '../app';
 import connection_db from '../database/connection_db';
-import UsersModel from '../server-models/UserModel';
-import NewsModel from '../server-models/NewsModel';
+import UsersModel from '../models/UserModel';
+import NewsModel from '../models/NewsModel';
 import { testUserAdmin, testNew, updatedTestNew } from './helpers/test-helpers';
 import { createToken } from '../utils/jwt';
 
