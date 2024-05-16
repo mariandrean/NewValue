@@ -33,7 +33,7 @@ const NewsDetails = () => {
             </div>
           }
 
-          <Share description={news.title} imageUrl={news.image} />
+          <Share description={news.title} url={window.location.href} />
 
 
         </div>
