@@ -18,8 +18,8 @@ const Home = () => {
       {loadingData && <h3>Cargando</h3>}
       <section className='grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 place-content-center' >
         {news.map((newsItem, index) => (
-          <article className={(index == 0) ? 'col-span-2 row-span-2' : ''}>
-            <Card news={newsItem} index={index} key={index} />
+          <article key={index} className={(index == 0) ? 'col-span-2 row-span-2' : ''}>
+            <Card news={newsItem} index={index} />
           </article >
         ))}
       </section>
