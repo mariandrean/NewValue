@@ -12,25 +12,25 @@ const NewsForm = ({ method }) => {
   const navigate = useNavigate();
   const newsData = useLoaderData();
   const [newsImage, setNewsImage] = useState(() => newsData ? newsData.image : "");
-  const [newsContent, setNewsContent] = useState('');
-  const handleEditorContentSave = (html) => {
-    setNewsContent(html);
-    console.log('Manejando contenido del editor:', html)
-  }
+  const [newsContent, setNewsContent] = useState();
 
   useEffect(() => {
     if (newsData) {
       setValue("title", newsData.title);
       setValue("subtitle", newsData.subtitle);
       setValue("date", newsData.date);
-      setValue("content", newsData.content);
-      setValue("category", newsData.category?.split(","))
+      setValue("category", newsData.category?.split(","));
     }
-  }, []);
+    console.log(newsContent)
+  }, [newsData]);
 
   const handleImage = async (e) => {
     const response = await uploadImage(e);
     setNewsImage(response);
+  }
+
+  const handleEditorContentSave = (html) => {
+    setNewsContent(html);
   }
 
   const onSubmit = async (formData) => {
@@ -71,7 +71,7 @@ const NewsForm = ({ method }) => {
         <input className='date-input' {...register("date", { required: true })} id="date" type='date' />
         {errors.date && errors.date.type === "required" && <div className="text-red-500">La fecha es requerida</div>}
 
-        <TipTap onEditorContentSave={handleEditorContentSave} content={newsData.content} />
+        <TipTap onEditorContentSave={handleEditorContentSave} content={newsData?.content} />
 
         <fieldset className='flex-column ml-2'>
           <legend>Categorías:</legend>
@@ -85,7 +85,7 @@ const NewsForm = ({ method }) => {
 
         <div className='buttons-container'>
           <button type="submit" className="w-[150px] self-center bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out">{method === "create" ? "Publicar" : "Guardar"}</button>
-          <button onClick={() => navigate('/dashboard')} className="w-[150px] self-center bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out">Descartar</button>
+          <button type='button' onClick={() => navigate('/dashboard')} className="w-[150px] self-center bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out">Descartar</button>
         </div>
 
       </form>
