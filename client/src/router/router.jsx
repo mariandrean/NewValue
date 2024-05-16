@@ -8,7 +8,6 @@ import Register from '../pages/Register.jsx';
 import NewsForm from '../pages/NewsForm.jsx';
 import Dashboard from '../pages/Dashboard.jsx';
 import { getAllNews, getNewsById } from '../services/newsServices.js';
-import RegisterForm from '../components/RegisterForm.jsx';
 import ErrorBoundary from '../components/ErrorBoundary.jsx';
 
 const router = createBrowserRouter([

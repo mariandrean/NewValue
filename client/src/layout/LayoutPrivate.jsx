@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
-import Navbar from "../components/Navbar.jsx";
-import Footer from "../components/footer/Footer";
+import DashboardMenu from "../components/DashboardMenu";
 
 const LayoutPrivate = () => {
   const token = localStorage.getItem("token");
@@ -16,13 +15,19 @@ const LayoutPrivate = () => {
     else if (token && userAuth) {
       navigate("/dashboard");
     }
-  }, [token, navigate, userAuth]);
+  }, [token, userAuth]);
 
   return (
     <>
-    <Navbar />
-    <Outlet />
-    <Footer />
+      <main>
+        <header>
+          <DashboardMenu />
+        </header>
+        <section className='p-5 sm:px-10 pb-10 lg:px-20 self'>
+          <Outlet />
+        </section>
+      </main>
+      <footer></footer>
     </>
   )
 };

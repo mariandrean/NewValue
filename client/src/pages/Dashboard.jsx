@@ -46,7 +46,7 @@ const Dashboard = () => {
 
                         <div className="flex justify-between items-center mb-4">
                             <div>
-                                <h4 className="text-xl">Noticias publicadas</h4>
+                                <h4 className="text-xl font-bold">Noticias publicadas</h4>
                                 {loadingData && <h3>Cargando</h3>}
                             </div>
                             <button type="button" onClick={() => navigate('/dashboard/create')} className="bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out ">
@@ -55,16 +55,15 @@ const Dashboard = () => {
                         </div>
 
                         {news.map((newsItem, index) => (
-                            <div key={index} className="py-8 flex flex-wrap md:flex-nowrap">
+                            <div key={index} className="py-8 flex flex-wrap md:flex-nowrap flex justify-center items-center">
                                 <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-                                    <img src={newsItem.image} className='h-full w-30 object-cover rounded-lg mb-4 md:mb-0 mr-4' />
+                                    <img src={newsItem.image} className='h-[130px] w-25 object-cover rounded-lg mb-4 md:mb-0 mr-4' />
                                 </div>
                                 <div className="md:flex-grow h-50">
                                     <Link to={`/news/${newsItem.id}`} className='flex'>
                                         <div className='flex flex-col justify-around'>
                                             <span className="mt-1 text-gray-500 text-sm">{newsItem.date}</span>
                                             <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">{newsItem.title}</h2>
-                                            <p className="leading-relaxed text-lg mb-4">{newsItem.content.substring(0, 100)}...</p>
                                         </div>
                                     </Link>
                                     <div className='flex gap-2'>

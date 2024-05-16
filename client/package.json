@@ -12,9 +12,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tiptap/extension-bullet-list": "^2.3.1",
+    "@ckeditor/ckeditor5-build-classic": "^41.3.1",
+    "@ckeditor/ckeditor5-react": "^6.3.0",
+    "@tiptap/extension-bullet-list": "^2.3.2",
+    "@tiptap/extension-image": "^2.3.2",
     "@tiptap/extension-link": "^2.3.1",
-    "@tiptap/extension-list-item": "^2.3.1",
+    "@tiptap/extension-list-item": "^2.3.2",
     "@tiptap/extension-underline": "^2.3.1",
     "@tiptap/pm": "^2.3.1",
     "@tiptap/react": "^2.3.1",
@@ -29,6 +32,7 @@
     "sweetalert2": "^11.10.8"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.13",
     "@testing-library/dom": "^10.0.0",
     "@testing-library/react": "^15.0.2",
     "@types/react": "^18.2.66",

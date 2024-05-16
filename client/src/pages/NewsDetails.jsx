@@ -7,12 +7,12 @@ import Share from '../components/Share';
 const NewsDetails = () => {
   const [loadingData, setLoadingData] = useState(true);
   const news = useLoaderData();
-  const categories = news.category.split(",");
+  console.log(news.categories)
+  news.categories = news.category?.split(",");
+  
   useEffect(() => {
     if (news) {
       setLoadingData(false)
-
-      console.log(categories)
     }
   }, [loadingData]);
 
@@ -27,10 +27,11 @@ const NewsDetails = () => {
           <h3 className='font-semibold text-lg'>{news.title}</h3>
           <h4 className='mb-5'>{news.subtitle}</h4>
           <p>{parse(news.content)}</p>
-          <div className='flex gap-5 my-5'>
-            {categories.map((category, index) => <a key={index} className="cursor-pointer self-center text-xs border-2 rounded py-1 px-2 hover:bg-gray-200 transition duration-300 ease-in-out">{category}</a>)}
-          </div>
-          <a href={"linkedin.com/text="+news.title}></a>
+          {
+            news.categories[0] && <div className='flex gap-5 my-5'>
+              {news.categories.map((category, index) => <a key={index} className="cursor-pointer self-center text-xs border-2 rounded py-1 px-2 hover:bg-gray-200 transition duration-300 ease-in-out">{category}</a>)}
+            </div>
+          }
 
           <Share description={news.title} imageUrl={news.image} />
 
