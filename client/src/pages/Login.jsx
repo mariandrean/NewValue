@@ -30,10 +30,10 @@ const Login = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center min-h-screen min-w-[500px] bg-white-100">
-        <h3 className="text-4xl text-gray-900 mb-10 text-center font-semibold">Iniciar sesión</h3>
-        <h4 className="text-1xl text-gray-900 mb-10 text-center">(Solo personal del sitio)</h4>
-        <form className="min-w-[300px] gap-6 flex flex-col justify-center" onSubmit={handleSubmit(handleLogin)}>
+      <div className="flex flex-col items-center justify-center gap-5 mb-10">
+        <h3 className="text-3xl text-center font-semibold">Iniciar sesión</h3>
+        <h4 className="text-1xl text-center">(Sólo personal del sitio)</h4>
+        <form className="w-[300px] mt-3 gap-5 flex flex-col justify-center" onSubmit={handleSubmit(handleLogin)}>
 
           <input {...register("email", { required: true })} type="email" id="email" placeholder="Email" required className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" />
 
