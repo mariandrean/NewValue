@@ -183,7 +183,7 @@ const TipTap = ({onEditorContentSave, content}) => {
       <img src='/src/assets/Image_file.png' width="20" height="20"/>
       </button>
       <button onClick={setLink} className={editor.isActive('link') ? 'is-active' : ''}>
-      <img src='/src/assets/add_link.png' width="20" height="20"/>
+      <img src='/src/assets/link.png' width="20" height="20"/>
       </button>
       <button
         onClick={() => editor.chain().focus().unsetLink().run()}
