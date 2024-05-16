@@ -50,7 +50,7 @@ const Dashboard = () => {
                                 {loadingData && <h3>Cargando</h3>}
                             </div>
                             <button type="button" onClick={() => navigate('/dashboard/create')} className="bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out ">
-                                ➕ Nueva Noticia
+                                 Nueva Noticia
                             </button>
                         </div>
 
