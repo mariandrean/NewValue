@@ -7,8 +7,11 @@
 }
 
 @layer base {
-  ul, ol {
+  ul {
     list-style: circle;
+  }
+  ol {
+    list-style: decimal;
   }
 }
 

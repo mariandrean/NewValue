@@ -1,12 +1,15 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
-import { uploadImage } from '../helpers/cloudinary';
+import Dropcursor from '@tiptap/extension-dropcursor'
+import Image from '@tiptap/extension-image'
 
 const extensions=[
     StarterKit,
     Underline,
+    Image,
+    Dropcursor
 ]
 
 const content =``
@@ -24,6 +27,14 @@ const TipTap = ({onEditorContentSave}) => {
         },
     })
 
+    const addImage = useCallback(() => {
+      const url = window.prompt('URL')
+  
+      if (url) {
+        editor.chain().focus().setImage({ src: url }).run()
+      }
+    }, [editor])
+  
 
     if (!editor) {
         return null
@@ -34,14 +45,6 @@ const TipTap = ({onEditorContentSave}) => {
       console.log('content',html)
       onEditorContentSave(html)
     }
-
-    const handleUploadImage = async (event) => {
-      const file = event.target.files[0];
-      if (!file) return;
-    
-      const imageUrl = await uploadImage(event);
-      editor.chain().focus().setImage({ src: imageUrl }).run();
-    };
 
 
   return (
@@ -146,12 +149,12 @@ const TipTap = ({onEditorContentSave}) => {
       >
         BulletList
       </button>
-      <button type="button" onChange={handleUploadImage}>
-       Subir Imagen
+      <button type="button" onClick={addImage}>
+       Image
       </button>
         </div>
         <div className='border border-gray-500 border-t-0 min-h-[8rem]'>
-        <EditorContent editor={editor} className='max-h-96 overflow-y-scroll'/>
+        <EditorContent editor={editor} className=''/>
         </div>
         <button type="button" onClick={handleEditorContent}>Guardar</button>
         
