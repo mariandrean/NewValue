@@ -3,7 +3,7 @@ import LogOutButton from "../components/LogOutButton";
 
 function DashboardMenu() {
   return (
-    <div className="flex justify-between items-center sm:text-lg bg-black text-white py-3 px-5">
+    <div className="w-screen flex justify-between items-center sm:text-lg bg-black text-white py-3 px-5">
       <div className="flex gap-3">
         <a href="/dashboard">Panel de Control</a>
         |

@@ -24,9 +24,9 @@ const Navbar = () => {
         setScrolled(false);
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -55,25 +55,25 @@ const Navbar = () => {
       </div>
 
       {/* Menú para escritorio y móvil */}
-      <ul className={`sm:flex ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
+      <ul className={`sm:flex ${isMobileMenuOpen ? 'block h-screen' : 'hidden'}`}>
         <li>
           <NavLink to="https://newvalue.es/index" className="menu-link" onClick={() => setMobileMenuOpen(false)}>INICIO</NavLink>
         </li>
-          <li>
+        <li>
           <NavLink to="https://newvalue.es/desarrollo-proyectos" className="menu-link" onClick={() => setMobileMenuOpen(false)}>DESARROLLO DE PROYECTOS</NavLink>
           <li className="projects">
-          <li>
-          <NavLink to="https://newvalue.es/aws-getit" className="menu-link" onClick={() => setMobileMenuOpen(false)}>AWS GetIT</NavLink>
-          </li>
-          <li>
-          <NavLink to="https://newvalue.es/teoria-cambio" className="menu-link" onClick={() => setMobileMenuOpen(false)}>Teoría del Cambio</NavLink>
-          </li>
-          <li>
-          <NavLink to="https://newvalue.es/marketing-impacto" className="menu-link" onClick={() => setMobileMenuOpen(false)}>Marketing de Impacto</NavLink>
-          </li>
-          <li>
-          <NavLink to="https://newvalue.es/voluntariado-corporativo" className="menu-link" onClick={() => setMobileMenuOpen(false)}>Voluntariado Corporativo</NavLink>
-          </li>
+            <li>
+              <NavLink to="https://newvalue.es/aws-getit" className="menu-link" onClick={() => setMobileMenuOpen(false)}>AWS GetIT</NavLink>
+            </li>
+            <li>
+              <NavLink to="https://newvalue.es/teoria-cambio" className="menu-link" onClick={() => setMobileMenuOpen(false)}>Teoría del Cambio</NavLink>
+            </li>
+            <li>
+              <NavLink to="https://newvalue.es/marketing-impacto" className="menu-link" onClick={() => setMobileMenuOpen(false)}>Marketing de Impacto</NavLink>
+            </li>
+            <li>
+              <NavLink to="https://newvalue.es/voluntariado-corporativo" className="menu-link" onClick={() => setMobileMenuOpen(false)}>Voluntariado Corporativo</NavLink>
+            </li>
           </li>
         </li>
         <li>
@@ -94,16 +94,16 @@ const Navbar = () => {
         </li>
         <hr className="menu-separator" />
         <li className="logos-social">
-        <a href="https://www.linkedin.com/company/new-value-generation/">
-                    <img src={Linkedin} alt="icon-linkedin" className="h-7" /> </a>
-                <a href="https://www.instagram.com/newvaluegeneration/">
-                    <img src={Instagram} alt="icon-instagram" className="h-7" /> </a>
+          <a href="https://www.linkedin.com/company/new-value-generation/">
+            <img src={Linkedin} alt="icon-linkedin" className="h-7" /> </a>
+          <a href="https://www.instagram.com/newvaluegeneration/">
+            <img src={Instagram} alt="icon-instagram" className="h-7" /> </a>
         </li>
       </ul>
       <div className="button-contact">
-              <NavLink to="https://newvalue.es/contactanos">
-                <button className="mr-10 text-black bg-white border rounded-lg font-semibold py-1 px-5 hover:bg-teal-500 hover:text-white transition duration-300 ease-in-out">Contacto</button>
-              </NavLink>
+        <NavLink to="https://newvalue.es/contactanos">
+          <button className="mr-10 text-black bg-white border rounded-lg font-semibold py-1 px-5 hover:bg-teal-500 hover:text-white transition duration-300 ease-in-out">Contacto</button>
+        </NavLink>
       </div>
 
     </nav>

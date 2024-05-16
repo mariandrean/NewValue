@@ -20,7 +20,7 @@ const LayoutPrivate = () => {
   return (
     <>
       <main>
-        <header>
+        <header className='fixed z-10'>
           <DashboardMenu />
         </header>
         <section className='p-5 sm:px-10 pb-10 lg:px-20 self'>

@@ -10,11 +10,11 @@ const LayoutPublic = () => {
   return (
     <>
       <main>
-        <header>
+        <header className='fixed z-10'>
           {token && <DashboardMenu />}
           <Navbar />
         </header>
-        <section className='p-5 sm:px-10 pb-10 lg:px-20'>
+        <section className='p-5 sm:px-10 pb-10 lg:px-20 mt-[100px]'>
           <Outlet />
         </section>
       </main>
