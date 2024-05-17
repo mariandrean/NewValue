@@ -2,11 +2,17 @@ import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { deleteNews } from '../services/newsServices';
 import Swal from 'sweetalert2';
+import { useUserContext } from '../context/UserContext.jsx';
 
 const Dashboard = () => {
     const navigate = useNavigate();
     const [loadingData, setLoadingData] = useState(true);
     const news = useLoaderData();
+    const { user } = useUserContext();
+
+    const handleRegister = () => {
+        navigate('/dashboard/register');
+    };
 
     useEffect(() => {
         if (news) {
@@ -30,10 +36,10 @@ const Dashboard = () => {
                     showConfirmButton: true,
                     timer: 2000,
                 });
-                navigate("/dashboard")
             }
         });
     }
+    console.log('User:', user);
 
     return (
         <>
@@ -49,9 +55,17 @@ const Dashboard = () => {
                                 <h4 className="text-xl font-bold">Noticias publicadas</h4>
                                 {loadingData && <h3>Cargando</h3>}
                             </div>
-                            <button type="button" onClick={() => navigate('/dashboard/create')} className="bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out ">
+                            <button type="button" onClick={() => navigate('/dashboard/create')} className="bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out">
                                 ➕ Nueva Noticia
                             </button>
+                            {user && user.role === 'admin' && (
+                                <div>
+                                    <button type="button" onClick={handleRegister} className="bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out">
+                                        Registrar Usuario
+                                    </button>
+                                </div>
+                            )}
+
                         </div>
 
                         {news.map((newsItem, index) => (
@@ -79,6 +93,7 @@ const Dashboard = () => {
 
         </>
     );
+
 };
 export default Dashboard;
 
