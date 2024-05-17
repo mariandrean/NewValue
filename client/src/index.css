@@ -3,33 +3,33 @@
 @tailwind utilities;
 
 * {
-    font-family: 'Poppins', 'Open Sans';
-}
-@layer base {
-  ul {
-    list-style: circle;
-  }
-  ol {
-    list-style: decimal;
-  }
+  font-family: 'Poppins', 'Open Sans';
 }
 
-h1{
-    font-size: 2rem;
-    font-weight: bold;
+ul {
+  list-style: circle;
 }
 
-h2{
-    font-size: 1.5rem;
-    font-weight: bold;
+ol {
+  list-style: decimal;
 }
 
-h3{
-    font-size: 1.17rem;
-    font-weight: bold; 
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-.ProseMirror{
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.17rem;
+  font-weight: bold;
+}
+
+.ProseMirror {
   height: auto;
   outline: none;
 }
@@ -39,5 +39,5 @@ h3{
 }
 
 .link-styles{
-  color: blue!important;
+  color: blue;
 }
