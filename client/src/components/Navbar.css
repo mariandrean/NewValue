@@ -16,7 +16,6 @@
 
 .navbar-scrolled .menu-icon-line {
   background-color: #fff;
-  fill: white;
 }
 
 .menu-icon-wrapper {
@@ -63,7 +62,8 @@ ul {
   background-color: rgb(255, 255, 255);
   font-size: 13px;
   font-weight: bold;
-  line-height : 40px;
+  line-height : 36px;
+  z-index: 1;
 }
 
 .logos-social{
@@ -96,8 +96,7 @@ ul {
   height: 25px;
   margin-top:-25%;
   margin-bottom: 5%;
-  margin-left: 15%;
-  z-index: 1;
+  margin-left: 17%;
 }
 
 .overlay {
@@ -115,6 +114,9 @@ ul {
   display: block;
 }
 
+.navbar-scrolled .logo-white {
+  fill: white;
+}
 
 
 @media (min-width: 600px) {

@@ -62,7 +62,7 @@ const Navbar = () => {
           <img
             alt="logo"
             src="/src/assets/newvaluelogogris-titulo.svg"
-            className="w-100 h-35"
+            className="w-145 h-35"
           />
         </NavLink>
       <hr className="menu-separator" />
