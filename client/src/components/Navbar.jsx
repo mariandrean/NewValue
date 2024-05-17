@@ -5,6 +5,7 @@ import { useUserContext } from "../context/UserContext.jsx";
 import Linkedin from '../assets/linkedin-black-icon.svg'
 import Instagram from '../assets/instagram-black-icon.svg'
 import "./Navbar.css";
+import LogoGris from '../assets/newvaluelogogris-titulo.svg'
 
 const Navbar = () => {
   const { userAuth } = useUserContext();
@@ -48,7 +49,7 @@ const Navbar = () => {
         <NavLink to="/">
           <img
             alt="logo"
-            src="/src/assets/newvaluelogogris-titulo.svg"
+            src={LogoGris}
             className="w-145 h-35"
           />
         </NavLink>

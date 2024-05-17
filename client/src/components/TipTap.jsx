@@ -5,6 +5,11 @@ import Underline from "@tiptap/extension-underline";
 import Dropcursor from '@tiptap/extension-dropcursor'
 import Image from '@tiptap/extension-image';
 import Link from '@tiptap/extension-link';
+import BrokenLinkIcon from '../assets/tiptap-icons/broken_link.png'
+import LinkIcon from '../assets/tiptap-icons/link.png'
+import FileIcon from '../assets/tiptap-icons/Image_file.png'
+import BulletedListIcon from '../assets/tiptap-icons/bulleted_list.png' 
+import NumberedListIcon from '../assets/tiptap-icons/numbered_list.png' 
 
 const extensions=[
     StarterKit,
@@ -163,7 +168,7 @@ const TipTap = ({onEditorContentSave, content}) => {
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
         className={editor.isActive('orderedList') ? 'is-active' : ''}
       >
-        <img src='/src/assets/numbered_ist.png' width="20" height="20"/>
+        <img src={NumberedListIcon} width="20" height="20"/>
       </button>
       <button 
         type="button"
@@ -177,19 +182,19 @@ const TipTap = ({onEditorContentSave, content}) => {
         }
         className={editor.isActive('bulletList') ? 'is-active' : ''}
       >
-        <img src='/src/assets/bulleted_list.png' width="20" height="20"/>
+        <img src={BulletedListIcon} width="20" height="20"/>
       </button>
       <button type="button" onClick={addImage}>
-      <img src='/src/assets/Image_file.png' width="20" height="20"/>
+      <img src={FileIcon} width="20" height="20"/>
       </button>
       <button onClick={setLink} className={editor.isActive('link') ? 'is-active' : ''}>
-      <img src='/src/assets/link.png' width="20" height="20"/>
+      <img src={LinkIcon} width="20" height="20"/>
       </button>
       <button
         onClick={() => editor.chain().focus().unsetLink().run()}
         disabled={!editor.isActive('link')}
       >
-        <img src='/src/assets/broken_link.png' width="20" height="20"/>
+        <img src={BrokenLinkIcon} width="20" height="20"/>
       </button>
         </div>
         <div className='border border-gray-500 border-t-0 min-h-[8rem]'>
