@@ -2,31 +2,26 @@ import axios from "axios";
 import { API_URL } from "../../config";
 
 const URLAPI_NEWS = `${API_URL}/news/`;
-
 const token = localStorage.getItem('token');
 const headers = { 'Authorization': `Bearer ${token}` }
 
 export const getAllNews = async () => {
-  if (headers) {
-    try {
-      const response = await axios.get(URLAPI_NEWS, { headers });
-      return response.data.sort((a, b) => (a.date < b.date) ? 1 : -1);
-    } catch (error) {
-      console.error('Error reading news:', error);
-      throw error;
-    }
+  try {
+    const response = await axios.get(URLAPI_NEWS);
+    return response.data.sort((a, b) => (a.date < b.date) ? 1 : -1);
+  } catch (error) {
+    console.error('Error reading news:', error);
+    throw error;
   }
 };
 
 export const getNewsById = async (id) => {
-  if (headers) {
-    try {
-      const response = await axios.get(`${URLAPI_NEWS + id}`, { headers });
-      return response.data;
-    } catch (error) {
-      console.error(`Error reading news`, error);
-      throw error;
-    }
+  try {
+    const response = await axios.get(URLAPI_NEWS + id);
+    return response.data;
+  } catch (error) {
+    console.error(`Error reading news`, error);
+    throw error;
   }
 };
 
