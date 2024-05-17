@@ -1,0 +1,100 @@
+.navbar{
+  position:fixed;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: transparent;
+  color: #000;
+}
+
+.navbar-scrolled {
+  background-color: #000000;
+}
+
+.navbar-scrolled .menu-icon-line {
+  background-color: #fff;
+}
+
+.menu-icon-wrapper {
+  display: block;
+  cursor: pointer;
+  padding: 20px;
+}
+
+.menu-icon {
+  width: 25px;
+  height: 20px;
+  position: relative;
+}
+
+.menu-icon-line {
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  margin: 5px 0;
+  transition: transform 0.3s ease;
+}
+
+.open .menu-icon-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.open .menu-icon-line:nth-child(2) {
+  opacity: 0;
+}
+
+.open .menu-icon-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 65px;
+  padding-top: 5px;
+  padding-left: 30px;
+  width: 15rem;
+  height: 100vw;
+  background-color: rgb(255, 255, 255);
+  font-size: 13px;
+  font-weight: bold;
+  line-height : 40px
+}
+
+.logos-social{
+  display: flex;
+  align-items: flex-start;
+  margin-left: -2px;
+}
+
+.projects{
+  font-weight: lighter;
+}
+
+.menu-separator{
+  margin-bottom: 13px;
+  background-color: black;
+  height: 1px;
+  width: 85%;
+}
+
+
+
+@media (min-width: 600px) {
+
+
+  .sm:flex {
+    display: flex !important; /* Asegura que el menú esté visible en versión de escritorio */
+  }
+
+  .hidden {
+    display: none !important; /* Asegura que el menú desplegable esté oculto en versión de escritorio */
+  }
+
+  .menu-link {
+    margin-right: 20px;
+  }
+}

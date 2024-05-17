@@ -6,8 +6,11 @@
     font-family: 'Poppins', 'Open Sans';
 }
 @layer base {
-  ul, ol {
+  ul {
     list-style: circle;
+  }
+  ol {
+    list-style: decimal;
   }
 }
 
@@ -24,4 +27,17 @@ h2{
 h3{
     font-size: 1.17rem;
     font-weight: bold; 
+}
+
+.ProseMirror{
+  height: auto;
+  outline: none;
+}
+
+.ProseMirror p{
+  line-height: 1.5;
+}
+
+.link-styles{
+  color: blue!important;
 }
