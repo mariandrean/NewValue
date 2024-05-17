@@ -340,7 +340,7 @@ Click on this link to obtain our Postman information about the CRUD methods.
           <img alt="Raquel" width="110" src="https://github.com/mariandrean/NewValue-Blog/blob/dev/client/src/assets/readme-img/foto-raquel-readme-crop.png"/>
         </a>
         <a href="https://github.com/RaquelLores" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Raquel Lores</br><small>Front-End | Tester(Front)</small></h4>
+          <h4 style="margin-top: 1rem;">Raquel Lores</br><small>Developer</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
         <a href="https://github.com/RaquelLores" target="_blank">
@@ -359,7 +359,7 @@ Click on this link to obtain our Postman information about the CRUD methods.
           <img alt="Lucero" width="110" src="https://github.com/mariandrean/NewValue-Blog/blob/dev/client/src/assets/readme-img/foto-lucero-readme-crop%20-%20Copy.png"/>
         </a>
         <a href="https://github.com/LuHeRiver" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Lucero Riveros</br><small>Front-End</small></h4>
+          <h4 style="margin-top: 1rem;">Lucero Riveros</br><small>Developer</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
         <a href="https://github.com/LuHeRiver" target="_blank">
