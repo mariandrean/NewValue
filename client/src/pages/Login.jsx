@@ -19,6 +19,7 @@ const Login = () => {
       const response = await login(formData);
       localStorage.setItem('token', response.token);
       setUserAuth(true);
+      console.log(localStorage)
       setUser(response.user_name);
       setUserRole(response.user_role)
       navigate('/dashboard');

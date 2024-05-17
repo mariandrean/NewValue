@@ -8,7 +8,7 @@ const Dashboard = () => {
     const navigate = useNavigate();
     const [loadingData, setLoadingData] = useState(true);
     const news = useLoaderData();
-    const { user } = useUserContext();
+    const { user, userRole } = useUserContext();
 
     const handleRegister = () => {
         navigate('/dashboard/register');
@@ -39,7 +39,7 @@ const Dashboard = () => {
             }
         });
     }
-    console.log('User:', user);
+    console.log('userRole:', userRole);
 
     return (
         <>
@@ -58,7 +58,7 @@ const Dashboard = () => {
                             <button type="button" onClick={() => navigate('/dashboard/create')} className="bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out">
                                 ➕ Nueva Noticia
                             </button>
-                            {user && user.role === 'admin' && (
+                            {user && userRole === 'admin' && (
                                 <div>
                                     <button type="button" onClick={handleRegister} className="bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out">
                                         Registrar Usuario
