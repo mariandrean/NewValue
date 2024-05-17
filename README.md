@@ -287,7 +287,7 @@ Click on this link to obtain our Postman information about the CRUD methods.
         </a>
         <div style='display: flex; flex-direction: column'>
         <a href="https://github.com/mariandrean" target="_blank">
-          <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+          <img style='width:8rem' src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/>
         </a>
         <a href="https://www.linkedin.com/in/mariandrean/" target="_blank">
           <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
@@ -306,7 +306,7 @@ Click on this link to obtain our Postman information about the CRUD methods.
         </a>
         <div style='display: flex; flex-direction: column'>
         <a href="https://github.com/krisneiras" target="_blank">
-          <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+          <img style='width:8rem' src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/>
         </a>
         <a href="https://www.linkedin.com/in/krisneiras/" target="_blank">
           <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
@@ -325,7 +325,7 @@ Click on this link to obtain our Postman information about the CRUD methods.
         </a>
         <div style='display: flex; flex-direction: column'>
         <a href="https://github.com/leiteway" target="_blank">
-          <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+          <img style='width:8rem' src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/>
         </a>
         <a href="https://www.linkedin.com/in/leite-dev/" target="_blank">
           <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
@@ -344,7 +344,7 @@ Click on this link to obtain our Postman information about the CRUD methods.
         </a>
         <div style='display: flex; flex-direction: column'>
         <a href="https://github.com/RaquelLores" target="_blank">
-          <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+          <img style='width:8rem' src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/>
         </a>
         <a href="https://www.linkedin.com/in/raquellores/" target="_blank">
           <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
@@ -363,7 +363,7 @@ Click on this link to obtain our Postman information about the CRUD methods.
         </a>
         <div style='display: flex; flex-direction: column'>
         <a href="https://github.com/LuHeRiver" target="_blank">
-          <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+          <img style='width:8rem' src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/>
         </a>
         <a href="https://www.linkedin.com/in/lucero-hernandez-desarrollo-web-fullstack-js-marketing/" target="_blank">
           <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
