@@ -1,3 +1,4 @@
+***
 </br>
 
 <div align="left">
@@ -6,11 +7,11 @@
   </a>
 
   <a href="https://factoriaf5.org/aprende/" target="_blank">
-  <img height="80" align="right" src="https://github.com/mariandrean/NewValue-Blog/blob/dev/client/src/assets/readme-img/logo-factoriaf5.png" alt="Factoria F5 Logo">
+  <img height="90" align="right" src="https://github.com/mariandrean/NewValue-Blog/blob/dev/client/src/assets/readme-img/logo-factoriaf5.png" alt="Factoria F5 Logo">
   </a> 
   </br>
   </br>
-  <h3 align="center">Welcome to New Value Blog</h3>
+  <h2 align="center">Welcome to New Value Blog</h2>
 
 <p>
 <strong>This is the final project of our web development bootcamp, created in collaboration with New Value.</strong>
@@ -20,21 +21,8 @@ and visually appealing platform using the latest technologies and best practices
 </p>
 </div>
 
-<!-- INDEX -->
-# Index
-
-+ [Description](#description)
-+ [Project Configuration](#project-configuration)
-+ [Postman Doc](#postman)
-+ [Tests](#tests)
-+ [Project Structure ](#project-structure)
-+ [Technologies](#technologies)
-+ [Authors](#authors)
-+ [Next steps](#next-steps)
-+ [Contributions](#contributions)
-
-<!-- DESCRIPTION -->
-# Description 
+<!-- ABOUT -->
+<h2 align="center"> <img height="20" src="https://github.com/mariandrean/NewValue-Blog/blob/main/client/public/new-value.png"> About </h2>
 
 This project features two roles: admin and news moderators. While everyone can access the blog and read the news, moderators have the ability to create, edit, and delete articles.
 
@@ -47,7 +35,7 @@ User sessions are securely encrypted with usernames and passwords to ensure data
 <!-- PROJECT CONFIG -->
 <details open>
   
-<summary><h1> Project Configuration⚙ </h1></summary>
+<summary><h2> Project Configuration⚙ </h2></summary>
 
 ### Clone the Repository
  ```bash
@@ -62,7 +50,7 @@ cd NewValueNews
 
 <details>
   
-<summary> <h2>For the Frontend, you have to follow the next steps: </h2></summary>
+<summary> <h3>For the Frontend, you have to follow the next steps: </h3></summary>
 
 ##### First enter into the folder
 ```bash
@@ -84,7 +72,7 @@ npm run dev
 
 <details>
   
-<summary> <h2>For the Backend, you have to follow the next steps: </h2></summary>
+<summary> <h3>For the Backend, you have to follow the next steps: </h3></summary>
 
 ### .env:
 * First create the file __.env__ located in the folder _server_.
@@ -116,7 +104,7 @@ npm i
 <!-- TEST -->
 <details open>
   
-<summary><h1> Test🧪</h1></summary>
+<summary><h2> Test🧪</h2></summary>
 
 ### For this part you have to follow the next steps:
 ##### First enter into the folder
@@ -140,12 +128,14 @@ npm run test
 
 ***
 
-<!-- POSTMAN -->
-# Postman 
+<!-- POSTMAN --> 
+<details open>
+<summary><h2> Postman <img height="25" alt="POSTMAN" src="https://github.com/devicons/devicon/blob/master/icons/postman/postman-original.svg"></h2></summary>
 Click on this link to obtain our Postman information about the CRUD methods.
-You can view, add, edit, and delete the articles of our website on it.
+</br>You can view, add, edit, and delete the articles of our website on it.
 </br>
 <a href="https://acortar.link/postman-newvalue-project"> Link for Postman Documentation </a>
+</details>
 <!-- END OF POSTMAN -->
 
 ***
@@ -153,7 +143,7 @@ You can view, add, edit, and delete the articles of our website on it.
 <!-- PROJECT STRUCTURE -->
 <div style="text-align: center;">
 <details open>
-  <summary><h1>Project Structure📂 </h1></summary>
+  <summary><h2>Project Structure📂 </h2></summary>
 
   <p>We have built the folder ecosystem for our project in the Front-end and Back-end in an orderly and methodical way. We have divided the project into two main folders called <em>client</em> and <em>server</em>, and we have organized the files in each one correctly for proper behavior and understanding of the repository.</p>
 
@@ -195,6 +185,10 @@ You can view, add, edit, and delete the articles of our website on it.
     <tr>
       <th>Folder</th>
       <th>Description</th>
+    </tr>
+    <tr>
+      <td>__test__</td>
+      <td>Contains all the test files.</td>
     </tr>
     <tr>
       <td>controllers</td>
@@ -241,9 +235,9 @@ You can view, add, edit, and delete the articles of our website on it.
 
 <!-- TECHNOLOGIES -->
 <details open>
-<summary><h1> Technologies🌐 </h1></summary>
+<summary><h2> Technologies🌐 </h2></summary>
 
-## Front-end 🖥️
+## 🖥️ Front-end
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
@@ -254,7 +248,7 @@ You can view, add, edit, and delete the articles of our website on it.
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-%23EC5990.svg?style=for-the-badge&logo=reacthookform&logoColor=white)
 
-## Back-end 🗄
+## 🗄Back-end
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
@@ -262,7 +256,7 @@ You can view, add, edit, and delete the articles of our website on it.
 ![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
 
-## Tools & Organization 📚
+## 📚 Tools & Organization
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
@@ -277,9 +271,117 @@ You can view, add, edit, and delete the articles of our website on it.
 
 ***
 
-<!-- NEXT STEPS -->
-# Next Steps 
+<!-- TEAM -->
+<details open>
+<summary> <h2>👩🏻‍🤝‍👩🏽FEMCODERS💜</h2> </summary>
 
+<table align='center'>
+  <tr>
+  <td align='center'>
+      <div >
+        <a href="https://github.com/mariandrean" target="_blank" rel="author">
+          <img alt="Maria" width="110" src="https://github.com/mariandrean/NewValue-Blog/blob/dev/client/src/assets/readme-img/foto-maria-readme-crop%20-%20Copy.png"/>
+        </a>
+        <a href="https://github.com/mariandrean" target="_blank" rel="author">
+          <h4 style="margin-top: 1rem;">Maria Andrea An</br><small>Scrum & GitHub M. | Front-End</small></h4>
+        </a>
+        <div style='display: flex; flex-direction: column'>
+        <a href="https://github.com/mariandrean" target="_blank">
+          <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+        </a>
+        <a href="https://www.linkedin.com/in/mariandrean/" target="_blank">
+          <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
+        </a>
+        </div>
+      </div>
+    </td>
+    
+  <td align='center'>
+      <div >
+        <a href="https://github.com/krisneiras" target="_blank" rel="author">
+          <img alt="Kris" width="110" src="https://github.com/mariandrean/NewValue-Blog/blob/dev/client/src/assets/readme-img/foto-kris-readme-crop%20-%20Copy.png"/>
+        </a>
+        <a href="https://github.com/krisneiras" target="_blank" rel="author">
+          <h4 style="margin-top: 1rem;">Kris Neiras</br><small>Product O. | Front-End | Back-End</small></h4>
+        </a>
+        <div style='display: flex; flex-direction: column'>
+        <a href="https://github.com/krisneiras" target="_blank">
+          <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+        </a>
+        <a href="https://www.linkedin.com/in/krisneiras/" target="_blank">
+          <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
+        </a>
+        </div>
+      </div>
+    </td>
+    
+   <td align='center'>
+      <div >
+        <a href="https://github.com/leiteway" target="_blank" rel="author">
+          <img alt="Leite" width="110" src="https://github.com/mariandrean/NewValue-Blog/blob/dev/client/src/assets/readme-img/leite-foto-readme.png"/>
+        </a>
+        <a href="https://github.com/leiteway" target="_blank" rel="author">
+          <h4 style="margin-top: 1rem;">Leite L</br><small>Front-End | Back-End | Tester(Back)</small></h4>
+        </a>
+        <div style='display: flex; flex-direction: column'>
+        <a href="https://github.com/leiteway" target="_blank">
+          <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+        </a>
+        <a href="https://www.linkedin.com/in/leite-dev/" target="_blank">
+          <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
+        </a>
+        </div>
+      </div>
+    </td>
 
-<!-- END OF NEXT STEPS -->
+  <td align='center'>
+      <div >
+        <a href="https://github.com/RaquelLores" target="_blank" rel="author">
+          <img alt="Raquel" width="110" src="https://github.com/mariandrean/NewValue-Blog/blob/dev/client/src/assets/readme-img/foto-raquel-readme-crop%20-%20Copy.png"/>
+        </a>
+        <a href="https://github.com/RaquelLores" target="_blank" rel="author">
+          <h4 style="margin-top: 1rem;">Raquel Lores</br><small>Front-End | Tester(Front)</small></h4>
+        </a>
+        <div style='display: flex; flex-direction: column'>
+        <a href="https://github.com/RaquelLores" target="_blank">
+          <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+        </a>
+        <a href="https://www.linkedin.com/in/raquellores/" target="_blank">
+          <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
+        </a>
+        </div>
+      </div>
+    </td>
 
+  <td align='center'>
+      <div >
+        <a href="https://github.com/LuHeRiver" target="_blank" rel="author">
+          <img alt="Lucero" width="110" src="https://github.com/mariandrean/NewValue-Blog/blob/dev/client/src/assets/readme-img/foto-lucero-readme-crop%20-%20Copy.png"/>
+        </a>
+        <a href="https://github.com/LuHeRiver" target="_blank" rel="author">
+          <h4 style="margin-top: 1rem;">Lucero Riveros</br><small>Front-End</small></h4>
+        </a>
+        <div style='display: flex; flex-direction: column'>
+        <a href="https://github.com/LuHeRiver" target="_blank">
+          <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+        </a>
+        <a href="https://www.linkedin.com/in/lucero-hernandez-desarrollo-web-fullstack-js-marketing/" target="_blank">
+          <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
+        </a>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
+</details>
+<!-- END OF TEAM -->
+
+***
+
+<details open>
+<summary><h3>➕ Contributions</h3></summary>
+Contributions are welcome! If you find any problems or have suggestions for improvement,
+</br>Fork this repo and create an issue or make a pull request.
+</details>
+  </br> 
+<h4>Made with 💜 by every member of the team, thanks.</h4>
