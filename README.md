@@ -337,7 +337,7 @@ Click on this link to obtain our Postman information about the CRUD methods.
   <td align='center'>
       <div >
         <a href="https://github.com/RaquelLores" target="_blank" rel="author">
-          <img alt="Raquel" width="110" src="https://github.com/mariandrean/NewValue-Blog/blob/dev/client/src/assets/readme-img/foto-raquel-readme-crop%20-%20Copy.png"/>
+          <img alt="Raquel" width="110" src="https://github.com/mariandrean/NewValue-Blog/blob/dev/client/src/assets/readme-img/foto-raquel-readme-crop.png"/>
         </a>
         <a href="https://github.com/RaquelLores" target="_blank" rel="author">
           <h4 style="margin-top: 1rem;">Raquel Lores</br><small>Front-End | Tester(Front)</small></h4>
@@ -375,6 +375,7 @@ Click on this link to obtain our Postman information about the CRUD methods.
 </table>
 </details>
 <!-- END OF TEAM -->
+</br>
 
 ***
 
