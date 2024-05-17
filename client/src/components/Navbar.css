@@ -5,6 +5,7 @@
   justify-content: space-between;
   align-items: center;
   transition: background-color 0.3s ease, color 0.3s ease;
+  z-index: 1000;
   background-color: transparent;
   color: #000;
 }
@@ -15,6 +16,7 @@
 
 .navbar-scrolled .menu-icon-line {
   background-color: #fff;
+  fill: white;
 }
 
 .menu-icon-wrapper {
@@ -38,7 +40,7 @@
 }
 
 .open .menu-icon-line:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: translateY(6px) rotate(45deg);
 }
 
 .open .menu-icon-line:nth-child(2) {
@@ -61,7 +63,7 @@ ul {
   background-color: rgb(255, 255, 255);
   font-size: 13px;
   font-weight: bold;
-  line-height : 40px
+  line-height : 40px;
 }
 
 .logos-social{
@@ -75,10 +77,42 @@ ul {
 }
 
 .menu-separator{
+  margin-top: 6%;
   margin-bottom: 13px;
   background-color: black;
   height: 1px;
   width: 85%;
+}
+
+.menu-separator1{
+  margin-bottom: 13px;
+  background-color: black;
+  height: 1px;
+  width: 85%;
+}
+
+.logo-menu{
+  width: 110px;
+  height: 25px;
+  margin-top:-25%;
+  margin-bottom: 5%;
+  margin-left: 15%;
+  z-index: 1;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 15rem;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1100;
+  display: none;
+}
+
+.overlay.active {
+  display: block;
 }
 
 

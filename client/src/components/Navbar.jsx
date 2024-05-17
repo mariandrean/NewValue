@@ -33,6 +33,8 @@ const Navbar = () => {
   }, []);
 
   return (
+
+    <>
     <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       {/* Icono de hamburguesa */}
       <div className="menu-icon-wrapper" onClick={toggleMobileMenu}>
@@ -56,8 +58,16 @@ const Navbar = () => {
 
       {/* Menú para escritorio y móvil */}
       <ul className={`sm:flex ${isMobileMenuOpen ? 'block h-screen' : 'hidden'}`}>
+      <NavLink to="/" className="logo-menu">
+          <img
+            alt="logo"
+            src="/src/assets/newvaluelogogris-titulo.svg"
+            className="w-100 h-35"
+          />
+        </NavLink>
+      <hr className="menu-separator" />
         <li>
-          <NavLink to="https://newvalue.es/index" className="menu-link" onClick={() => setMobileMenuOpen(false)}>INICIO</NavLink>
+          <NavLink to="https://newvalue.es/index" className="menu-link" onClick={() => setMobileMenuOpen(false)}>IMPULSA EL CAMBIO</NavLink>
         </li>
         <li>
           <NavLink to="https://newvalue.es/desarrollo-proyectos" className="menu-link" onClick={() => setMobileMenuOpen(false)}>DESARROLLO DE PROYECTOS</NavLink>
@@ -80,10 +90,10 @@ const Navbar = () => {
           <NavLink to="https://newvalue.es/consultoria-esg" className="menu-link" onClick={() => setMobileMenuOpen(false)}>CONSULTORÍA ESG</NavLink>
         </li>
         <li>
-          <NavLink to="https://newvalue.es/por-que-new-value" className="menu-link" onClick={() => setMobileMenuOpen(false)}>¿POR QUE NEW VALUE?</NavLink>
+          <NavLink to="https://newvalue.es/por-que-new-value" className="menu-link" onClick={() => setMobileMenuOpen(false)}>CONÓCENOS</NavLink>
         </li>
         <li>
-          <NavLink to="https://newvalue.es/contactanos" className="menu-link" onClick={() => setMobileMenuOpen(false)}>CONTACTO</NavLink>
+          <NavLink to="https://newvalue.es/contactanos" className="menu-link" onClick={() => setMobileMenuOpen(false)}>CONTÁCTANOS</NavLink>
         </li>
         <li>
           {userAuth ? (
@@ -92,7 +102,7 @@ const Navbar = () => {
             <NavLink to="/login" className="menu-link" onClick={() => setMobileMenuOpen(false)}>LOGIN</NavLink>
           )}
         </li>
-        <hr className="menu-separator" />
+        <hr className="menu-separator1" />
         <li className="logos-social">
           <a href="https://www.linkedin.com/company/new-value-generation/">
             <img src={Linkedin} alt="icon-linkedin" className="h-7" /> </a>
@@ -105,8 +115,11 @@ const Navbar = () => {
           <button className="mr-10 text-black bg-white border rounded-lg font-semibold py-1 px-5 hover:bg-teal-500 hover:text-white transition duration-300 ease-in-out">Contacto</button>
         </NavLink>
       </div>
-
     </nav>
+
+    {/* Fondo negro transparente */}
+    <div className={`overlay ${isMobileMenuOpen ? 'active' : ''}`} onClick={toggleMobileMenu}></div>
+    </>
   );
 };
 
