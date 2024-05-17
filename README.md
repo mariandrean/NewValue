@@ -283,7 +283,7 @@ Click on this link to obtain our Postman information about the CRUD methods.
           <img alt="Maria" width="110" src="https://github.com/mariandrean/NewValue-Blog/blob/dev/client/src/assets/readme-img/foto-maria-readme-crop%20-%20Copy.png"/>
         </a>
         <a href="https://github.com/mariandrean" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Maria Andrea An</br><small>Scrum & GitHub M. | Front-End</small></h4>
+          <h4 style="margin-top: 1rem;">Maria Andrea An</br><small>Scrum & GitHub Master</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
         <a href="https://github.com/mariandrean" target="_blank">
@@ -302,7 +302,7 @@ Click on this link to obtain our Postman information about the CRUD methods.
           <img alt="Kris" width="110" src="https://github.com/mariandrean/NewValue-Blog/blob/dev/client/src/assets/readme-img/foto-kris-readme-crop%20-%20Copy.png"/>
         </a>
         <a href="https://github.com/krisneiras" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Kris Neiras</br><small>Product O. | Front-End | Back-End</small></h4>
+          <h4 style="margin-top: 1rem;">Kris Neiras</br><small>Product Owner</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
         <a href="https://github.com/krisneiras" target="_blank">
@@ -321,7 +321,7 @@ Click on this link to obtain our Postman information about the CRUD methods.
           <img alt="Leite" width="110" src="https://github.com/mariandrean/NewValue-Blog/blob/dev/client/src/assets/readme-img/leite-foto-readme.png"/>
         </a>
         <a href="https://github.com/leiteway" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Leite L</br><small>Front-End | Back-End | Tester(Back)</small></h4>
+          <h4 style="margin-top: 1rem;">Leite L</br><small>Developer</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
         <a href="https://github.com/leiteway" target="_blank">
