@@ -1,10 +1,10 @@
+import "./Navbar.css";
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { NavLink } from "react-router-dom";
 import { useUserContext } from "../context/UserContext.jsx";
 import Linkedin from '../assets/linkedin-black-icon.svg'
 import Instagram from '../assets/instagram-black-icon.svg'
-import "./Navbar.css";
 import LogoGris from '../assets/newvaluelogogris-titulo.svg'
 
 const Navbar = () => {
@@ -62,7 +62,7 @@ const Navbar = () => {
       <NavLink to="/" className="logo-menu">
           <img
             alt="logo"
-            src="/src/assets/newvaluelogogris-titulo.svg"
+            src={LogoGris}
             className="w-145 h-35"
           />
         </NavLink>
