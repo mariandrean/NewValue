@@ -17,6 +17,10 @@ const NewsDetails = () => {
         setMetaAdded(true);
         head.innerHTML +=
           `
+        <meta property="description" content="${news.title}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="New Value" />
+        <meta property="og:description" content="${news.subtitle}" />
         <meta property="og:title" content="${news.title}" />
         <meta property="og:url" content="${window.location.href}" />
         <meta property="og:image" content="${news.image}" />
