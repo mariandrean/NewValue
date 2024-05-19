@@ -6,13 +6,25 @@ import Share from '../components/Share';
 
 const NewsDetails = () => {
   const [loadingData, setLoadingData] = useState(true);
+  const [metaAdded, setMetaAdded] = useState(false);
   const news = useLoaderData();
   const categories = news.category.split(",");
+  const head = document.querySelector('head')
+
   useEffect(() => {
     if (news) {
-      setLoadingData(false)
+      if (!metaAdded) {
+        setMetaAdded(true);
+        head.innerHTML +=
+          `
+        <meta property="og:title" content="${news.title}" />
+        <meta property="og:url" content="${window.location.href}" />
+        <meta property="og:image" content="${news.image}" />
+        `
+        console.log(head);
+      }
 
-      console.log(categories)
+      setLoadingData(false)
     }
   }, [loadingData]);
 
@@ -38,7 +50,7 @@ const NewsDetails = () => {
           <hr />
           <Share description={news.title} url={window.location.href} imageUrl={news.image} />
         </div>
-        
+
       </section>
     </>
   )
