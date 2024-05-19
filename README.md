@@ -21,6 +21,21 @@ and visually appealing platform using the latest technologies and best practices
 </p>
 </div>
 
+<!-- DEMO BUTTONS -->
+<div align='center'>
+    <a href="https://femcoders-newvalue.vercel.app/" target="_blank">
+      <img  src="https://img.shields.io/badge/DEMO-14B8A6?style=for-the-badge&logo=vercel&logoColor=%23343B4E"/>
+     </a>
+    
+  <a href="https://www.figma.com/design/GNRBj9r6uLPANazCjwVBMR/NewValue-News-Management-Tool?node-id=0%3A1&t=PnwCtJycEPtlKSLs-1" target="_blank">
+     <img  src="https://img.shields.io/badge/DISE%C3%91O-14B8A6?style=for-the-badge&logo=figma&logoColor=%23343B4E"/>
+    </a>
+      
+  <a href="https://github.com/mariandrean/NewValue-Blog/issues" target="_blank">
+      <img  src="https://img.shields.io/badge/REPORT_BUG-343B4E?style=for-the-badge"/>
+    </a>
+</div>
+
 <!-- ABOUT -->
 <h2 align="center"> <img height="20" src="https://github.com/mariandrean/NewValue-Blog/blob/main/client/public/new-value.png"> About </h2>
 
@@ -28,14 +43,14 @@ This project features two roles: admin and news moderators. While everyone can a
 
 The admin has all these capabilities plus the ability to register new users (moderators).
 User sessions are securely encrypted with usernames and passwords to ensure data protection.
-<!-- END OF DESCRIPTION-->
+<!-- END OF ABOUT-->
 
 ***
 
 <!-- PROJECT CONFIG -->
 <details open>
   
-<summary><h2> Project Configuration⚙ </h2></summary>
+<summary><h2> Project Local Configuration⚙ </h2></summary>
 
 ### Clone the Repository
  ```bash
@@ -239,7 +254,6 @@ Click on this link to obtain our Postman information about the CRUD methods.
 
 ## 🖥️ Front-end
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -251,6 +265,7 @@ Click on this link to obtain our Postman information about the CRUD methods.
 ## 🗄Back-end
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
 ![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
 ![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
