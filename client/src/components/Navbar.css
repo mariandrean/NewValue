@@ -51,19 +51,11 @@
 .open-menu {
   position: absolute;
   top: 65px;
-  padding-top: 5px;
-  padding-left: 30px;
+  padding: 0 25px;
   width: 15rem;
   background-color: rgb(255, 255, 255);
   font-size: 13px;
-  font-weight: bold;
-  line-height : 36px;
-}
-
-.logos-social{
-  display: flex;
-  align-items: flex-start;
-  margin-left: -2px;
+  font-weight: 600;
 }
 
 .projects{
@@ -71,26 +63,14 @@
 }
 
 .menu-separator{
-  margin-top: 6%;
-  margin-bottom: 13px;
   background-color: black;
-  height: 1px;
-  width: 85%;
-}
-
-.menu-separator1{
-  margin-bottom: 13px;
-  background-color: black;
-  height: 1px;
-  width: 85%;
+  height: 2px;
 }
 
 .logo-menu{
   width: 110px;
-  height: 25px;
   margin-top:-25%;
-  margin-bottom: 5%;
-  margin-left: 17%;
+  align-self: flex-end;
 }
 
 .overlay {
@@ -115,12 +95,4 @@
 .navbar-scrolled .logo-menu{
   /* filter: brightness(0) saturate(100%) invert(70%) sepia(72%) saturate(276%) hue-rotate(123deg) brightness(88%) contrast(89%); */
   filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(14deg) brightness(103%) contrast(103%);
-}
-
-
-@media (min-width: 600px) {
-
-  .menu-link {
-    margin-right: 20px;
-  }
 }

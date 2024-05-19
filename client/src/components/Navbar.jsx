@@ -62,7 +62,7 @@ const Navbar = () => {
 
 
         {/* Menú para escritorio y móvil */}
-        <ul className={`open-menu h-screen ${isMobileMenuOpen ? 'flex flex-col' : 'hidden'}`}>
+        <div className={`open-menu h-screen ${isMobileMenuOpen ? 'flex flex-col gap-3' : 'hidden'}`}>
           <NavLink to="/" className="logo-menu">
             <img
               alt="logo"
@@ -71,50 +71,40 @@ const Navbar = () => {
             />
           </NavLink>
           <hr className="menu-separator" />
-          <li>
-            <NavLink to="https://newvalue.es/index" className="menu-link" onClick={() => setMobileMenuOpen(false)}>IMPULSA EL CAMBIO</NavLink>
-          </li>
-          <li>
-            <NavLink to="https://newvalue.es/desarrollo-proyectos" className="menu-link" onClick={() => setMobileMenuOpen(false)}>DESARROLLO DE PROYECTOS</NavLink>
-            <li className="projects">
-              <li>
-                <NavLink to="https://newvalue.es/aws-getit" className="menu-link" onClick={() => setMobileMenuOpen(false)}>AWS GetIT</NavLink>
-              </li>
-              <li>
-                <NavLink to="https://newvalue.es/teoria-cambio" className="menu-link" onClick={() => setMobileMenuOpen(false)}>Teoría del Cambio</NavLink>
-              </li>
-              <li>
-                <NavLink to="https://newvalue.es/marketing-impacto" className="menu-link" onClick={() => setMobileMenuOpen(false)}>Marketing de Impacto</NavLink>
-              </li>
-              <li>
-                <NavLink to="https://newvalue.es/voluntariado-corporativo" className="menu-link" onClick={() => setMobileMenuOpen(false)}>Voluntariado Corporativo</NavLink>
-              </li>
-            </li>
-          </li>
-          <li>
-            <NavLink to="https://newvalue.es/consultoria-esg" className="menu-link" onClick={() => setMobileMenuOpen(false)}>CONSULTORÍA ESG</NavLink>
-          </li>
-          <li>
-            <NavLink to="https://newvalue.es/por-que-new-value" className="menu-link" onClick={() => setMobileMenuOpen(false)}>CONÓCENOS</NavLink>
-          </li>
-          <li>
-            <NavLink to="https://newvalue.es/contactanos" className="menu-link" onClick={() => setMobileMenuOpen(false)}>CONTÁCTANOS</NavLink>
-          </li>
-          <li>
-            {userAuth ? (
-              <NavLink to="/dashboard" className="menu-link" onClick={() => setMobileMenuOpen(false)}>Dashboard</NavLink>
-            ) : (
-              <NavLink to="/login" className="menu-link" onClick={() => setMobileMenuOpen(false)}>LOGIN</NavLink>
-            )}
-          </li>
-          <hr className="menu-separator1" />
-          <li className="logos-social">
-            <a href="https://www.linkedin.com/company/new-value-generation/">
-              <img src={Linkedin} alt="icon-linkedin" className="h-7" /> </a>
+
+          <NavLink to="https://newvalue.es/index" className="menu-link" onClick={() => setMobileMenuOpen(false)}>IMPULSA EL CAMBIO</NavLink>
+
+          <NavLink to="https://newvalue.es/desarrollo-proyectos" className="menu-link" onClick={() => setMobileMenuOpen(false)}>DESARROLLO DE PROYECTOS</NavLink>
+
+          <div className="projects flex flex-col gap-3">
+
+            <NavLink to="https://newvalue.es/aws-getit" className="menu-link ml-3" onClick={() => setMobileMenuOpen(false)}>AWS GetIT</NavLink>
+
+            <NavLink to="https://newvalue.es/teoria-cambio" className="menu-link ml-3" onClick={() => setMobileMenuOpen(false)}>Teoría del Cambio</NavLink>
+
+            <NavLink to="https://newvalue.es/marketing-impacto" className="menu-link ml-3" onClick={() => setMobileMenuOpen(false)}>Marketing de Impacto</NavLink>
+
+            <NavLink to="https://newvalue.es/voluntariado-corporativo" className="menu-link ml-3" onClick={() => setMobileMenuOpen(false)}>Voluntariado Corporativo</NavLink>
+
+          </div>
+
+          <NavLink to="https://newvalue.es/consultoria-esg" className="menu-link" onClick={() => setMobileMenuOpen(false)}>CONSULTORÍA ESG</NavLink>
+
+          <NavLink to="https://newvalue.es/por-que-new-value" className="menu-link" onClick={() => setMobileMenuOpen(false)}>CONÓCENOS</NavLink>
+
+          <NavLink to="https://newvalue.es/contactanos" className="menu-link" onClick={() => setMobileMenuOpen(false)}>CONTÁCTANOS</NavLink>
+
+          <NavLink to="/login" className="menu-link" onClick={() => setMobileMenuOpen(false)}>LOGIN</NavLink>
+
+          <hr className="menu-separator" />
+          <div className="flex gap-5 place-items-center">
             <a href="https://www.instagram.com/newvaluegeneration/">
-              <img src={Instagram} alt="icon-instagram" className="h-7" /> </a>
-          </li>
-        </ul>
+              <img src={Instagram} alt="icon-instagram" className="h-[33px]" /> </a>
+            <a href="https://www.linkedin.com/company/new-value-generation/">
+              <img src={Linkedin} alt="icon-linkedin" className="h-[30px]" /> </a>
+
+          </div>
+        </div>
 
       </nav>
 

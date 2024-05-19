@@ -4,12 +4,13 @@ import { useUserContext } from '../context/UserContext';
 const LogOutButton = () => {
   const { setUser, setUserAuth, setUserRole } = useUserContext();
   const navigate = useNavigate();
+  
   const handleLogOut = () => {
     localStorage.removeItem('token');
     setUser(null);
     setUserAuth(null);
     setUserRole(null);
-    navigate("/");
+    return navigate("/");
   }
 
   return (
