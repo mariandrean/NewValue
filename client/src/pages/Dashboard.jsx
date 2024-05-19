@@ -2,11 +2,17 @@ import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { deleteNews } from '../services/newsServices';
 import Swal from 'sweetalert2';
+import { useUserContext } from '../context/UserContext.jsx';
 
 const Dashboard = () => {
     const navigate = useNavigate();
     const [loadingData, setLoadingData] = useState(true);
     const news = useLoaderData();
+    const { user, userRole } = useUserContext();
+
+    const handleRegister = () => {
+        navigate('/dashboard/register');
+    };
 
     useEffect(() => {
         if (news) {
@@ -30,11 +36,10 @@ const Dashboard = () => {
                     showConfirmButton: true,
                     timer: 2000,
                 });
-                navigate("/dashboard")
             }
         });
     }
-
+ 
     return (
         <>
             <h2 className=" text-gray-900 font-semibold flex justify-center items-center">Panel de control</h2>
@@ -44,9 +49,17 @@ const Dashboard = () => {
                     <h3 className="font-semibold text-lg sm:text-xl">Noticias publicadas</h3>
                     {loadingData && <h3>Cargando</h3>}
                 </div>
-                <button type="button" onClick={() => navigate('/dashboard/create')} className="bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out text-sm">
+                <button type="button" onClick={() => navigate('/dashboard/create')} className="bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-outtext-sm">
                     Nueva Noticia
                 </button>
+                            {user && userRole === 'admin' && (
+                                <div>
+                                    <button type="button" onClick={handleRegister} className="bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out">
+                                        Registrar Usuario
+                                    </button>
+                                </div>
+                            )}
+
             </div>
             <div className='flex flex-col gap-3 '>
                 {news.map((newsItem, index) => (
@@ -70,5 +83,6 @@ const Dashboard = () => {
             </div>
         </>
     );
+
 };
 export default Dashboard;
