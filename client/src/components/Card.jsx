@@ -9,7 +9,7 @@ export const Card = ({ news, index }) => {
       <div className='flex flex-col gap-1'>
         <h3 className={'font-semibold ' + (index == 0 ? "text-xl" : "text-sm")}>{news.title}</h3>
         {
-           <h4 className={(index == 0 ? "text-xl" : "text-sm")}>{news.subtitle}</h4>
+           <h4 className={(index == 0 ? "text-xl" : "hidden")}>{news.subtitle}</h4>
         }
         <p className={'text-xs'}>{dateConverter(news.date)}</p>
       </div>
