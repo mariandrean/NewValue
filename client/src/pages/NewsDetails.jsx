@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useLoaderData } from 'react-router-dom';
 import parse from 'html-react-parser'
 import { dateConverter } from '../helpers/dateConverter';
+import Share from '../components/Share';
 
 const NewsDetails = () => {
   const [loadingData, setLoadingData] = useState(true);
@@ -34,7 +35,10 @@ const NewsDetails = () => {
                 </a>)}
             </div>
           }
+          <hr />
+          <Share description={news.title} url={window.location.href} imageUrl={news.image} />
         </div>
+        
       </section>
     </>
   )
