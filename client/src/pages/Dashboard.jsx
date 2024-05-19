@@ -2,7 +2,6 @@ import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { deleteNews } from '../services/newsServices';
 import Swal from 'sweetalert2';
-import { useUserContext } from '../context/UserContext.jsx';
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -18,7 +17,7 @@ const Dashboard = () => {
         if (news) {
             setLoadingData(false)
         }
-    }, [loadingData]);
+    }, [loadingData, news]);
 
     const handleDelete = async (newsId) => {
         Swal.fire({
@@ -36,6 +35,7 @@ const Dashboard = () => {
                     showConfirmButton: true,
                     timer: 2000,
                 });
+                navigate("/dashboard")
             }
         });
     }
@@ -60,7 +60,7 @@ const Dashboard = () => {
             </div>
 
             {loadingData && <h3>Cargando</h3>}
-            <div className='flex flex-col gap-3 '>
+            <div className='flex flex-col gap-3 w-full'>
                 {news.map((newsItem, index) => (
                     <>
                         <hr />
