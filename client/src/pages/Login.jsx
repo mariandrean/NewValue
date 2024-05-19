@@ -19,6 +19,7 @@ const Login = () => {
       const response = await login(formData);
       if (response) {
         localStorage.setItem('token', response.token);
+        localStorage.setItem('role', response.user_role)
         setUserAuth(true);
         setUser(response.user_name);
         setUserRole(response.user_role)
