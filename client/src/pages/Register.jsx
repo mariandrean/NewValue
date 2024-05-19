@@ -58,7 +58,7 @@ const Register = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center gap-5 m-10">
+      <div className="h-full flex flex-col items-center justify-center gap-5 m-5 sm:m-10">
         <h1 className=" text-center font-semibold">Registrar usuario</h1>
         <form className="w-[300px] mt-3 gap-5 flex flex-col justify-center" onSubmit={handleSubmit(onSubmit)}>
 
@@ -110,9 +110,10 @@ const Register = () => {
 
           </div>
           {registerError && <p className="text-red-500 text-sm self-center m-0">{registerError}</p>}
-          <button className="m-3 w-[150px] self-center bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out" type="submit">
+          <button className="m-t3 w-[150px] self-center bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out" type="submit">
             Enviar
           </button>
+          <button type='button' onClick={() => navigate('/dashboard')} className="w-[150px] self-center bg-gray-500 text-white border-gray-900 rounded-lg font-semibold py-2 px-4 hover:bg-gray-800 transition duration-300 ease-in-out">Cancelar</button>
         </form>
       </div>
     </>
