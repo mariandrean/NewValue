@@ -1,6 +1,5 @@
 .navbar{
   position:fixed;
-  width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -49,15 +48,12 @@
   transform: translateY(-8px) rotate(-45deg);
 }
 
-ul {
-  display: flex;
-  flex-direction: column;
+.open-menu {
   position: absolute;
   top: 65px;
   padding-top: 5px;
   padding-left: 30px;
   width: 15rem;
-  height: 100vw;
   background-color: rgb(255, 255, 255);
   font-size: 13px;
   font-weight: bold;
@@ -89,7 +85,7 @@ ul {
   width: 85%;
 }
 
- .logo-menu{
+.logo-menu{
   width: 110px;
   height: 25px;
   margin-top:-25%;
@@ -98,7 +94,7 @@ ul {
 }
 
 .overlay {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 15rem;
   width: 100vw;
@@ -123,15 +119,6 @@ ul {
 
 
 @media (min-width: 600px) {
-
-
-  .sm:flex {
-    display: flex !important;
-  }
-
-  .hidden {
-    display: none !important;
-  }
 
   .menu-link {
     margin-right: 20px;
