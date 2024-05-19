@@ -62,8 +62,8 @@ const Navbar = () => {
 
 
         {/* Menú para escritorio y móvil */}
-        <div className={`open-menu h-screen ${isMobileMenuOpen ? 'flex flex-col gap-3' : 'hidden'}`}>
-          <NavLink to="/" className="logo-menu">
+        <div className={`open-menu h-screen ${isMobileMenuOpen ? 'flex flex-col gap-3' : 'hidden'}`}  onClick={() => setMobileMenuOpen(false)}>
+          <NavLink to="/" className="logo-menu" >
             <img
               alt="logo"
               src={LogoGris}
@@ -94,7 +94,7 @@ const Navbar = () => {
 
           <NavLink to="https://newvalue.es/contactanos" className="menu-link" onClick={() => setMobileMenuOpen(false)}>CONTÁCTANOS</NavLink>
 
-          <NavLink to="/login" className="menu-link" onClick={() => setMobileMenuOpen(false)}>LOGIN</NavLink>
+          <NavLink to="/login" className="menu-link" onClick={() => setMobileMenuOpen(false)}>Iniciar Sesión</NavLink>
 
           <hr className="menu-separator" />
           <div className="flex gap-5 place-items-center">
