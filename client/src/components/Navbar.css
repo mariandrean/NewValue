@@ -69,8 +69,8 @@
 
 .logo-menu{
   width: 110px;
-  margin-top:-25%;
-  align-self: flex-end;
+  margin-top:-47px;
+  align-self: center;
 }
 
 .overlay {
@@ -80,7 +80,7 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 1100;
+  z-index: 100;
   display: none;
 }
 

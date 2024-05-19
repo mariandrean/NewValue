@@ -22,8 +22,10 @@ const LayoutPublic = () => {
         {token && <DashboardMenu />}
         <Navbar />
       </header>
-      <section className={'p-5 sm:px-10 pb-10 lg:px-20 '+ (token ? 'mt-[100px]' : 'mt-[50px]')}>
-        <Outlet />
+      <section className={'p-5 sm:px-10 sm:pb-10 flex flex-col items-center '+ (token ? 'mt-[100px]' : 'mt-[50px]')}>
+        <div className='max-w-[1200px]'>
+          <Outlet />
+        </div>
       </section>
       <Footer />
     </ >
