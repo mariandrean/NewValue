@@ -15,14 +15,12 @@ const NewsForm = ({ method }) => {
 
   useEffect(() => {
     if (newsData) {
-      console.log("newsData: ", newsData)
       setValue("title", newsData.title);
       setValue("subtitle", newsData.subtitle);
       setValue("date", newsData.date);
       setValue("category", newsData.category?.split(","));
       setNewsContent(newsData.content);
     }
-    console.log(newsContent)
   }, [newsData]);
 
   const handleImage = async (e) => {

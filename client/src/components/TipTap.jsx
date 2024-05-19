@@ -2,7 +2,6 @@ import React, { useCallback } from 'react';
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
-import Dropcursor from '@tiptap/extension-dropcursor'
 import Image from '@tiptap/extension-image';
 import Link from '@tiptap/extension-link';
 import BrokenLinkIcon from '../assets/tiptap-icons/broken_link.png'
@@ -23,8 +22,7 @@ const extensions=[
     Image.configure({
       inline: true,
       allowBase64: true,
-    }),
-    Dropcursor
+    })
 ]
 
 const TipTap = ({onEditorContentSave, content}) => {
