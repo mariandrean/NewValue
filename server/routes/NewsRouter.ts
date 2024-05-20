@@ -13,4 +13,3 @@ router.put('/:id', verifyAuth, verifyUserRole(['admin']), newsValidation,updateN
 router.get('/:id', getNewsById);
 
 export default router;
-

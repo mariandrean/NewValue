@@ -1,6 +1,6 @@
 import { verifyToken } from "../utils/jwt";
 import { Request, Response, NextFunction} from "express";
-//Verificando que mi usuario este autenticado y tenga token
+
 export const verifyAuth = (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers.authorization?.split(" ").pop();
 
