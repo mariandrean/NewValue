@@ -47,7 +47,7 @@ const Dashboard = () => {
             {role === 'admin' && (
                 <div className="flex justify-center w-full">
                     <button type="button" onClick={handleRegister} className=" text-sm bg-black text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-gray-800 transition duration-300 ease-in-out">
-                        Registrar Usuario
+                        Registrar moderador
                     </button>
                 </div>
             )}
