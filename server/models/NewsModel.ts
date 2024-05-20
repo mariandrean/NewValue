@@ -44,7 +44,7 @@ const NewsModel = connection_db.define('News', {
 },
    {
       tableName: 'news',
-      timestamps: false // Deshabilitando los campos los campos createdAt y updatedAt
+      timestamps: false
    }
 );
 

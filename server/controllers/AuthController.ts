@@ -4,7 +4,6 @@ import { createToken } from '../utils/jwt';
 import bcryptjs from 'bcryptjs';
 
 
-// In progress 
 export const register = async (req: Request, res: Response) =>{
 
     try{
