@@ -9,6 +9,7 @@ const Dashboard = () => {
     const [loadingData, setLoadingData] = useState(true);
     const news = useLoaderData();
     const { user, userRole } = useUserContext();
+    console.log(userRole)
 
     const handleRegister = () => {
         navigate('/dashboard/register');
