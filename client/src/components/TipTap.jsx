@@ -10,6 +10,7 @@ import FileIcon from '../assets/tiptap-icons/Image_file.png'
 import BulletedListIcon from '../assets/tiptap-icons/bulleted_list.png'
 import NumberedListIcon from '../assets/tiptap-icons/numbered_list.png'
 import { uploadImage } from '../helpers/cloudinary';
+import Swal from 'sweetalert2';
 
 const extensions = [
   StarterKit,
@@ -43,24 +44,30 @@ const TipTap = ({ onEditorContentSave, content }) => {
     },
   })
 
-  const setLink = useCallback(() => {
-    const previousUrl = editor.getAttributes('link').href
-    const url = window.prompt('URL', previousUrl)
+  const setLink = useCallback( async () => {
+    const inputValue = editor.getAttributes('link').href;
 
-    // cancelled
+    const { value: url } = await Swal.fire({
+      input: "url",
+      inputValue,
+      inputPlaceholder: "Enlace",
+      confirmButtonText: "Guardar",
+      validationMessage: "Enlace inválido",
+      showCancelButton: true,
+      cancelButtonText: `Cancelar`,
+      allowOutsideClick: true
+    });
+
     if (url === null) {
       return
     }
 
-    // empty
     if (url === '') {
       editor.chain().focus().extendMarkRange('link').unsetLink()
         .run()
-
       return
     }
 
-    // update link
     editor.chain().focus().extendMarkRange('link').setLink({ href: url })
       .run()
   }, [editor])
@@ -156,6 +163,7 @@ const TipTap = ({ onEditorContentSave, content }) => {
         >
           H2
         </button>
+
         <button type="button"
           onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
           className={editor.isActive('heading', { level: 3 }) ? 'is-active' : ''}
@@ -169,6 +177,7 @@ const TipTap = ({ onEditorContentSave, content }) => {
         >
           <img src={NumberedListIcon} width="20" height="20" />
         </button>
+
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBulletList().run()}
@@ -176,23 +185,29 @@ const TipTap = ({ onEditorContentSave, content }) => {
         >
           <img src={BulletedListIcon} width="20" height="20" />
         </button>
+
         <button type="button" onClick={handleSelectImage}>
           <input id="image-input" type="file" accept="image/*" name="name" className='hidden' onChange={handleImage} />
           <img src={FileIcon} width="20" height="20" />
         </button>
-        <button onClick={setLink} className={editor.isActive('link') ? 'is-active' : ''}>
+
+        <button type='button' onClick={setLink} className={editor.isActive('link') ? 'is-active' : ''}>
           <img src={LinkIcon} width="20" height="20" />
         </button>
+
         <button type="button"
           onClick={() => editor.chain().focus().unsetLink().run()}
           disabled={!editor.isActive('link')}
         >
           <img src={BrokenLinkIcon} width="20" height="20" />
         </button>
+
       </div>
+
       <div className='border border-gray-500 border-t-0 min-h-[8rem]'>
         <EditorContent editor={editor} className='' />
       </div>
+
     </div>
   )
 }
