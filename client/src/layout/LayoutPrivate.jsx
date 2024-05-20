@@ -19,14 +19,12 @@ const LayoutPrivate = () => {
 
   return (
     <>
-      <main>
-        <header className='fixed z-10'>
-          <DashboardMenu />
-        </header>
-        <section className='p-5 sm:px-10 pb-10 lg:px-20 self mt-[60px]'>
-          <Outlet />
-        </section>
-      </main>
+      <header className='fixed z-10 w-full'>
+        <DashboardMenu />
+      </header>
+      <section className='flex flex-col items-center p-5 sm:px-10 pb-10 lg:px-20 mt-[50px]'>
+        <Outlet />
+      </section>
       <footer></footer>
     </>
   )

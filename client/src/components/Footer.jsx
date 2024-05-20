@@ -4,7 +4,7 @@ import Instagram from '../assets/instagram-icon.svg'
 
 const Footer = () => {
     return (
-        <footer className='flex flex-col py-3 px-5 gap-2 items-center align-center bg-black text-white text-sm sm:flex-row sm:justify-between'>
+        <footer className='w-full flex flex-col py-3 px-5 gap-2 items-center align-center bg-black text-white text-sm sm:flex-row sm:justify-between'>
             <div className="flex gap-5">
                 <a href="https://newvalue.es/politica-privacidad" className="politica">política de cookies </a>
                 <a href="https://newvalue.es/politica-privacidad" className="aviso"> aviso legal</a>

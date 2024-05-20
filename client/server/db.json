@@ -1,14 +1,56 @@
 {
   "news": [
     {
-      "id": "1",
-      "title": "Title example",
-      "subtitle": "Subtitle example",
-      "date": "2024-04-01",
-      "content": "Content example",
-      "image": "https://res.cloudinary.com/dgi5ujtli/image/upload/v1714166367/new_value_images/new-value-flow.drawio_ruzcyh.png",
+      "id": 1,
+      "title": "Estamos en el ecuador del proyecto final con FEMCODERS!",
+      "subtitle": "",
+      "content": "<p>Hace unas semanas conocí a Leire García Soriano, enseguida hicimos \"match\" y es que el propósito de Factoría F5 conecta con una de las metas que perseguimos en New Value Generation, &lt;Mitigar la brecha digital de género&gt;.<br><br>Me presentaron al grupo de FemCoders, mujeres que están formándose en Desarrollo Web Full Stack con el objetivo de incorporarse al mundo tech, y quise formar parte de la trayectoria en el bootcamp lanzando un reto para su proyecto final.<br><br>Estoy encantada de formar parte de la fase final del curso de Kristy Neira Saccá, Leite L., Maria Andrea An, Raquel Lores Casalinas y Lucero H.Riveros. Es increíble la pasión que ponéis a vuestro trabajo y veros trabajar en equipo!<br><br>Gracias de corazón por todo el esfuerzo que le estáis poniendo.<br><br>Con ganas de llegar al 22 de mayo con el resultado final.</p>",
+      "category": "Desarrollo Proyectos",
+      "date": "2024-05-10",
+      "image": "https://res.cloudinary.com/dgi5ujtli/image/upload/v1715853645/new_value_images/new-value_yhukw5.jpg",
+      "user_id": 1
+    },
+    {
+      "id": 2,
+      "title": "Estamos en el ecuador del proyecto final con FEMCODERS!",
+      "subtitle": "",
+      "content": "<p>Hace unas semanas conocí a Leire García Soriano, enseguida hicimos \"match\" y es que el propósito de Factoría F5 conecta con una de las metas que perseguimos en New Value Generation, &lt;Mitigar la brecha digital de género&gt;.<br><br>Me presentaron al grupo de FemCoders, mujeres que están formándose en Desarrollo Web Full Stack con el objetivo de incorporarse al mundo tech, y quise formar parte de la trayectoria en el bootcamp lanzando un reto para su proyecto final.<br><br>Estoy encantada de formar parte de la fase final del curso de Kristy Neira Saccá, Leite L., Maria Andrea An, Raquel Lores Casalinas y Lucero H.Riveros. Es increíble la pasión que ponéis a vuestro trabajo y veros trabajar en equipo!<br><br>Gracias de corazón por todo el esfuerzo que le estáis poniendo.<br><br>Con ganas de llegar al 22 de mayo con el resultado final.</p>",
+      "category": "Desarrollo Proyectos",
+      "date": "2024-05-10",
+      "image": "https://res.cloudinary.com/dgi5ujtli/image/upload/v1715853645/new_value_images/new-value_yhukw5.jpg",
+      "user_id": 1
+    },
+    {
+      "id": 3,
+      "title": "Estamos en el ecuador del proyecto final con FEMCODERS!",
+      "subtitle": "",
+      "content": "<p>Hace unas semanas conocí a Leire García Soriano, enseguida hicimos \"match\" y es que el propósito de Factoría F5 conecta con una de las metas que perseguimos en New Value Generation, &lt;Mitigar la brecha digital de género&gt;.<br><br>Me presentaron al grupo de FemCoders, mujeres que están formándose en Desarrollo Web Full Stack con el objetivo de incorporarse al mundo tech, y quise formar parte de la trayectoria en el bootcamp lanzando un reto para su proyecto final.<br><br>Estoy encantada de formar parte de la fase final del curso de Kristy Neira Saccá, Leite L., Maria Andrea An, Raquel Lores Casalinas y Lucero H.Riveros. Es increíble la pasión que ponéis a vuestro trabajo y veros trabajar en equipo!<br><br>Gracias de corazón por todo el esfuerzo que le estáis poniendo.<br><br>Con ganas de llegar al 22 de mayo con el resultado final.</p>",
+      "category": "Desarrollo Proyectos",
+      "date": "2024-05-10",
+      "image": "https://res.cloudinary.com/dgi5ujtli/image/upload/v1715853645/new_value_images/new-value_yhukw5.jpg",
+      "user_id": 1
+    },
+    {
+      "id": 4,
+      "title": "Estamos en el ecuador del proyecto final con FEMCODERS!",
+      "subtitle": "",
+      "content": "<p>Hace unas semanas conocí a Leire García Soriano, enseguida hicimos \"match\" y es que el propósito de Factoría F5 conecta con una de las metas que perseguimos en New Value Generation, &lt;Mitigar la brecha digital de género&gt;.<br><br>Me presentaron al grupo de FemCoders, mujeres que están formándose en Desarrollo Web Full Stack con el objetivo de incorporarse al mundo tech, y quise formar parte de la trayectoria en el bootcamp lanzando un reto para su proyecto final.<br><br>Estoy encantada de formar parte de la fase final del curso de Kristy Neira Saccá, Leite L., Maria Andrea An, Raquel Lores Casalinas y Lucero H.Riveros. Es increíble la pasión que ponéis a vuestro trabajo y veros trabajar en equipo!<br><br>Gracias de corazón por todo el esfuerzo que le estáis poniendo.<br><br>Con ganas de llegar al 22 de mayo con el resultado final.</p>",
+      "category": "Desarrollo Proyectos",
+      "date": "2024-05-10",
+      "image": "https://res.cloudinary.com/dgi5ujtli/image/upload/v1715853645/new_value_images/new-value_yhukw5.jpg",
+      "user_id": 1
+    },
+    {
+      "id": 5,
+      "title": "Estamos en el ecuador del proyecto final con FEMCODERS!",
+      "subtitle": "",
+      "content": "<p>Hace unas semanas conocí a Leire García Soriano, enseguida hicimos \"match\" y es que el propósito de Factoría F5 conecta con una de las metas que perseguimos en New Value Generation, &lt;Mitigar la brecha digital de género&gt;.<br><br>Me presentaron al grupo de FemCoders, mujeres que están formándose en Desarrollo Web Full Stack con el objetivo de incorporarse al mundo tech, y quise formar parte de la trayectoria en el bootcamp lanzando un reto para su proyecto final.<br><br>Estoy encantada de formar parte de la fase final del curso de Kristy Neira Saccá, Leite L., Maria Andrea An, Raquel Lores Casalinas y Lucero H.Riveros. Es increíble la pasión que ponéis a vuestro trabajo y veros trabajar en equipo!<br><br>Gracias de corazón por todo el esfuerzo que le estáis poniendo.<br><br>Con ganas de llegar al 22 de mayo con el resultado final.</p>",
+      "category": "Desarrollo Proyectos",
+      "date": "2024-05-10",
+      "image": "https://res.cloudinary.com/dgi5ujtli/image/upload/v1715853645/new_value_images/new-value_yhukw5.jpg",
       "user_id": 1
     }
+
   ],
   "users": [
     {

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { createNews, updateNews } from '../services/newsServices';
-import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { uploadImage } from '../helpers/cloudinary';
 import TipTap from '../components/TipTap';
-import './NewsForm.css'
 import Swal from 'sweetalert2';
 
 const NewsForm = ({ method }) => {
@@ -20,8 +19,8 @@ const NewsForm = ({ method }) => {
       setValue("subtitle", newsData.subtitle);
       setValue("date", newsData.date);
       setValue("category", newsData.category?.split(","));
+      setNewsContent(newsData.content);
     }
-    console.log(newsContent)
   }, [newsData]);
 
   const handleImage = async (e) => {
@@ -35,13 +34,19 @@ const NewsForm = ({ method }) => {
 
   const onSubmit = async (formData) => {
     formData.image = newsImage;
-    formData.category = formData.category.toString();
+
     if (newsContent) {
       formData.content = newsContent;
     }
+
+    if (formData.category) {
+      formData.category = formData.category.toString();
+    } else {
+      formData.category = "";
+    }
+
     if (newsData && method === "update") {
       await updateNews(newsData.id, formData);
-
     } else if (method === "create") {
       await createNews(formData);
     }
@@ -54,42 +59,55 @@ const NewsForm = ({ method }) => {
   }
 
   return (
-    <div className='form-container'>
-      <form onSubmit={handleSubmit(onSubmit)} className='news-form'>
-        <input className='title-input'{...register("title", { maxLength: { value: 255 }, required: true })} id="title" type="text" placeholder='Título' />
+    <>
+      <form onSubmit={handleSubmit(onSubmit)} className='w-full max-w-[1000px] rounded-xl border-2 border-teal-800 shadow shadow-teal-500 flex flex-col gap-3 p-5 sm:p-10 '>
+
+        <input className='input border border-gray-400 appearance-none w-full py-1.5 px-3 focus focus:border-teal-800 focus:outline-none mb-1'{...register("title", { maxLength: { value: 255 }, required: true })} id="title" type="text" placeholder='Título' />
         {errors.title && errors.title.type === "required" && <div className="text-red-500">El título es requerido</div>}
         {errors.title && errors.title.type === "maxLength" && <div className="text-red-500">El título debe tener menos de 255 caracteres</div>}
 
-        <input className='subtitle-input'{...register("subtitle", { maxLength: { value: 1024 } })} id="subtitle" type="text" placeholder='Subtítulo' />
+        <input className='input border border-gray-400 appearance-none w-full py-1.5 px-3 focus focus:border-teal-800 focus:outline-none'{...register("subtitle", { maxLength: { value: 1024 } })} id="subtitle" type="text" placeholder='Subtítulo (Opcional)' />
         {errors.subtitle && errors.subtitle.type === "maxLength" && <div className="text-red-500">El subtítulo debe tener menos de 1024 caracteres</div>}
 
-        <fieldset className='image-fieldset'>
-          <input className='image-input'{...register("image")} id='image' type="file" accept="image/*" onChange={handleImage} />
-          <img src={newsImage} className="h-[200px]" />
+        <fieldset className='border border-gray-400 appearance-none  p-3'>
+          <legend>Fecha</legend>
+          <input className='border border-gray-400 rounded px-3 
+        py-2 text-sm focus:border-teal-800 focus:outline-none' {...register("date", { required: true })} id="date" type='date' />
         </fieldset>
 
-        <input className='date-input' {...register("date", { required: true })} id="date" type='date' />
+        <fieldset className="flex flex-col gap-3 text-gray-700 border border-gray-400 appearance-none p-3" >
+          <legend>Imagen</legend>
+          {newsImage &&
+            <img src={newsImage} className="max-h-[300px] w-fit" />
+          }
+          <input className='image-input border-none w-full text-sm file:mr-4 file:py-2 file:px-3 file:rounded file:border-0 file:font-semibold file:bg-teal-500 file:text-white hover:file:bg-teal-800
+        '{...register("image")} id='image' type="file" accept="image/*" onChange={handleImage} />
+        </fieldset>
+
         {errors.date && errors.date.type === "required" && <div className="text-red-500">La fecha es requerida</div>}
 
         <TipTap onEditorContentSave={handleEditorContentSave} content={newsData?.content} />
 
-        <fieldset className='flex-column ml-2'>
-          <legend>Categorías:</legend>
-          <label><input {...register("category")} type="checkbox" name="category" id="desarrolloProyectos" value="Desarrollo Proyectos" /> Desarrollo Proyectos </label>
-          <label><input {...register("category")} type="checkbox" name="category" id="oficinaTecnica" value="Oficina Tecnica" /> Oficina Técnica </label>
-          <label><input {...register("category")} type="checkbox" name="category" id="aws" value="AWS" /> AWS </label>
-          <label><input {...register("category")} type="checkbox" name="category" id="marketing" value="Marketing" /> Marketing </label>
-          <label><input {...register("category")} type="checkbox" name="category" id="consultoria" value="Consultoria ESG" /> Consultoría ESG</label>
-          <label><input {...register("category")} type="checkbox" name="category" id="voluntariado" value="Voluntariado" /> Voluntariado </label>
+        <fieldset className='border border-gray-400 appearance-none p-3'>
+          <legend>Categorías</legend>
+          <div className='flex flex-col px-3 gap-1'>
+            <label><input {...register("category")} type="checkbox" name="category" id="desarrolloProyectos" value="Desarrollo Proyectos" /> Desarrollo Proyectos </label>
+            <label><input {...register("category")} type="checkbox" name="category" id="oficinaTecnica" value="Oficina Tecnica" /> Oficina Técnica </label>
+            <label><input {...register("category")} type="checkbox" name="category" id="aws" value="AWS" /> AWS </label>
+            <label><input {...register("category")} type="checkbox" name="category" id="marketing" value="Marketing" /> Marketing </label>
+            <label><input {...register("category")} type="checkbox" name="category" id="consultoria" value="Consultoria ESG" /> Consultoría ESG</label>
+            <label><input {...register("category")} type="checkbox" name="category" id="voluntariado" value="Voluntariado" /> Voluntariado </label>
+          </div>
+
         </fieldset>
 
-        <div className='buttons-container'>
-          <button type="submit" className="w-[150px] self-center bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out">{method === "create" ? "Publicar" : "Guardar"}</button>
-          <button type='button' onClick={() => navigate('/dashboard')} className="w-[150px] self-center bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out">Descartar</button>
+        <div className='flex justify-center gap-5 mt-3 sm:mt-5'>
+          <button type="submit" className="w-[120px] self-center bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out">{method === "create" ? "Publicar" : "Guardar"}</button>
+          <button type='button' onClick={() => navigate('/dashboard')} className="w-[120px] self-center bg-gray-500 text-white border-gray-900 rounded-lg font-semibold py-2 px-4 hover:bg-gray-800 transition duration-300 ease-in-out">Descartar</button>
         </div>
 
       </form>
-    </div>
+    </>
   )
 }
 

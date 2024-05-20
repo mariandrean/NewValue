@@ -1,13 +1,21 @@
 import React from 'react'
 import LogOutButton from "../components/LogOutButton";
+import { Link } from 'react-router-dom';
 
 function DashboardMenu() {
+
+  const path = window.location.pathname;
+
   return (
-    <div className="w-screen flex justify-between items-center sm:text-lg bg-black text-white py-3 px-5">
+    <div className="w-full flex justify-between items-center text-sm bg-black text-white py-3 px-5">
       <div className="flex gap-3">
-        <a href="/dashboard">Panel de Control</a>
-        |
-        <a href="/" >Portada</a >
+        <Link to ="/dashboard">Panel de Control</Link>
+        {path !== '/' &&
+          <>
+            <p>|</p>
+            <Link to ="/" >Portada</Link>
+          </>
+        }
       </div>
       <div className="flex gap-5">
         <LogOutButton />
