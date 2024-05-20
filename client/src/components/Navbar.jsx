@@ -37,7 +37,7 @@ const Navbar = () => {
 
     <>
       <nav className={`navbar flex content-between w-full ${scrolled ? 'navbar-scrolled' : ''}`}>
-        {/* Icono de hamburguesa */}
+
         <div className="menu-icon-wrapper sm:w-1/3" onClick={toggleMobileMenu}>
           <div className={`menu-icon ${isMobileMenuOpen ? 'open' : ''}`}>
             <div className="menu-icon-line"></div>
@@ -45,8 +45,6 @@ const Navbar = () => {
             <div className="menu-icon-line"></div>
           </div>
         </div>
-
-        {/* Logo */}
 
         <NavLink to="/" className={`px-5 ${isMobileMenuOpen ? 'hidden' : 'logo'}`}>
           <img
@@ -61,7 +59,6 @@ const Navbar = () => {
         </NavLink>
 
 
-        {/* Menú para escritorio y móvil */}
         <div className={`open-menu h-screen ${isMobileMenuOpen ? 'flex flex-col gap-3' : 'hidden'}`}  onClick={() => setMobileMenuOpen(false)}>
           <NavLink to="/" className="logo-menu" >
             <img
@@ -108,7 +105,6 @@ const Navbar = () => {
 
       </nav>
 
-      {/* Fondo negro transparente */}
       <div className={`overlay ${isMobileMenuOpen ? 'active' : ''}`} onClick={toggleMobileMenu}></div>
     </>
   );

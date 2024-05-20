@@ -93,6 +93,5 @@
 }
 
 .navbar-scrolled .logo-menu{
-  /* filter: brightness(0) saturate(100%) invert(70%) sepia(72%) saturate(276%) hue-rotate(123deg) brightness(88%) contrast(89%); */
   filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(14deg) brightness(103%) contrast(103%);
 }
