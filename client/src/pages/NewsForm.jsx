@@ -37,13 +37,14 @@ const NewsForm = ({ method }) => {
   }
 
   const onSubmit = async (formData) => {
-    console.log(formData)
+
     if (newsImage) {
       formData.image = newsImage;
       setImageError(false);
     } else {
       return setImageError(true);
     }
+
     if (newsContent) {
       formData.content = newsContent;
       setContentError(false); 
@@ -62,12 +63,14 @@ const NewsForm = ({ method }) => {
     } else if (method === "create") {
       await createNews(formData);
     }
+
     Swal.fire({
       icon: 'success',
       title: method === "update" ? "Noticia actualizada" : "Noticia publicada",
       showConfirmButton: true,
       timer: 2000,
-    }).then(() => navigate("/dashboard"))
+    })
+    .then(() => navigate("/dashboard"))
   }
 
   return (

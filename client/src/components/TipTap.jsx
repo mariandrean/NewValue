@@ -37,6 +37,10 @@ const TipTap = ({ onEditorContentSave, content }) => {
         ),
       },
     },
+    onUpdate: ({ editor }) => {
+      const html = editor.getHTML();
+      onEditorContentSave(html);
+    },
   })
 
   const setLink = useCallback(() => {
@@ -63,8 +67,6 @@ const TipTap = ({ onEditorContentSave, content }) => {
 
   const handleImage = useCallback(async (e) => {
     const imageUrl = await uploadImage(e);
-    console.log(imageUrl)
-
     if (imageUrl) {
       editor.chain().focus().setImage({ src: imageUrl }).run()
     }
@@ -76,15 +78,8 @@ const TipTap = ({ onEditorContentSave, content }) => {
   }
 
   if (!editor) {
-    return null
+    return null;
   }
-
-  const handleEditorContent = () => {
-    const html = editor.getHTML()
-    console.log('content', html)
-    onEditorContentSave(html)
-  }
-
 
   return (
     <div className='mx- my-2'>
@@ -150,7 +145,7 @@ const TipTap = ({ onEditorContentSave, content }) => {
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-          className={`${editor.isActive('heading', { level: 1 }) ? 'is-active' : ''} tiptap-h1`}
+          className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}
         >
           H1
         </button>
@@ -198,7 +193,6 @@ const TipTap = ({ onEditorContentSave, content }) => {
       <div className='border border-gray-500 border-t-0 min-h-[8rem]'>
         <EditorContent editor={editor} className='' />
       </div>
-      <button type="button" onClick={handleEditorContent}>Guardar</button>
     </div>
   )
 }
