@@ -1,5 +1,6 @@
 import React from 'react'
 import LogOutButton from "../components/LogOutButton";
+import { Link } from 'react-router-dom';
 
 function DashboardMenu() {
 
