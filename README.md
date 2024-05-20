@@ -11,11 +11,11 @@
   </a> 
   </br>
   </br>
-  <h2 align="center">Welcome to New Value Blog</h2>
+  <h2 align="center">Welcome to New Value's News Management Tool</h2>
 
 <p>
 <strong>This is the final project of our web development bootcamp, created in collaboration with New Value.</strong>
-</br>Throughout May, we've developed a dynamic and modern News Blog for New Value to share quality content with their audience.
+</br>Throughout May, we've developed a dynamic and modern News Management Tool for New Value to share quality content with their audience.
 This project has been a rewarding challenge, allowing us to refine our fullstack development skills while building an intuitive, efficient,
 and visually appealing platform using the latest technologies and best practices.
 </p>
@@ -298,7 +298,7 @@ Click on this link to obtain our Postman information about the CRUD methods.
           <img alt="Maria" width="110" src="https://github.com/mariandrean/NewValue-Blog/blob/dev/client/src/assets/readme-img/foto-maria-readme-crop%20-%20Copy.png"/>
         </a>
         <a href="https://github.com/mariandrean" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Maria Andrea An</br><small>Scrum & GitHub Master</small></h4>
+          <h4 style="margin-top: 1rem;">Maria Andrea An</br><small>Scrum Master</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
         <a href="https://github.com/mariandrean" target="_blank">
@@ -374,7 +374,7 @@ Click on this link to obtain our Postman information about the CRUD methods.
           <img alt="Lucero" width="110" src="https://github.com/mariandrean/NewValue-Blog/blob/dev/client/src/assets/readme-img/foto-lucero-readme-crop%20-%20Copy.png"/>
         </a>
         <a href="https://github.com/LuHeRiver" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Lucero Riveros</br><small>Developer</small></h4>
+          <h4 style="margin-top: 1rem;">Lucero Hernández</br><small>Developer</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
         <a href="https://github.com/LuHeRiver" target="_blank">
