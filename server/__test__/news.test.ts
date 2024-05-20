@@ -59,25 +59,26 @@ describe('TESTING CRUD news',() => {
 
     describe('PUT', () => {
         let newNew: any;
-
+    
         beforeEach(async() => {
             newNew = await api.post('/api/news').set('Authorization', `Bearer ${userToken}`).send(
                 testNew
             );
-
         });
-
+    
         test('Put response should be an object and return status 200', async() => {
             const response = await api.put(`/api/news/${newNew.body.id}`).set('Authorization', `Bearer ${userToken}`).send(
                 updatedTestNew
             );
-
+    
             expect(response.status).toBe(200);
             expect(typeof response.body).toBe('object')
         });
-
-        afterAll(async() => {
-            await NewsModel.destroy({where: {id: newNew.body.id}})
+    
+        afterEach(async() => {
+            if (newNew && newNew.body && newNew.body.id) {
+                await NewsModel.destroy({where: {id: newNew.body.id}})
+            }
         })
     })
     
@@ -87,3 +88,9 @@ describe('TESTING CRUD news',() => {
         console.log('All databases are clean')
      })
 });
+    
+    afterAll( async () => {
+        server.close();
+        await connection_db.sync({force: true });
+        console.log('All databases are clean')
+     })
