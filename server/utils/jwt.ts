@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import { SECRET_KEY } from "../config";
 
-//Podemos importar la interface de esteusuario?
+
 export const createToken = (user: any) => {
     const token = jwt.sign(
         {

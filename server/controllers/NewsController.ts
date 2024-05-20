@@ -49,4 +49,3 @@ export const getNewsById = async (request: Request, response: Response) => {
         return response.status(500).json({ message: `Error getting news: ${error.message }`});
     }
 }
-
