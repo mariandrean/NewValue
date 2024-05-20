@@ -1,5 +1,6 @@
 import React from 'react'
 import LogOutButton from "../components/LogOutButton";
+import { Link } from 'react-router-dom';
 
 function DashboardMenu() {
 
@@ -8,11 +9,11 @@ function DashboardMenu() {
   return (
     <div className="w-full flex justify-between items-center text-sm bg-black text-white py-3 px-5">
       <div className="flex gap-3">
-        <a href="/dashboard">Panel de Control</a>
+        <Link to ="/dashboard">Panel de Control</Link>
         {path !== '/' &&
           <>
             <p>|</p>
-            <a href="/" >Portada</a >
+            <Link to ="/" >Portada</Link>
           </>
         }
       </div>
