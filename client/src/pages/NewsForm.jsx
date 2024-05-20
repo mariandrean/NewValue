@@ -24,11 +24,12 @@ const NewsForm = ({ method }) => {
       setValue("category", newsData.category?.split(","));
       setNewsContent(newsData.content);
     }
-  }, [newsData]);
+  }, [newsData, setImageError]);
 
   const handleImage = async (e) => {
     const response = await uploadImage(e);
     setNewsImage(response);
+    setImageError(false);
   }
 
   const handleEditorContentSave = (html) => {
