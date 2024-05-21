@@ -11,11 +11,11 @@
   </a> 
   </br>
   </br>
-  <h2 align="center">Welcome to New Value Blog</h2>
+  <h2 align="center">Welcome to New Value's News Management Tool</h2>
 
 <p>
 <strong>This is the final project of our web development bootcamp, created in collaboration with New Value.</strong>
-</br>Throughout May, we've developed a dynamic and modern News Blog for New Value to share quality content with their audience.
+</br>Throughout May, we've developed a dynamic and modern News Management Tool for New Value to share quality content with their audience.
 This project has been a rewarding challenge, allowing us to refine our fullstack development skills while building an intuitive, efficient,
 and visually appealing platform using the latest technologies and best practices.
 </p>
@@ -255,12 +255,11 @@ Click on this link to obtain our Postman information about the CRUD methods.
 ## 🖥️ Front-end
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
-![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
-![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
-![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-%23EC5990.svg?style=for-the-badge&logo=reacthookform&logoColor=white)
+![Vitest](https://img.shields.io/badge/vitest-%23646CFF.svg?style=for-the-badge&logo=vitest&logoColor=white)
 
 ## 🗄Back-end
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
@@ -269,18 +268,18 @@ Click on this link to obtain our Postman information about the CRUD methods.
 ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
 ![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
 ![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
 
 ## 📚 Tools & Organization
+![Trello](https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white)
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
-![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
 ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
-![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white)
-![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
-![Trello](https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white)
+
 </details>
 <!-- END OF TECHNOLOGIES -->
 
@@ -298,7 +297,7 @@ Click on this link to obtain our Postman information about the CRUD methods.
           <img alt="Maria" width="110" src="https://github.com/mariandrean/NewValue-Blog/blob/dev/client/src/assets/readme-img/foto-maria-readme-crop%20-%20Copy.png"/>
         </a>
         <a href="https://github.com/mariandrean" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Maria Andrea An</br><small>Scrum & GitHub Master</small></h4>
+          <h4 style="margin-top: 1rem;">Maria Andrea An</br><small>Scrum Master</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
         <a href="https://github.com/mariandrean" target="_blank">

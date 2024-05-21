@@ -38,5 +38,4 @@ try {
 
 export const server = app.listen(DB_PORT, () => {
     console.log(`Server up in  http://localhost:${DB_PORT}/api`)
-  })
- 
+  });
