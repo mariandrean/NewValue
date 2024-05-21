@@ -7,6 +7,7 @@ import TipTap from '../components/TipTap';
 import Swal from 'sweetalert2';
 
 const NewsForm = ({ method }) => {
+  const token = localStorage.getItem('token');
   const { handleSubmit, register, setValue, formState: { errors } } = useForm();
   const navigate = useNavigate();
   const newsData = useLoaderData();
@@ -59,9 +60,9 @@ const NewsForm = ({ method }) => {
     }
 
     if (newsData && method === "update") {
-      await updateNews(newsData.id, formData);
+      await updateNews(newsData.id, formData, token);
     } else if (method === "create") {
-      await createNews(formData);
+      await createNews(formData, token);
     }
 
     Swal.fire({
@@ -106,7 +107,6 @@ const NewsForm = ({ method }) => {
           <TipTap onEditorContentSave={handleEditorContentSave} content={newsData?.content} />
           {contentError && <div className="text-red-500">El contenido es requerido</div>}
         </fieldset>
-
 
         <fieldset className='border border-gray-400 appearance-none p-3'>
           <legend>Categorías</legend>

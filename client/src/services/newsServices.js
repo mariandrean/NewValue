@@ -2,8 +2,6 @@ import axios from "axios";
 import { API_URL } from "../../config";
 
 const URLAPI_NEWS = `${API_URL}/news/`;
-const token = localStorage.getItem('token');
-const headers = { 'Authorization': `Bearer ${token}` }
 
 export const getAllNews = async () => {
   try {
@@ -25,9 +23,10 @@ export const getNewsById = async (id) => {
   }
 };
 
-export const createNews = async (newsData) => {
-  if (headers) {
+export const createNews = async (newsData, token) => {
+  if (token) {
     try {
+      const headers = { 'Authorization': `Bearer ${token}` }
       const response = await axios.post(`${URLAPI_NEWS}`, newsData, { headers });
       return response.data;
     } catch (error) {
@@ -37,9 +36,10 @@ export const createNews = async (newsData) => {
   }
 };
 
-export const deleteNews = async (id) => {
-  if (headers) {
+export const deleteNews = async (id, token) => {
+  if (token) {
     try {
+      const headers = { 'Authorization': `Bearer ${token}` }
       const response = await axios.delete(`${URLAPI_NEWS}${id}`, { headers });
       return response.data;
     } catch (error) {
@@ -49,9 +49,10 @@ export const deleteNews = async (id) => {
   }
 }
 
-export const updateNews = async (id, newsData) => {
-  if (headers) {
+export const updateNews = async (id, newsData, token) => {
+  if (token) {
     try {
+      const headers = { 'Authorization': `Bearer ${token}` }
       const response = await axios.put(`${URLAPI_NEWS}${id}`, newsData, { headers });
       return response.data;
     } catch (error) {

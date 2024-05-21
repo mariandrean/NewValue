@@ -7,6 +7,7 @@ const Dashboard = () => {
     const navigate = useNavigate();
     const [loadingData, setLoadingData] = useState(true);
     const news = useLoaderData();
+    const token = localStorage.getItem('token');
     const role = localStorage.getItem('role')
 
     const handleRegister = () => {
@@ -27,7 +28,7 @@ const Dashboard = () => {
             denyButtonText: `Cancelar`
         }).then(async (result) => {
             if (result.isConfirmed) {
-                await deleteNews(newsId);
+                await deleteNews(newsId, token);
                 setLoadingData(true)
                 Swal.fire({
                     icon: 'success',
