@@ -32,7 +32,6 @@ const Register = () => {
     }
     try {
       const response = await userRegister(userData);
-      console.log(response);
       localStorage.setItem('token', response['token']);
       setUserAuth(true);
       setUser(response.user_name);

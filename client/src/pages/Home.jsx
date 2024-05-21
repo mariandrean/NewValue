@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../components/Card.jsx';
 import { useLoaderData } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
   const [loadingData, setLoadingData] = useState(true);
@@ -14,6 +15,16 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>New Value</title>
+        <meta property="description" content="Consultoría ESG y Desarrollo de Proyectos con impacto. En New Value estamos comprometidos a generar un impacto significativo y contribuir a la transformación hacia un futuro sostenible." />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="New Value" />
+        <meta property="og:description" content="Consultoría ESG y Desarrollo de Proyectos con impacto. En New Value estamos comprometidos a generar un impacto significativo y contribuir a la transformación hacia un futuro sostenible." />
+        <meta property="og:title" content="New Value" />
+        <meta property="og:url" content="https://femcoders-newvalue.vercel.app/" />
+        <meta property="og:image" content="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/1f3cf53e-4c4c-4d97-805a-f94dd20ef72f/ac29ac0a-98b0-455e-8c81-5dc8dac6e68c?org_if_sml=1" />
+      </Helmet>
       <h1 className="font-semibold text-lg mb-5">ACTUALIDAD</h1>
       {loadingData && <h3>Cargando</h3>}
       <section className='grid grid-cols-2 gap-5 lg:gap-8 sm:grid-cols-3 md:grid-cols-4 place-content-center' >
