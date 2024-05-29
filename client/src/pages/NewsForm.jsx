@@ -68,27 +68,30 @@ const NewsForm = ({ method }) => {
 
         <fieldset>
           <input className='input border border-gray-400 appearance-none w-full py-1.5 px-3 focus focus:border-teal-800 focus:outline-none mb-1'{...register("title", { maxLength: { value: 255 }, required: true })} id="title" type="text" placeholder='Título' />
-          {errors.title && errors.title.type === "required" && <div className="text-red-500">El título es requerido</div>}
-          {errors.title && errors.title.type === "maxLength" && <div className="text-red-500">El título debe tener menos de 255 caracteres</div>}
+          {errors.title && errors.title.type === "required" && <p className="text-red-500">El título es requerido</p>}
+          {errors.title && errors.title.type === "maxLength" && <p className="text-red-500">El título debe tener menos de 255 caracteres</p>}
         </fieldset>
 
         <fieldset>
           <input className='input border border-gray-400 appearance-none w-full py-1.5 px-3 focus focus:border-teal-800 focus:outline-none'{...register("subtitle", { maxLength: { value: 1024 } })} id="subtitle" type="text" placeholder='Subtítulo (Opcional)' />
-          {errors.subtitle && errors.subtitle.type === "maxLength" && <div className="text-red-500">El subtítulo debe tener menos de 1024 caracteres</div>}
+          {errors.subtitle && errors.subtitle.type === "maxLength" && <p className="text-red-500">El subtítulo debe tener menos de 1024 caracteres</p>}
         </fieldset>
 
-        <fieldset className='flex flex-col border border-gray-400 appearance-none gap-3 p-3'>
+        <fieldset className='flex flex-col border border-gray-400 appearance-none gap-1 p-3'>
           <legend>Fecha</legend>
           <input className='border border-gray-400 rounded px-3 
         py-2 text-sm focus:border-teal-800 focus:outline-none' {...register("date", { required: true })} id="date" type='date' />
-          {errors.date && errors.date.type === "required" && <div className="text-red-500">La fecha es requerida</div>}
+          {errors.date && errors.date.type === "required" && <p className="text-red-500">La fecha es requerida</p>}
         </fieldset>
 
-        <fieldset className="flex flex-col gap-3 text-gray-700 border border-gray-400 appearance-none p-3" >
+        <fieldset className="flex flex-col gap-1 text-gray-700 border border-gray-400 appearance-none p-3" >
           <legend>Imagen</legend>
           {loadingImage ?
-            <p className='text-sm'>...cargando imagen...</p> :
-            <img src={imagePreview} className="max-h-[300px] w-fit" />
+            <p className='text-sm'>...cargando imagen...</p> 
+            :
+            imagePreview 
+            &&
+            <img src={imagePreview} className="max-h-[300px] w-fit mb-2" />
           }
           <input className='image-input border-none w-full text-sm file:mr-4 file:py-2 file:px-3 file:rounded file:border-0 file:font-semibold file:bg-teal-500 file:text-white hover:file:bg-teal-800'
             id='image-input' type="file" accept="image/*" onChange={handleImage} />
@@ -97,7 +100,7 @@ const NewsForm = ({ method }) => {
               required: true,
             })}
           />
-          {errors.image && errors.image.type === "required" && <div className="text-red-500">La imagen es requerida</div>}
+          {errors.image && errors.image.type === "required" && <p className="text-red-500">La imagen es requerida</p>}
         </fieldset>
         <fieldset>
           <input id="content" type="text" name="content" className='hidden'
@@ -106,7 +109,7 @@ const NewsForm = ({ method }) => {
             })}
           />
           <TipTap onEditorContentSave={handleEditorContentSave} content={newsData?.content} />
-          {errors.content && errors.content.type === "required" && <div className="text-red-500">El contenido es requerido</div>}
+          {errors.content && errors.content.type === "required" && <p className="text-red-500">El contenido es requerido</p>}
         </fieldset>
 
         <fieldset className='border border-gray-400 appearance-none p-3'>
@@ -119,7 +122,6 @@ const NewsForm = ({ method }) => {
             <label><input {...register("category")} type="checkbox" name="category" id="consultoria" value="Consultoria ESG" /> Consultoría ESG</label>
             <label><input {...register("category")} type="checkbox" name="category" id="voluntariado" value="Voluntariado" /> Voluntariado </label>
           </div>
-
         </fieldset>
 
         <div className='flex justify-center gap-5 mt-3 sm:mt-5'>
