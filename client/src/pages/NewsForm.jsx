@@ -8,10 +8,11 @@ import Swal from 'sweetalert2';
 
 const NewsForm = ({ method }) => {
   const token = localStorage.getItem('token');
-  const { handleSubmit, register, setValue, formState: { errors }, clearErrors  } = useForm();
+  const { handleSubmit, register, setValue, formState: { errors }, clearErrors } = useForm();
   const navigate = useNavigate();
   const newsData = useLoaderData();
   const [imagePreview, setImagePreview] = useState(() => newsData ? newsData.image : "");
+  const [loadingImage, setLoadingImage] = useState(false);
 
   useEffect(() => {
     if (newsData) {
@@ -25,10 +26,12 @@ const NewsForm = ({ method }) => {
   }, [newsData]);
 
   const handleImage = async (e) => {
+    setLoadingImage(true);
     const response = await uploadImage(e);
+    response && setLoadingImage(false);
     setImagePreview(response);
-    setValue("image", response)
-    clearErrors("image")
+    setValue("image", response);
+    clearErrors("image");
   }
 
   const handleEditorContentSave = (html) => {
@@ -56,7 +59,7 @@ const NewsForm = ({ method }) => {
       showConfirmButton: true,
       timer: 2000,
     })
-    .then(() => navigate("/dashboard"))
+      .then(() => navigate("/dashboard"))
   }
 
   return (
@@ -83,7 +86,8 @@ const NewsForm = ({ method }) => {
 
         <fieldset className="flex flex-col gap-3 text-gray-700 border border-gray-400 appearance-none p-3" >
           <legend>Imagen</legend>
-          {imagePreview &&
+          {loadingImage ?
+            <p className='text-sm'>...cargando imagen...</p> :
             <img src={imagePreview} className="max-h-[300px] w-fit" />
           }
           <input className='image-input border-none w-full text-sm file:mr-4 file:py-2 file:px-3 file:rounded file:border-0 file:font-semibold file:bg-teal-500 file:text-white hover:file:bg-teal-800'
