@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 
 const NewsForm = ({ method }) => {
   const token = localStorage.getItem('token');
-  const { handleSubmit, register, setValue, formState: { errors } } = useForm();
+  const { handleSubmit, register, setValue, formState: { errors }, clearErrors  } = useForm();
   const navigate = useNavigate();
   const newsData = useLoaderData();
   const [imagePreview, setImagePreview] = useState(() => newsData ? newsData.image : "");
@@ -28,10 +28,12 @@ const NewsForm = ({ method }) => {
     const response = await uploadImage(e);
     setImagePreview(response);
     setValue("image", response)
+    clearErrors("image")
   }
 
   const handleEditorContentSave = (html) => {
     setValue("content", html)
+    clearErrors("content")
   }
 
   const onSubmit = async (formData) => {
