@@ -12,7 +12,6 @@ const NewsForm = ({ method }) => {
   const navigate = useNavigate();
   const newsData = useLoaderData();
   const [imagePreview, setImagePreview] = useState(() => newsData ? newsData.image : "");
-  const [loadingImage, setLoadingImage] = useState(false);
 
   useEffect(() => {
     if (newsData) {
@@ -26,9 +25,14 @@ const NewsForm = ({ method }) => {
   }, [newsData]);
 
   const handleImage = async (e) => {
-    setLoadingImage(true);
+    Swal.fire({
+      title: "Cargando imagen...",
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    })
     const response = await uploadImage(e);
-    response && setLoadingImage(false);
+    response && Swal.close();
     setImagePreview(response);
     setValue("image", response);
     clearErrors("image");
@@ -86,11 +90,7 @@ const NewsForm = ({ method }) => {
 
         <fieldset className="flex flex-col gap-1 text-gray-700 border border-gray-400 appearance-none p-3" >
           <legend>Imagen</legend>
-          {loadingImage ?
-            <p className='text-sm'>...cargando imagen...</p> 
-            :
-            imagePreview 
-            &&
+          {imagePreview &&
             <img src={imagePreview} className="max-h-[300px] w-fit mb-2" />
           }
           <input className='image-input border-none w-full text-sm file:mr-4 file:py-2 file:px-3 file:rounded file:border-0 file:font-semibold file:bg-teal-500 file:text-white hover:file:bg-teal-800'

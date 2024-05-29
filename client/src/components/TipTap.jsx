@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
@@ -28,6 +28,8 @@ const extensions = [
 ]
 
 const TipTap = ({ onEditorContentSave, content }) => {
+  const [loadingImage, setLoadingImage] = useState(false);
+
   const editor = useEditor({
     extensions,
     content,
@@ -44,7 +46,7 @@ const TipTap = ({ onEditorContentSave, content }) => {
     },
   })
 
-  const setLink = useCallback( async () => {
+  const setLink = useCallback(async () => {
     const inputValue = editor.getAttributes('link').href;
 
     const { value: url } = await Swal.fire({
@@ -73,14 +75,24 @@ const TipTap = ({ onEditorContentSave, content }) => {
   }, [editor])
 
   const handleImage = useCallback(async (e) => {
+    Swal.fire({
+      title: "Cargando imagen...",
+      didOpen: () => {
+        Swal.showLoading();
+
+      }
+    })
     const imageUrl = await uploadImage(e);
+
     if (imageUrl) {
+      Swal.close();
       editor.chain().focus().setImage({ src: imageUrl }).run()
     }
+    
   }, [editor])
 
   const handleSelectImage = () => {
-    const imageInput = document.getElementById("image-input")
+    const imageInput = document.getElementById("tiptap-image-input")
     imageInput.click();
   }
 
@@ -187,7 +199,7 @@ const TipTap = ({ onEditorContentSave, content }) => {
         </button>
 
         <button type="button" onClick={handleSelectImage}>
-          <input id="tiptap-image-input" type="file" accept="image/*" name="name" className='hidden' onChange={handleImage} />
+          <input id="tiptap-image-input" type="file" accept="image/*" name="tiptap-image-input" className='hidden' onChange={handleImage} />
           <img src={FileIcon} width="20" height="20" />
         </button>
 
