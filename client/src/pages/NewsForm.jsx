@@ -11,47 +11,30 @@ const NewsForm = ({ method }) => {
   const { handleSubmit, register, setValue, formState: { errors } } = useForm();
   const navigate = useNavigate();
   const newsData = useLoaderData();
-  const [newsImage, setNewsImage] = useState(() => newsData ? newsData.image : "");
-  const [newsContent, setNewsContent] = useState();
-  const [imageError, setImageError] = useState(false);
-  const [contentError, setContentError] = useState(false);
+  const [imagePreview, setImagePreview] = useState(() => newsData ? newsData.image : "");
 
   useEffect(() => {
     if (newsData) {
       setValue("title", newsData.title);
       setValue("subtitle", newsData.subtitle);
-      setValue("image", newsData.image)
       setValue("date", newsData.date);
+      setValue("image", newsData.image)
+      setValue("content", newsData.content)
       setValue("category", newsData.category?.split(","));
-      setNewsContent(newsData.content);
     }
-  }, [newsData, setImageError]);
+  }, [newsData]);
 
   const handleImage = async (e) => {
     const response = await uploadImage(e);
-    setNewsImage(response);
-    setImageError(false);
+    setImagePreview(response);
+    setValue("image", response)
   }
 
   const handleEditorContentSave = (html) => {
-    setNewsContent(html);
+    setValue("content", html)
   }
 
   const onSubmit = async (formData) => {
-
-    if (newsImage) {
-      formData.image = newsImage;
-      setImageError(false);
-    } else {
-      return setImageError(true);
-    }
-
-    if (newsContent) {
-      formData.content = newsContent;
-      setContentError(false); 
-    } else {
-      return setContentError(true);
-    }
 
     if (formData.category) {
       formData.category = formData.category.toString();
@@ -84,10 +67,12 @@ const NewsForm = ({ method }) => {
           {errors.title && errors.title.type === "maxLength" && <div className="text-red-500">El título debe tener menos de 255 caracteres</div>}
         </fieldset>
 
-        <input className='input border border-gray-400 appearance-none w-full py-1.5 px-3 focus focus:border-teal-800 focus:outline-none'{...register("subtitle", { maxLength: { value: 1024 } })} id="subtitle" type="text" placeholder='Subtítulo (Opcional)' />
-        {errors.subtitle && errors.subtitle.type === "maxLength" && <div className="text-red-500">El subtítulo debe tener menos de 1024 caracteres</div>}
+        <fieldset>
+          <input className='input border border-gray-400 appearance-none w-full py-1.5 px-3 focus focus:border-teal-800 focus:outline-none'{...register("subtitle", { maxLength: { value: 1024 } })} id="subtitle" type="text" placeholder='Subtítulo (Opcional)' />
+          {errors.subtitle && errors.subtitle.type === "maxLength" && <div className="text-red-500">El subtítulo debe tener menos de 1024 caracteres</div>}
+        </fieldset>
 
-        <fieldset className='border border-gray-400 appearance-none  p-3'>
+        <fieldset className='flex flex-col border border-gray-400 appearance-none gap-3 p-3'>
           <legend>Fecha</legend>
           <input className='border border-gray-400 rounded px-3 
         py-2 text-sm focus:border-teal-800 focus:outline-none' {...register("date", { required: true })} id="date" type='date' />
@@ -96,16 +81,26 @@ const NewsForm = ({ method }) => {
 
         <fieldset className="flex flex-col gap-3 text-gray-700 border border-gray-400 appearance-none p-3" >
           <legend>Imagen</legend>
-          {newsImage &&
-            <img src={newsImage} className="max-h-[300px] w-fit" />
+          {imagePreview &&
+            <img src={imagePreview} className="max-h-[300px] w-fit" />
           }
-          <input className='image-input border-none w-full text-sm file:mr-4 file:py-2 file:px-3 file:rounded file:border-0 file:font-semibold file:bg-teal-500 file:text-white hover:file:bg-teal-800
-        '{...register("image")} id='image' type="file" accept="image/*" onChange={handleImage} />
-          {imageError && <div className="text-red-500">La imagen es requerida</div>}
+          <input className='image-input border-none w-full text-sm file:mr-4 file:py-2 file:px-3 file:rounded file:border-0 file:font-semibold file:bg-teal-500 file:text-white hover:file:bg-teal-800'
+            id='image-input' type="file" accept="image/*" onChange={handleImage} />
+          <input id="image" type="text" name="image" className='hidden'
+            {...register("image", {
+              required: true,
+            })}
+          />
+          {errors.image && errors.image.type === "required" && <div className="text-red-500">La imagen es requerida</div>}
         </fieldset>
         <fieldset>
+          <input id="content" type="text" name="content" className='hidden'
+            {...register("content", {
+              required: true,
+            })}
+          />
           <TipTap onEditorContentSave={handleEditorContentSave} content={newsData?.content} />
-          {contentError && <div className="text-red-500">El contenido es requerido</div>}
+          {errors.content && errors.content.type === "required" && <div className="text-red-500">El contenido es requerido</div>}
         </fieldset>
 
         <fieldset className='border border-gray-400 appearance-none p-3'>

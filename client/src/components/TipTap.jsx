@@ -187,7 +187,7 @@ const TipTap = ({ onEditorContentSave, content }) => {
         </button>
 
         <button type="button" onClick={handleSelectImage}>
-          <input id="image-input" type="file" accept="image/*" name="name" className='hidden' onChange={handleImage} />
+          <input id="tiptap-image-input" type="file" accept="image/*" name="name" className='hidden' onChange={handleImage} />
           <img src={FileIcon} width="20" height="20" />
         </button>
 
