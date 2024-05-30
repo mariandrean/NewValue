@@ -6,9 +6,11 @@ import router from './router/router.jsx'
 import UserProvider from "./context/UserContext"
 import { HelmetProvider } from 'react-helmet-async';
 
+const helmetContext = {};
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <HelmetProvider>
+    <HelmetProvider context={helmetContext}>
       <UserProvider>
         <RouterProvider router={router} />
       </UserProvider>

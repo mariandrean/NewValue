@@ -21,7 +21,6 @@ const Home = () => {
         <meta property="og:site_name" content="New Value - Actualidad" />
         <meta property="og:description" content="New Value - Actualidad" />
         <meta property="og:title" content="New Value - Actualidad" />
-        <meta property="og:url" content={window.location.href} />
         <meta property="og:image" content="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/1f3cf53e-4c4c-4d97-805a-f94dd20ef72f/ac29ac0a-98b0-455e-8c81-5dc8dac6e68c?org_if_sml=1" />
       </Helmet>
       <h1 className="font-semibold text-lg mb-5">ACTUALIDAD</h1>

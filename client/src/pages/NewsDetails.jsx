@@ -25,7 +25,6 @@ const NewsDetails = () => {
         <meta property="og:site_name" content="New Value" />
         <meta property="og:description" content={news.subtitle} />
         <meta property="og:title" content={news.title} />
-        <meta property="og:url" content={window.location.href} />
         <meta property="og:image" content={news.image} />
       </Helmet>
       <h1 className="font-semibold text-lg mb-5">ACTUALIDAD</h1>
