@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../context/UserContext.jsx';
 import { login } from '../services/usersServices.js'
 import { useForm } from 'react-hook-form';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
   const { handleSubmit, register, formState: { errors } } = useForm();
@@ -34,6 +35,10 @@ const Login = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Login</title>
+        <meta id="og-title" property="og:title" content="Login" />
+      </Helmet>
       <div className="flex flex-col items-center justify-center gap-5 m-10">
         <h1 className="text-3xl text-center font-semibold">Iniciar sesión</h1>
         <p className="text-center">(Sólo personal del sitio)</p>
