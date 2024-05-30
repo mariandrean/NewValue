@@ -6,28 +6,11 @@ import Share from '../components/Share';
 
 const NewsDetails = () => {
   const [loadingData, setLoadingData] = useState(true);
-  const [metaAdded, setMetaAdded] = useState(false);
   const news = useLoaderData();
   const categories = news.category.split(",");
-  const head = document.querySelector('head')
 
   useEffect(() => {
     if (news) {
-      if (!metaAdded) {
-        setMetaAdded(true);
-        head.innerHTML +=
-          `
-        <meta property="description" content="${news.title}" />
-        <meta property="og:type" content="article" />
-        <meta property="og:site_name" content="New Value" />
-        <meta property="og:description" content="${news.subtitle}" />
-        <meta property="og:title" content="${news.title}" />
-        <meta property="og:url" content="${window.location.href}" />
-        <meta property="og:image" content="${news.image}" />
-        `
-        console.log(head);
-      }
-
       setLoadingData(false)
     }
   }, [loadingData]);
