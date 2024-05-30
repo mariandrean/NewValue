@@ -10,14 +10,11 @@ const LayoutPrivate = () => {
 
   useEffect(() => {
     if (!token && !userAuth) {
-      navigate("/login");
-    }
-    else if (token && userAuth) {
-      navigate("/dashboard");
+      navigate("/");
     }
   }, [token, userAuth]);
 
-  return (
+  return token && ( 
     <>
       <header className='fixed z-10 w-full'>
         <DashboardMenu />
