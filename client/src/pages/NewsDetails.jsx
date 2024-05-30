@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import parse from 'html-react-parser'
 import { dateConverter } from '../helpers/dateConverter';
 import Share from '../components/Share';
+import { Helmet } from 'react-helmet';
 
 const NewsDetails = () => {
   const [loadingData, setLoadingData] = useState(true);
@@ -17,6 +18,10 @@ const NewsDetails = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{news.title}</title>
+        <meta property="og:title" content="Noticia" />
+      </Helmet>
       <h1 className="font-semibold text-lg mb-5">ACTUALIDAD</h1>
       {loadingData && <h3>Cargando</h3>}
       <section className='flex-col md:grid grid-cols-9 gap-12 place-content-center place-items-center'>
