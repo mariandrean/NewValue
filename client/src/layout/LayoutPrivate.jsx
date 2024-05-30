@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 import DashboardMenu from "../components/DashboardMenu";
+import { Helmet } from "react-helmet-async";
 
 const LayoutPrivate = () => {
   const token = localStorage.getItem("token");
@@ -19,6 +20,9 @@ const LayoutPrivate = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Panel de Control</title>
+      </Helmet>
       <header className='fixed z-10 w-full'>
         <DashboardMenu />
       </header>
