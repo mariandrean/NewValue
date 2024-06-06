@@ -19,7 +19,6 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home />,
-                loader: getAllNews
             },
             {
                 path: "/login",

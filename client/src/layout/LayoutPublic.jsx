@@ -14,7 +14,7 @@ const LayoutPublic = () => {
         <Navbar />
       </header>
       <section className={'p-5 sm:px-10 sm:pb-10 flex flex-col items-center '+ (token ? 'mt-[100px]' : 'mt-[50px]')}>
-        <div className='max-w-[1200px]'>
+        <div className='max-w-[1200px] w-full'>
           <Outlet />
         </div>
       </section>
