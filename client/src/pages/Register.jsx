@@ -7,13 +7,11 @@ import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const { register, formState: { errors }, handleSubmit, unregister } = useForm();
-  const [registerError, setRegisterError] = useState('');
+  const { register, getValues, formState: { errors }, handleSubmit, unregister } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const { setUserAuth, setUser, setUserRole } = useUserContext();
   const navigate = useNavigate();
-
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -22,17 +20,10 @@ const Register = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
-  const onSubmit = async (data) => {
-    setRegisterError();
+  const onSubmit = async (userData) => {
     setIsLoading(true);
     unregister("confirmPassword");
 
-    const userData = { ...data };
-    if (!checkPasswordsMatch(userData.password, userData.confirmPassword)) {
-      setRegisterError('Error: Las contraseñas no coinciden');
-      setIsLoading(false);
-      return;
-    }
     try {
       const response = await userRegister(userData);
       localStorage.setItem('token', response['token']);
@@ -54,9 +45,6 @@ const Register = () => {
     }
   };
 
-  const checkPasswordsMatch = (password, confirmPassword) => {
-    return password === confirmPassword;
-  };
 
   return (
     <>
@@ -66,16 +54,16 @@ const Register = () => {
 
           <div>
             <input disabled={isLoading} className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="text" placeholder='Nombre (Opcional)'{...register('name', { maxLength: { value: 50 } })} id="name" />
-            {errors.name && errors.name.type === "maxLength" && <div className="text-red-500">El nombre debe tener menos de 50 caracteres</div>}
+            {errors.name && errors.name.type === "maxLength" && <p className="mt-2 text-red-500 text-sm">El nombre debe tener menos de 50 caracteres</p>}
           </div>
           <div>
-            <input className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="text" placeholder='Apellido (Opcional)'{...register('lastname', { maxLength: { value: 50 } })} id="lastname" />
-            {errors.lastname && errors.lastname.type === "maxLength" && <div className="text-red-500">El apellido debe tener menos de 50 caracteres</div>}
+            <input disabled={isLoading} className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="text" placeholder='Apellido (Opcional)'{...register('lastname', { maxLength: { value: 50 } })} id="lastname" />
+            {errors.lastname && errors.lastname.type === "maxLength" && <p className="mt-2 text-red-500 text-sm">El apellido debe tener menos de 50 caracteres</p>}
           </div>
           <div>
             <input disabled={isLoading} className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500" type="email" id="email" placeholder="Email" {...register('email', { required: true, pattern: /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i })} required />
             <p className='text-red-500 text-sm self-center m-0'>
-              {errors.email?.type === "pattern" && "🥀Formato de email incorrecto"}
+              {errors.email?.type === "pattern" && <p className="mt-2 text-red-500 text-sm">🥀Formato de email incorrecto</p>}
             </p>
           </div>
           <div className="relative w-full">
@@ -92,15 +80,16 @@ const Register = () => {
               onClick={togglePasswordVisibility}>
               {showPassword ? 'Ocultar' : 'Mostrar'}
             </button>
-            {errors.password?.type === "pattern" && <p className="text-red-500 text-sm">La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula un número y un caracter especial</p>}
+            {errors.password?.type === "pattern" && <p className="mt-2 text-red-500 text-sm">La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula un número y un caracter especial</p>}
           </div>
           <div className="relative w-full">
             <input disabled={isLoading}
               className="input border border-gray-400 appearance-none rounded w-full p-3 focus focus:border-teal-500 focus:outline-none active:outline-none active:border-teal-500"
               type={showConfirmPassword ? "text" : "password"}
               placeholder="Confirmar contraseña"
-              {...register('confirmPassword', { required: true })} required
+              {...register('confirmPassword', { required: true, validate: value => value === (getValues("password")) })} required
             />
+            
             <button
               type="button"
               id="toggleConfirmPassword"
@@ -109,8 +98,8 @@ const Register = () => {
             >
               {showConfirmPassword ? 'Ocultar' : 'Mostrar'}
             </button>
+            {errors.confirmPassword && <p className="mt-2 text-red-500 text-sm">Las contraseñas no coinciden</p>}
           </div>
-          {registerError && <p className="text-red-500 text-sm self-center m-0">{registerError}</p>}
           {isLoading &&
             <div role="status" className='flex flex-col place-items-center w-full'>
               <svg aria-hidden="true" className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
