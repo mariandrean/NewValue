@@ -11,50 +11,50 @@ import { getAllNews, getNewsById } from '../services/newsServices.js';
 import ErrorBoundary from '../components/ErrorBoundary.jsx';
 
 const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <LayoutPublic />,
-        errorElement: <ErrorBoundary />,
-        children: [
-            {
-                index: true,
-                element: <Home />,
-            },
-            {
-                path: "/login",
-                element: <Login />,
-            },
-            {
-                path: "/news/:id",
-                element: <NewsDetails />,
-                loader: ({params}) => getNewsById(params.id)
-            },
-        ],
-    },
-    {
-        path: "/dashboard",
-        element: <LayoutPrivate />,
-        children: [
-            {
-                index: true,
-                element: <Dashboard />,
-                loader: getAllNews
-            },
-            {
-                path: "/dashboard/register",
-                element: <Register />
-            },
-            {
-                path: "/dashboard/create",
-                element: <NewsForm method="create" />,
-            },
-            {
-                path: "/dashboard/update/:id",
-                element: <NewsForm method="update" />,
-                loader: ({params}) => getNewsById(params.id)
-            },
-        ]
-    }
+  {
+    path: '/',
+    element: <LayoutPublic />,
+    errorElement: <ErrorBoundary />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/news/:id",
+        element: <NewsDetails />,
+        loader: ({ params }) => getNewsById(params.id)
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <LayoutPrivate />,
+    children: [
+      {
+        index: true,
+        element: <Dashboard />,
+        loader: getAllNews
+      },
+      {
+        path: "/dashboard/register",
+        element: <Register />
+      },
+      {
+        path: "/dashboard/create",
+        element: <NewsForm method="create" />,
+      },
+      {
+        path: "/dashboard/update/:id",
+        element: <NewsForm method="update" />,
+        loader: ({ params }) => getNewsById(params.id)
+      },
+    ]
+  }
 ]);
 
 export default router;
