@@ -30,13 +30,13 @@ export const register = async (req: Request, res: Response) =>{
         const user:any = await UserModel.findOne( {where: {email: req.body.email}});
 
         if(!user){
-            return res.status(404).send({error: "USER_NOT_FOUND"})
+            return res.status(400).send({error: "INCORRECT_LOGIN_DATA"})
         }
 
         const checkPassword = await bcryptjs.compare(req.body.password, user.password);
 
         if(!checkPassword){
-            return res.status(401).send({error: "PASSWORD_INVALID"})
+            return res.status(400).send({error: "INCORRECT_LOGIN_DATA"})
         }
 
         const token = await createToken(user);
