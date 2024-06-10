@@ -91,8 +91,6 @@ const Navbar = () => {
 
           <NavLink to="https://newvalue.es/contactanos" className="menu-link" onClick={() => setMobileMenuOpen(false)}>CONTÁCTANOS</NavLink>
 
-          <NavLink to="/login" className="menu-link" onClick={() => setMobileMenuOpen(false)}>Acceso Admin</NavLink>
-
           <hr className="menu-separator" />
           <div className="flex gap-5 place-items-center">
             <a href="https://www.instagram.com/newvaluegeneration/">
