@@ -31,7 +31,7 @@ const NewsDetails = () => {
           <img src={news.image} alt={news.title} className='col-span-4 object-cover place-self-start h-full max-h-[700px] mb-6' />
           <div className='col-span-5 place-self-start flex flex-col gap-5'>
             <p className='text-xs'>{dateConverter(news.date)}</p>
-            <h1 className='font-semibold'>{news.title}</h1>
+            <h2 className='font-semibold'>{news.title}</h2>
             {news.subtitle && <h3 className='font-normal'>{news.subtitle}</h3>}
             <div>{parse(news.content)}</div>
             {categories &&
